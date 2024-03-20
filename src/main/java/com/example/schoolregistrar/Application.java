@@ -14,7 +14,7 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         FileInputStream serviceAccount =
-                new FileInputStream("/Users/erik/Desktop/CSC 325/School Registrar/src/main/resources/com/example/schoolregistrar/key.json");
+                new FileInputStream("/Users/erik/Desktop/CSC 325/School-Registrar/src/main/resources/com/example/schoolregistrar/key.json");
 
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
