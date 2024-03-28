@@ -1,8 +1,10 @@
 package com.example.schoolregistrar;
 
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.firestore.Firestore;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -11,18 +13,16 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Application extends javafx.application.Application {
+    public static Firestore fstore;
+    public static FirebaseAuth fauth;
+    private final FirestoreContext contxtFirebase = new FirestoreContext();
+
     @Override
     public void start(Stage stage) throws IOException {
-        FileInputStream serviceAccount =
-                new FileInputStream("/Users/erik/Desktop/CSC 325/School-Registrar/src/main/resources/com/example/schoolregistrar/key.json");
+        fstore = contxtFirebase.firebase();
+        fauth = FirebaseAuth.getInstance();
 
-        FirebaseOptions options = new FirebaseOptions.Builder()
-                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                .build();
-
-        FirebaseApp.initializeApp(options);
-
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("addassignment.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("School Registrar System");
         stage.setScene(scene);
