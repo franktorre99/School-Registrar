@@ -5,6 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
+<<<<<<< HEAD
     <artifactId>SchoolRegistrar</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>School Registrar</name>
@@ -12,17 +13,31 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.9.2</junit.version>
+=======
+    <artifactId>Login</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Login</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>5.10.0</junit.version>
+>>>>>>> 7819f9a (Needs to be able to add data from Firebase into ChoiceBoxes and needs connections to dashboards)
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
+<<<<<<< HEAD
             <version>21-ea+24</version>
+=======
+            <version>17.0.6</version>
+>>>>>>> 7819f9a (Needs to be able to add data from Firebase into ChoiceBoxes and needs connections to dashboards)
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
+<<<<<<< HEAD
             <version>21-ea+24</version>
         </dependency>
         <dependency>
@@ -35,6 +50,11 @@
             <artifactId>bootstrapfx-core</artifactId>
             <version>0.4.0</version>
         </dependency>
+=======
+            <version>17.0.6</version>
+        </dependency>
+
+>>>>>>> 7819f9a (Needs to be able to add data from Firebase into ChoiceBoxes and needs connections to dashboards)
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -78,8 +98,13 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
+<<<<<<< HEAD
                     <source>21</source>
                     <target>21</target>
+=======
+                    <source>17</source>
+                    <target>17</target>
+>>>>>>> 7819f9a (Needs to be able to add data from Firebase into ChoiceBoxes and needs connections to dashboards)
                 </configuration>
             </plugin>
             <plugin>
@@ -91,8 +116,12 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
+<<<<<<< HEAD
                             <mainClass>com.example.schoolregistrar/com.example.schoolregistrar.Application
                             </mainClass>
+=======
+                            <mainClass>com.example.login/com.example.login.LoginApplication</mainClass>
+>>>>>>> 7819f9a (Needs to be able to add data from Firebase into ChoiceBoxes and needs connections to dashboards)
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

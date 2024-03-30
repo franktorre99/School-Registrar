@@ -1,0 +1,17 @@
+.root{
+    -fx-background-color: white;
+}
+#userEmail{
+    -fx-background-image: url("https://i.fbcd.co/products/resized/resized-750-500/s002e-7-e05-mainpreview-b23f673475645a745491dfae3b88bd836be9506e268cb6b300fc75f8d2054c7e.jpg");
+    -fx-background-size: 20px 15px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: left center;
+}
+#userPassword{
+    -fx-background-image: url("https://www.shutterstock.com/image-vector/key-vector-icon-600nw-378575539.jpg");
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+}
+#title{
+    -fx-font-weight: bold
+}

@@ -1,0 +1,15 @@
+.root{
+    -fx-background-color:white
+}
+#registration{
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+}
+#semester{-fx-font-weight:bold;}
+#subject{-fx-font-weight:bold;}
+#time{-fx-font-weight:bold;}
+#professor{-fx-font-weight:bold;}
+#course{-fx-font-weight:bold;}
+#homeMenu{
+    -fx-background-image: url("https://www.shutterstock.com/image-vector/home-icon-silhouette-simple-house-260nw-1227260545.jpg");
+}
