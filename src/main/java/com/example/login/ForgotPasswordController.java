@@ -1,26 +1,13 @@
 package com.example.login;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.firestore.Firestore;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.cloud.FirestoreClient;
 
-import com.google.firebase.auth.*;
 import com.google.cloud.firestore.*;
 import com.google.api.core.ApiFuture;
 
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 
@@ -53,7 +40,7 @@ public class ForgotPasswordController {
     }
     private boolean isAUser(){
         LoginController.key=false;
-        ApiFuture<QuerySnapshot> future =  LoginApplication.fstore.collection("users").document("BqVyZx5WE4qULEQy7GXh").collection(LoginController.type.toLowerCase()+"s").get();
+        ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("users").document("BqVyZx5WE4qULEQy7GXh").collection(LoginController.type.toLowerCase()+"s").get();
         List<QueryDocumentSnapshot> documents;
         try
         {
@@ -82,7 +69,7 @@ public class ForgotPasswordController {
 //
 //    }
         private void changePassword(){
-            ApiFuture<QuerySnapshot> future =  LoginApplication.fstore.collection("users").document("BqVyZx5WE4qULEQy7GXh").collection(LoginController.type.toLowerCase()+"s").get();
+            ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("users").document("BqVyZx5WE4qULEQy7GXh").collection(LoginController.type.toLowerCase()+"s").get();
             List<QueryDocumentSnapshot> documents;
             DocumentReference docRef = null;
             try

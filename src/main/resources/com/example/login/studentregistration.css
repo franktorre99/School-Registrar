@@ -10,6 +10,15 @@
 #time{-fx-font-weight:bold;}
 #professor{-fx-font-weight:bold;}
 #course{-fx-font-weight:bold;}
+#home{
+    -fx-translate-y: 20;
+}
 #homeMenu{
     -fx-background-image: url("https://www.shutterstock.com/image-vector/home-icon-silhouette-simple-house-260nw-1227260545.jpg");
+    -fx-background-size: 30px 25px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:8.5% 10%;
 }
+
+
+

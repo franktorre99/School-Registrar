@@ -1,29 +1,14 @@
 package com.example.login;
 
-import javafx.beans.binding.BooleanBinding;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.firestore.Firestore;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.cloud.FirestoreClient;
 
 
-
-
-import com.google.firebase.auth.*;
 import com.google.cloud.firestore.*;
 import com.google.api.core.ApiFuture;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -60,7 +45,7 @@ public class LoginController {
     public void handleForgotPasswordLabelClicked(MouseEvent mouseEvent){
         type=(String)userType.getSelectionModel().getSelectedItem();
         user=userEmail.getText();
-        LoginApplication.openNewStage("forgotpassword.fxml","Forgot Password");
+        SchoolRegistrarApplication.openNewStage("forgotpassword.fxml","Forgot Password");
     }
     public void handleLoginButtonClicked() {
         type=(String) userType.getSelectionModel().getSelectedItem();
@@ -70,13 +55,13 @@ public class LoginController {
     static void dashboardChooser(String user){
         switch (user) {
             case "Student":
-                LoginApplication.openNewStage("studentregistration.fxml","Student Dashboard");
+                SchoolRegistrarApplication.openNewStage(".fxml","Student Dashboard");
                 break;
             case "Professor":
-                LoginApplication.openNewStage(".fxml","Professor Dashboard");
+                SchoolRegistrarApplication.openNewStage(".fxml","Professor Dashboard");
                 break;
             case "Administrator":
-                LoginApplication.openNewStage(".fxml","Administrator Dashboard");
+                SchoolRegistrarApplication.openNewStage(".fxml","Administrator Dashboard");
                 break;
             default:
                 System.out.println("Logic error");
@@ -86,7 +71,7 @@ public class LoginController {
         key = false;
 
         //asynchronously retrieve all documents
-        ApiFuture<QuerySnapshot> future =  LoginApplication.fstore.collection("users").document(docID).collection(type.toLowerCase()+"s").get();
+        ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("users").document(docID).collection(type.toLowerCase()+"s").get();
         // future.get() blocks on response
         List<QueryDocumentSnapshot> documents;
         try

@@ -5,21 +5,27 @@ import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.shape.Circle;
 
 import java.util.*;
 import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
 
 public class StudentRegistrationController {
     @FXML
     private Label registration;
     @FXML
-    private Menu homeMenu;
+    private MenuBar homeMenu;
+    @FXML
+    private Menu home;
     @FXML
     private Label semester;
     @FXML
@@ -48,8 +54,30 @@ public class StudentRegistrationController {
     private List<ObservableList<String>> listsList;
     @FXML
     private List<ChoiceBox<String>> choiceBoxes;
+
+    ObservableList<String> semesters;
+    ObservableList<String> subjects;
+    ObservableList<String> courses;
+    ObservableList<String> times;
+    ObservableList<String> professors;
+
+//    private void deleteFuture(int i){
+//        if(i==1) {
+//            courses.clear();
+//        }
+//        else if(i<=2) {
+//            semesters.clear();
+//        }
+//        else if(i<=3) {
+//            times.clear();
+//        }
+//        professors.clear();
+//        for(int j=i; j<5; j++) {
+//            choiceBoxes.get(j).setValue("");
+//        }
+//    }
     private void readFirebaseName(){
-        ApiFuture<QuerySnapshot> future =  LoginApplication.fstore.collection("users").document("BqVyZx5WE4qULEQy7GXh").collection(LoginController.type.toLowerCase()+"s").get();
+        ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("users").document("BqVyZx5WE4qULEQy7GXh").collection(LoginController.type.toLowerCase()+"s").get();
         List<QueryDocumentSnapshot> documents;
         try
         {
@@ -74,47 +102,13 @@ public class StudentRegistrationController {
         LoginController.key=true;
     }
 
-    private void readAllData(Object r, int i, ObservableList<String> ol, ChoiceBox<String> cb) {
-            if(i%2==0){
-             DocumentReference dr= (DocumentReference) r;
-             ol.add(dr.getId());
-             Iterable<CollectionReference> crs=dr.listCollections();
-             for(CollectionReference cr: crs){
-                 try {
-                         if(cr.getId().equals(cb.getSelectionModel().getSelectedItem())||i==0) {
-                             readAllData(cr, i + 1, listsList.get(i + 1), choiceBoxes.get(i));
-                         }
-                 }
-                 catch(ArrayIndexOutOfBoundsException e){
-                     return;
-                 }
-             }
-            }
-            else{
-                CollectionReference cr=(CollectionReference) r;
-                ol.add(cr.getId());
-                Iterable<DocumentReference> drs=cr.listDocuments();
-                for(DocumentReference dr: drs){
-                    try {
-                        if(dr.getId().equals(cb.getSelectionModel().getSelectedItem())||i==0) {
-                            readAllData(dr, i + 1, listsList.get(i + 1), choiceBoxes.get(i));
-                        }
-                    }
-                    catch(ArrayIndexOutOfBoundsException e){
-                        return;
-                    }
-                }
-            }
-     }
-
-
     public void initialize(){
         readFirebaseName();
-        ObservableList<String> semesters=semesterChoice.getItems();
-        ObservableList<String> subjects=subjectChoice.getItems();
-        ObservableList<String> courses=courseChoice.getItems();
-        ObservableList<String> times=timeChoice.getItems();
-        ObservableList<String> professors=professorChoice.getItems();
+        semesters=semesterChoice.getItems();
+        subjects=subjectChoice.getItems();
+        courses=courseChoice.getItems();
+        times=timeChoice.getItems();
+        professors=professorChoice.getItems();
         listsList =new ArrayList<>();
         listsList.add(subjects);
         listsList.add(courses);
@@ -127,30 +121,78 @@ public class StudentRegistrationController {
         choiceBoxes.add(semesterChoice);
         choiceBoxes.add(timeChoice);
         choiceBoxes.add(professorChoice);
-        CollectionReference root=LoginApplication.fstore.collection("classes");
+        CollectionReference root= SchoolRegistrarApplication.fstore.collection("classes");
         ApiFuture<QuerySnapshot> future = root.get();
         List<QueryDocumentSnapshot> documents;
-        try
-        {
+        try {
             documents = future.get().getDocuments();
-            if(documents.size()>0)
-            {
-                System.out.println("Getting (reading) data from firebase database....");
-                for (QueryDocumentSnapshot document : documents) {
-                    readAllData(document.getReference(), 0, listsList.get(0),choiceBoxes.get(0));
-                }
+            System.out.println("Getting (reading) data from firebase database....");
+            for (QueryDocumentSnapshot document : documents) {
+                listsList.get(0).add(document.getId());
+            }
 
-            }
-            else
-            {
-                System.out.println("No data");
-            }
+            List<CollectionReference> collections = new ArrayList<>();
+            choiceBoxes.get(0).getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observableValue, Number value, Number newValue) {
+//                    deleteFuture(1);
+                    DocumentReference document = documents.get(newValue.intValue()).getReference();
+                    Iterable<CollectionReference> crs = document.listCollections();
+                    crs.forEach(collections::add);
+                    for (CollectionReference cr : collections) {
+                        listsList.get(1).add(cr.getId());
+                    }
+                }
+            });
+
+            List<DocumentReference> docs = new ArrayList<>();
+            choiceBoxes.get(1).getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observableValue, Number value, Number newValue) {
+//                    deleteFuture(2);
+                    CollectionReference collection = collections.get(newValue.intValue());
+                    Iterable<DocumentReference> drs = collection.listDocuments();
+                    drs.forEach(docs::add);
+
+                    for (DocumentReference dr : docs) {
+                        listsList.get(2).add(dr.getId());
+                    }
+                }
+            });
+            choiceBoxes.get(2).getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observableValue, Number value, Number newValue) {
+//                    deleteFuture(3);
+                    DocumentReference document = docs.get(newValue.intValue());
+                    Iterable<CollectionReference> crs = document.listCollections();
+                    collections.clear();
+                    crs.forEach(collections::add);
+                    for (CollectionReference cr : collections) {
+                        listsList.get(3).add(cr.getId());
+                    }
+                }
+            });
+            choiceBoxes.get(3).getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observableValue, Number value, Number newValue) {
+//                    deleteFuture(4);
+                    CollectionReference collection = collections.get(newValue.intValue());
+                    Iterable<DocumentReference> drs = collection.listDocuments();
+                    docs.clear();
+                    drs.forEach(docs::add);
+
+                    for (DocumentReference dr : docs) {
+                        listsList.get(4).add(dr.getId());
+                    }
+                }
+            });
+
         }
         catch (InterruptedException | ExecutionException ex){
             ex.printStackTrace();
         }
     }
     public void handleHomeMenuButtonClicked(){
-        LoginApplication.openNewStage("studenthomepage.fxml","Student Homepage");
+        LoginController.dashboardChooser(LoginController.type);
     }
 }

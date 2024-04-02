@@ -5,15 +5,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<VBox prefHeight="222.0" prefWidth="297.0" stylesheets="@studentregistration.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.login.StudentRegistrationController">
+<VBox prefHeight="222.0" prefWidth="327.0" stylesheets="@studentregistration.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.login.StudentRegistrationController">
    <children>
-      <MenuBar>
+      <MenuBar fx:id="homeMenu" prefHeight="80.0" prefWidth="297.0">
         <menus>
-          <Menu mnemonicParsing="false" onAction="#handleHomeMenuButtonClicked" text="Home" />
+          <Menu fx:id="home" mnemonicParsing="false" onAction="#handleHomeMenuButtonClicked" text="Home" />
         </menus>
       </MenuBar>
-      <Label fx:id="userName" text="Name" translateX="200.0" translateY="-23.5" />
-      <Circle fx:id="profilePic" fill="#f8fafc" radius="13.0" stroke="WHITE" strokeType="INSIDE" translateX="270.0" translateY="-45.0" />
+      <Label fx:id="userName" text="Name" translateX="200.0" translateY="-33.5" />
+      <Circle fx:id="profilePic" fill="#f8fafc" radius="13.0" stroke="WHITE" strokeType="INSIDE" translateX="280.0" translateY="-55.0" />
       <Label fx:id="registration" prefHeight="56.0" prefWidth="155.0" text="Registration" />
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
