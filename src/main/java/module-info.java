@@ -2,8 +2,7 @@ module com.example.schoolregistrar {
     requires javafx.controls;
     requires javafx.fxml;
 
-    requires org.controlsfx.controls;
-    requires org.kordamp.bootstrapfx.core;
+
     requires firebase.admin;
     requires com.google.auth;
     requires com.google.auth.oauth2;
