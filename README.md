@@ -9,4 +9,4 @@ The world assumptions are that the Students and Faculty can access the system. S
     
 The specifications and interface needs are that we prevent students from registering in classes they can’t take. The registration process is easy to use. And that only the Student and Professors can see sensitive information, for example grades. The programs we will be using are, Java, JavaFx, Scenebuilder, and SQL. We will also be using a database to store the school data. 
 
-We will be meeting virtually Tuesdays at 5:00 PM and on Sundays at 1:00 PM.
+We will be meeting virtually Tuesdays at 5:00 PM and on Saturdays at 1:00 PM.
