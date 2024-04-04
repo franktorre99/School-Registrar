@@ -1,4 +1,4 @@
-package com.example.login;
+package com.example.schoolregistrar;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -22,13 +22,6 @@ public class SchoolRegistrarApplication extends Application {
     public void start(Stage theStage) throws IOException {
         fstore = contxtFirebase.firebase();
         fauth = FirebaseAuth.getInstance();
-//        FileInputStream serviceAccount =
-//                new FileInputStream("src/main/resources/com/example/login/key.json");
-//        FirebaseOptions options = FirebaseOptions.builder()
-//                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-//                .build();
-
-//        FirebaseApp.initializeApp(options);
         stage=theStage;
         FXMLLoader fxmlLoader = new FXMLLoader(SchoolRegistrarApplication.class.getResource("login.fxml"));
 

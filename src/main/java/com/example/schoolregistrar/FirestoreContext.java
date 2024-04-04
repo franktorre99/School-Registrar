@@ -15,7 +15,7 @@ public class FirestoreContext {
         try {
 
             FileInputStream serviceAccount =
-                    new FileInputStream("src/main/resources/com/example/schoolregistrar/key.json");
+                    new FileInputStream("key.json");
 
             FirebaseOptions options = FirebaseOptions.builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))

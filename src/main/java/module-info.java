@@ -10,6 +10,6 @@ module com.example.schoolregistrar {
     requires google.cloud.core;
     requires com.google.api.apicommon;
 
-    opens com.example.schoolregistrar to javafx.fxml;
+    opens com.example.schoolregistrar to javafx.fxml, google.cloud.firestore;
     exports com.example.schoolregistrar;
 }
