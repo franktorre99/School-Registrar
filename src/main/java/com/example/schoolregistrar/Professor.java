@@ -1,14 +1,18 @@
 package com.example.schoolregistrar;
 
+import java.util.ArrayList;
+
 public class Professor {
     private String firstName;
     private String lastName;
     private int id;
+    private ArrayList<Section> sectionsTaught;
 
     public Professor(String firstName, String lastName, int id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
+        this.sectionsTaught = new ArrayList<Section>();
     }
 
     public String getFirstName() {
@@ -33,5 +37,9 @@ public class Professor {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public ArrayList<Section> getSectionsTaught() {
+        return sectionsTaught;
     }
 }
