@@ -40,7 +40,7 @@
                         <Insets />
                     </HBox.margin>
                 </TextField>
-                <TextArea fx:id="feedbackTextArea" disable="true" prefHeight="200.0" prefWidth="200.0" promptText="Feeback" />
+                <TextArea fx:id="feedbackTextArea" disable="true" prefHeight="200.0" prefWidth="200.0" promptText="Feedback" />
                 <Button fx:id="submitGradeButton" disable="true" mnemonicParsing="false" text="Submit Grade">
                     <HBox.margin>
                         <Insets />

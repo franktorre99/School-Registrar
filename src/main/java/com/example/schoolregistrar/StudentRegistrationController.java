@@ -1,4 +1,4 @@
-package com.example.login;
+package com.example.schoolregistrar;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.CollectionReference;
@@ -17,7 +17,6 @@ import javafx.scene.shape.Circle;
 
 import java.util.*;
 import java.util.concurrent.ExecutionException;
-import java.util.stream.Collectors;
 
 public class StudentRegistrationController {
     @FXML

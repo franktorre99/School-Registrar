@@ -4,11 +4,7 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.WriteResult;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -23,7 +19,11 @@ public class AddAssignmentController {
     @FXML private MenuItem homework;
     @FXML private MenuItem quiz;
     @FXML private MenuItem exam;
+    @FXML private TextField timeTextField;
+    @FXML private RadioButton amRadioButton;
+    @FXML private RadioButton pmRadioButton;
     private String selectedCategory = "";
+    private String selectedTimeOfDay = "";
     private LocalDate date;
 
     public void initialize() {
@@ -42,17 +42,28 @@ public class AddAssignmentController {
         dueDatePicker.setOnAction(event -> {
             date = dueDatePicker.getValue();
         });
+        amRadioButton.setOnAction(event -> {
+            selectedTimeOfDay = "AM";
+        });
+        pmRadioButton.setOnAction(event -> {
+            selectedTimeOfDay = "PM";
+        });
     }
     public void addAssignment() {
-        DocumentReference docRef = Application.fstore.collection("Assignments").document(UUID.randomUUID().toString());
+        Time dueTime;
+        int dueHour = Integer.parseInt(timeTextField.getText().substring(0, 2));
+        int dueMinute = Integer.parseInt(timeTextField.getText().substring(3, 5));
+        dueTime = new Time(dueHour, dueMinute, selectedTimeOfDay);
+
+        DocumentReference docRef = SchoolRegistrarApplication.fstore.collection("Assignments").document(UUID.randomUUID().toString());
 
         Map<String, Object> data = new HashMap<>();
         data.put("Name", nameTextField.getText());
         data.put("Category", selectedCategory);
         data.put("Description", descriptionTextArea.getText());
         data.put("Due Date", date.toString());
+        data.put("Due Time", dueTime);
 
-        //asynchronously write data
         ApiFuture<WriteResult> result = docRef.set(data);
     }
 }

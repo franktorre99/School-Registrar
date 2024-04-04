@@ -6,8 +6,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -47,6 +49,18 @@
                </font>
             </Label>
             <DatePicker fx:id="dueDatePicker" />
+            <Label text="Time:">
+               <font>
+                  <Font name="AppleGothic Regular" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="timeTextField" prefHeight="26.0" prefWidth="55.0" promptText="00:00" />
+            <RadioButton fx:id="amRadioButton" mnemonicParsing="false" text="AM">
+               <toggleGroup>
+                  <ToggleGroup fx:id="timeToggleGroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="pmRadioButton" mnemonicParsing="false" text="PM" toggleGroup="$timeToggleGroup" />
          </children>
       </HBox>
       <Button mnemonicParsing="false" onAction="#addAssignment" text="Add Assignment">

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<VBox prefHeight="222.0" prefWidth="327.0" stylesheets="@studentregistration.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.login.StudentRegistrationController">
+<VBox prefHeight="222.0" prefWidth="327.0" stylesheets="@studentregistration.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.StudentRegistrationController">
    <children>
       <MenuBar fx:id="homeMenu" prefHeight="80.0" prefWidth="297.0">
         <menus>

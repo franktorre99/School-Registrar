@@ -1,5 +1,7 @@
-package com.example.login;
+package com.example.schoolregistrar;
 
+import com.example.schoolregistrar.LoginController;
+import com.example.schoolregistrar.SchoolRegistrarApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
