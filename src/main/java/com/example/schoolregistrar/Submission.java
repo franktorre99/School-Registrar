@@ -1,3 +1,4 @@
+/* Not being used for now unless I can figure out the attachments thing
 package com.example.schoolregistrar;
 
 public class Submission {
@@ -25,3 +26,4 @@ public class Submission {
         this.attachments = attachments;
     }
 }
+*/

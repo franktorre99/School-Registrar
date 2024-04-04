@@ -1,3 +1,4 @@
+/* Not being used for now unless I figure out how to add attachments on submissions
 package com.example.schoolregistrar;
 
 import javafx.fxml.FXML;
@@ -22,3 +23,4 @@ public class AddGradeController {
         submitGradeButton.disableProperty().bind(submissionsView.getSelectionModel().selectedItemProperty().isNull());
     }
 }
+ */
