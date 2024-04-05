@@ -17,6 +17,7 @@ public class SchoolRegistrarApplication extends Application {
     public static Firestore fstore;
     public static FirebaseAuth fauth;
     private final FirestoreContext contxtFirebase = new FirestoreContext();
+    public static User user;
 
     @Override
     public void start(Stage theStage) throws IOException {

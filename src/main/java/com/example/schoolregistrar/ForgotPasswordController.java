@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import com.google.cloud.firestore.*;
 import com.google.api.core.ApiFuture;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -27,7 +28,7 @@ public class ForgotPasswordController {
     @FXML
     private TextField user;
 
-    public void handleSetNewPasswordButtonClicked(){
+    public void handleSetNewPasswordButtonClicked() throws IOException {
         if(isAUser()&&newPassword.getText().equals(verification.getText())&&newPassword.getText().matches("^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$")){
             changePassword();
             LoginController.dashboardChooser(LoginController.type);

@@ -1,6 +1,6 @@
 package com.example.schoolregistrar;
 
-public class Student {
+public class Student implements User {
     private String firstName;
     private String lastName;
     private int id;

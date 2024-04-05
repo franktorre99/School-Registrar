@@ -9,9 +9,9 @@ public class Assignment {
     private String category;
     private String description;
     private Date dueDate;
-    private String dueTime;
+    private Time dueTime;
 
-    public Assignment(String name, String category, String description, Date dueDate, String dueTime) {
+    public Assignment(String name, String category, String description, Date dueDate, Time dueTime) {
         this.name = name;
         this.category = category;
         this.description = description;
@@ -51,11 +51,11 @@ public class Assignment {
         this.dueDate = dueDate;
     }
 
-    public String getDueTime() {
+    public Time getDueTime() {
         return dueTime;
     }
 
-    public void setDueTime(String dueTime) {
+    public void setDueTime(Time dueTime) {
         this.dueTime = dueTime;
     }
 }

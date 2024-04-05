@@ -41,4 +41,9 @@ public class Section {
     public ArrayList<Student> getRoster() {
         return roster;
     }
+
+    @Override
+    public String toString() {
+        return String.format(crn + " " + course.toString() + " " + professor.toString());
+    }
 }

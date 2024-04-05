@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import com.google.cloud.firestore.*;
 import com.google.api.core.ApiFuture;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -28,11 +29,13 @@ public class LoginController {
     private Label forgotPassword;
     static String type;
     static boolean key;
-    static String docID="BqVyZx5WE4qULEQy7GXh";
+    static String docID = "BqVyZx5WE4qULEQy7GXh";
+    public static Professor prof;
+    static String user = null;
 
-    static String user=null;
 
     public void initialize() {
+
         loginButton.disableProperty().bind(userEmail.textProperty().isEmpty().or(userPassword.textProperty().isEmpty()).or(userType.valueProperty().isNull()));
         userEmail.disableProperty().bind(userType.valueProperty().isNull());
         userPassword.disableProperty().bind(userType.valueProperty().isNull());
@@ -43,71 +46,80 @@ public class LoginController {
         users.add("Administrator");
     }
 
-    public void handleForgotPasswordLabelClicked(MouseEvent mouseEvent){
-        type=(String)userType.getSelectionModel().getSelectedItem();
-        user=userEmail.getText();
-        SchoolRegistrarApplication.openNewStage("forgotpassword.fxml","Forgot Password");
+    public void handleForgotPasswordLabelClicked(MouseEvent mouseEvent) throws IOException {
+        type = (String) userType.getSelectionModel().getSelectedItem();
+        user = userEmail.getText();
+        SchoolRegistrarApplication.openNewStage("forgotpassword.fxml", "Forgot Password");
     }
+
     public void handleLoginButtonClicked() {
-        type=(String) userType.getSelectionModel().getSelectedItem();
-        user=userEmail.getText();
+        type = (String) userType.getSelectionModel().getSelectedItem();
+        user = userEmail.getText();
         readFirebase();
-        }
-    static void dashboardChooser(String user){
+    }
+
+    static void dashboardChooser(String user) throws IOException {
         switch (user) {
             case "Student":
-                SchoolRegistrarApplication.openNewStage(".fxml","Student Dashboard");
+                SchoolRegistrarApplication.openNewStage(".fxml", "Student Dashboard");
                 break;
             case "Professor":
-                SchoolRegistrarApplication.openNewStage(".fxml","Professor Dashboard");
+                SchoolRegistrarApplication.openNewStage("professordashboard.fxml", "Professor Dashboard");
                 break;
             case "Administrator":
-                SchoolRegistrarApplication.openNewStage(".fxml","Administrator Dashboard");
+                SchoolRegistrarApplication.openNewStage(".fxml", "Administrator Dashboard");
                 break;
             default:
                 System.out.println("Logic error");
         }
     }
+
     public boolean readFirebase() {
         key = false;
 
         //asynchronously retrieve all documents
-        ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("users").document(docID).collection(type.toLowerCase()+"s").get();
+        ApiFuture<QuerySnapshot> future = SchoolRegistrarApplication.fstore.collection("users").document(docID).collection(type.toLowerCase() + "s").get();
         // future.get() blocks on response
         List<QueryDocumentSnapshot> documents;
-        try
-        {
+        try {
             documents = future.get().getDocuments();
-            if(documents.size()>0)
-            {
+            if (documents.size() > 0) {
                 System.out.println("Getting (reading) data from firebase database....");
-                boolean userFound=false;
+                boolean userFound = false;
                 for (QueryDocumentSnapshot document : documents) {
-                    if(document.getData().get("email").equals(userEmail.getText())&&document.getData().get("password").equals(userPassword.getText())){
-                        userFound=true;
+                    if (document.getData().get("email").equals(userEmail.getText()) && document.getData().get("password").equals(userPassword.getText())) {
+                        userFound = true;
+                        if (((String)userType.getSelectionModel().getSelectedItem()).equals("Professor")) {
+                            ProfessorDashboardController.user = new Professor(document.get("firstName").toString()
+                                    , document.get("lastName").toString()
+                                    , Integer.parseInt(document.get("id").toString()));
+                        }
+                        else if (((String)userType.getSelectionModel().getSelectedItem()).equals("Student")) {
+                            //SchoolRegistrarApplication.user = new Student(document.get("firstName").toString(), document.get("lastName").toString(), Integer.parseInt(document.get("id").toString()));
+                        }
+                        //else if (((String)userType.getSelectionModel().getSelectedItem()).equals("Administrator")) {
+                        //SchoolRegistrarApplication.user = new Administrator(document.get("firstName").toString(), document.get("lastName").toString(), Integer.parseInt(document.get("id").toString()));
+                        //}
                     }
                 }
-                if(userFound){
+                if (userFound) {
                     String user = (String) userType.getSelectionModel().getSelectedItem();
                     dashboardChooser(user);
-                }
-                else{
+                } else {
                     incorrect.setOpacity(1);
                 }
                 userEmail.clear();
                 userPassword.clear();
-            }
-            else
-            {
+            } else {
                 System.out.println("No data");
             }
-            key=true;
+            key = true;
 
-        }
-        catch (InterruptedException | ExecutionException ex)
-        {
+        } catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
         return key;
     }
-    }
+}

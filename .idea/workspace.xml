@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Little bit of cleanup (no big changes)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Professor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Section.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Student.java" afterDir="false" />
+    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Small update to classes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/UpcomingAssignment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddGradeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddGradeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Submission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Submission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAssignmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Assignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Professor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/SchoolRegistrarApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/SchoolRegistrarApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Section.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/TeacherDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ProfessorDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addassignment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addassignment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/teacherdashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/professordashboard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +34,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -35,7 +43,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="addgrade" />
+        <entry key="$PROJECT_DIR$" value="Firebase-Stuff" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -181,6 +189,35 @@
       <workItem from="1712200256897" duration="17000" />
       <workItem from="1712200280874" duration="20000" />
       <workItem from="1712200308459" duration="20000" />
+      <workItem from="1712200559437" duration="978000" />
+      <workItem from="1712201991366" duration="10000" />
+      <workItem from="1712202269788" duration="15000" />
+      <workItem from="1712202462213" duration="454000" />
+      <workItem from="1712237639460" duration="336000" />
+      <workItem from="1712239253513" duration="1322000" />
+      <workItem from="1712252354755" duration="10000" />
+      <workItem from="1712252498545" duration="653000" />
+      <workItem from="1712268506401" duration="243000" />
+      <workItem from="1712268816547" duration="169000" />
+      <workItem from="1712269209965" duration="154000" />
+      <workItem from="1712270059672" duration="416000" />
+      <workItem from="1712270490553" duration="352000" />
+      <workItem from="1712270892494" duration="11000" />
+      <workItem from="1712273689902" duration="2000" />
+      <workItem from="1712329379746" duration="42000" />
+      <workItem from="1712340448020" duration="561000" />
+      <workItem from="1712341017342" duration="198000" />
+      <workItem from="1712341279521" duration="12000" />
+      <workItem from="1712341355086" duration="12000" />
+      <workItem from="1712341387464" duration="50000" />
+      <workItem from="1712341460746" duration="136000" />
+      <workItem from="1712355923526" duration="27000" />
+      <workItem from="1712355965435" duration="9000" />
+      <workItem from="1712355987806" duration="12000" />
+      <workItem from="1712356043521" duration="27000" />
+      <workItem from="1712356083313" duration="8000" />
+      <workItem from="1712356115963" duration="14000" />
+      <workItem from="1712356157152" duration="20000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -262,7 +299,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712197918711</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Classes added">
+      <option name="closed" value="true" />
+      <created>1712200642487</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712200642487</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Small update to classes">
+      <option name="closed" value="true" />
+      <created>1712202872302</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1712202872302</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +326,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Firebase-Stuff" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -288,7 +353,9 @@
     <MESSAGE value="Add assignment page added" />
     <MESSAGE value="Key should hopefully actually be hidden now" />
     <MESSAGE value="Little bit of cleanup (no big changes)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Little bit of cleanup (no big changes)" />
+    <MESSAGE value="Classes added" />
+    <MESSAGE value="Small update to classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small update to classes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

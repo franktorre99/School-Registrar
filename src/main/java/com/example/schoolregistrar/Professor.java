@@ -2,7 +2,7 @@ package com.example.schoolregistrar;
 
 import java.util.ArrayList;
 
-public class Professor {
+public class Professor implements User {
     private String firstName;
     private String lastName;
     private int id;
@@ -13,6 +13,20 @@ public class Professor {
         this.lastName = lastName;
         this.id = id;
         this.sectionsTaught = new ArrayList<Section>();
+    }
+
+    public Professor() {
+        this.firstName = "";
+        this.lastName = "";
+        this.id = 0;
+        this.sectionsTaught = new ArrayList<>();
+    }
+
+    public Professor(Professor other) {
+        this.firstName = other.firstName;
+        this.lastName = other.lastName;
+        this.id = other.id;
+        this.sectionsTaught = new ArrayList<Section>(other.sectionsTaught);
     }
 
     public String getFirstName() {
@@ -41,5 +55,14 @@ public class Professor {
 
     public ArrayList<Section> getSectionsTaught() {
         return sectionsTaught;
+    }
+
+    public void setSectionsTaught(ArrayList<Section> sectionsTaught) {
+        this.sectionsTaught = new ArrayList<>(sectionsTaught);
+    }
+
+    @Override
+    public String toString() {
+        return String.format(firstName + " " + lastName + " " + id);
     }
 }

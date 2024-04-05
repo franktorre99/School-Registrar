@@ -2,13 +2,13 @@ package com.example.schoolregistrar;
 
 public class Course {
     private String department;
-    private int classNumber;
-    private String className;
+    private int courseNumber;
+    private String courseName;
 
-    public Course(String department, int classNumber, String className) {
+    public Course(String department, int courseNumber, String courseName) {
         this.department = department;
-        this.classNumber = classNumber;
-        this.className = className;
+        this.courseNumber = courseNumber;
+        this.courseName = courseName;
     }
 
     public String getDepartment() {
@@ -19,24 +19,24 @@ public class Course {
         this.department = department;
     }
 
-    public int getClassNumber() {
-        return classNumber;
+    public int getCourseNumber() {
+        return courseNumber;
     }
 
-    public void setClassNumber(int classNumber) {
-        this.classNumber = classNumber;
+    public void setCourseNumber(int courseNumber) {
+        this.courseNumber = courseNumber;
     }
 
-    public String getClassName() {
-        return className;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     @Override
     public String toString() {
-        return String.format(department + " " + classNumber + " " + className);
+        return String.format(department + " " + courseNumber + " " + courseName);
     }
 }

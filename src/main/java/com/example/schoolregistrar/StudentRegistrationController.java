@@ -15,6 +15,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.shape.Circle;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 
@@ -191,7 +192,7 @@ public class StudentRegistrationController {
             ex.printStackTrace();
         }
     }
-    public void handleHomeMenuButtonClicked(){
+    public void handleHomeMenuButtonClicked() throws IOException {
         LoginController.dashboardChooser(LoginController.type);
     }
 }

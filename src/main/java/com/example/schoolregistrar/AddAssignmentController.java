@@ -55,14 +55,19 @@ public class AddAssignmentController {
         int dueMinute = Integer.parseInt(timeTextField.getText().substring(3, 5));
         dueTime = new Time(dueHour, dueMinute, selectedTimeOfDay);
 
-        DocumentReference docRef = SchoolRegistrarApplication.fstore.collection("Assignments").document(UUID.randomUUID().toString());
+        DocumentReference docRef = SchoolRegistrarApplication.fstore.collection("courses")
+                .document("CSC 325")
+                .collection("sections")
+                .document("90210")
+                .collection("assignments")
+                .document("Quiz 1");
 
         Map<String, Object> data = new HashMap<>();
         data.put("Name", nameTextField.getText());
         data.put("Category", selectedCategory);
         data.put("Description", descriptionTextArea.getText());
         data.put("Due Date", date.toString());
-        data.put("Due Time", dueTime);
+        data.put("Due Time", dueTime.toString());
 
         ApiFuture<WriteResult> result = docRef.set(data);
     }
