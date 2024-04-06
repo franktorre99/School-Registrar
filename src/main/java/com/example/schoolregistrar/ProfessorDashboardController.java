@@ -27,6 +27,7 @@ public class ProfessorDashboardController {
     private ArrayList<UpcomingAssignment> upcomingAssignments = new ArrayList<>();
     private ArrayList<String> announcements = new ArrayList<>();
 
+
     public void initialize() {
         dateTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("DueDate"));
         nameTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("Name"));

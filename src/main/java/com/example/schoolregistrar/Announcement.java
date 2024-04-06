@@ -1,12 +1,11 @@
 package com.example.schoolregistrar;
 
 public class Announcement {
+
+    //
     private String title;
-
     private String text;
-
     private String time;
-
     private String date;
 
     public Announcement(String title, String text, String time, String date) {
