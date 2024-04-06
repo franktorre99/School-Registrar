@@ -30,12 +30,9 @@ public class LoginController {
     static String type;
     static boolean key;
     static String docID = "BqVyZx5WE4qULEQy7GXh";
-    public static Professor prof;
     static String user = null;
 
-
     public void initialize() {
-
         loginButton.disableProperty().bind(userEmail.textProperty().isEmpty().or(userPassword.textProperty().isEmpty()).or(userType.valueProperty().isNull()));
         userEmail.disableProperty().bind(userType.valueProperty().isNull());
         userPassword.disableProperty().bind(userType.valueProperty().isNull());

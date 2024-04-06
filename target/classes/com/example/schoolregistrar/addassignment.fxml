@@ -24,6 +24,12 @@
             <Font name="AppleGothic Regular" size="25.0" />
          </font>
       </Label>
+      <MenuButton fx:id="sectionMenu" mnemonicParsing="false" prefHeight="26.0" prefWidth="210.0" text="Select Section">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
       <HBox prefHeight="24.0" prefWidth="560.0">
          <children>
             <TextField fx:id="nameTextField" prefHeight="26.0" prefWidth="384.0" promptText="Name">
