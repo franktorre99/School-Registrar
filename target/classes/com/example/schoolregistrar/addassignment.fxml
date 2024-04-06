@@ -24,6 +24,7 @@
             <Font name="AppleGothic Regular" size="25.0" />
          </font>
       </Label>
+      <MenuButton fx:id="sectionMenu" mnemonicParsing="false" prefHeight="26.0" prefWidth="210.0" text="Select Section" />
       <HBox prefHeight="24.0" prefWidth="560.0">
          <children>
             <TextField fx:id="nameTextField" prefHeight="26.0" prefWidth="384.0" promptText="Name">
@@ -63,7 +64,7 @@
             <RadioButton fx:id="pmRadioButton" mnemonicParsing="false" text="PM" toggleGroup="$timeToggleGroup" />
          </children>
       </HBox>
-      <Button mnemonicParsing="false" onAction="#addAssignment" text="Add Assignment">
+      <Button mnemonicParsing="false" onAction="#handleAddAssignment" text="Add Assignment">
          <font>
             <Font name="AppleGothic Regular" size="15.0" />
          </font>

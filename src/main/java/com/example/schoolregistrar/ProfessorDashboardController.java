@@ -25,17 +25,23 @@ public class ProfessorDashboardController {
     public static Professor user;
     private ArrayList<Assignment> assignments = new ArrayList<Assignment>();
     private ArrayList<UpcomingAssignment> upcomingAssignments = new ArrayList<>();
+    private ArrayList<Course> coursesAvailable = new ArrayList<>();
 
     public void initialize() {
         dateTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("DueDate"));
         nameTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("Name"));
         timeTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("DueTime"));
-        /*
-        readSections("CSC 311");
-        readSections("CSC 325");
-        readAssignments("CSC 311", "11209");
-        readAssignments("CSC 325", "90210");
-        */
+
+        //Administrator will be the one to update coursesAvailable
+        coursesAvailable.add(new Course("CSC", 325, "Software Engineering"));
+        coursesAvailable.add(new Course("CSC", 311, "Advanced Programming"));
+
+        for (Course course : coursesAvailable) {
+            readSections(course);
+        }
+        for (Section section : user.getSectionsTaught()) {
+            readAssignments(section.getCourse().getDepartment() + " " + section.getCourse().getCourseNumber(), String.valueOf(section.getCrn()));
+        }
         populateTable(upcomingAssignments, upcomingAssignmentsTable);
     }
 
@@ -47,11 +53,13 @@ public class ProfessorDashboardController {
         SchoolRegistrarApplication.openNewStage("addgrade.fxml", "Add Grade");
     }
 
-    public boolean readSections(String courseName) {
+    public boolean readSections(Course course) {
         key = false;
 
         //asynchronously retrieve all documents
-        ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("courses").document(courseName).collection("sections").get();
+        ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("courses")
+                .document(course.getDepartment() + " " + course.getCourseNumber())
+                .collection("sections").get();
         // future.get() blocks on response
         List<QueryDocumentSnapshot> documents;
         try
@@ -60,7 +68,6 @@ public class ProfessorDashboardController {
             if(documents.size()>0)
             {
                 for (QueryDocumentSnapshot doc : documents) {
-                    System.out.println(this.user.getId());
                     if (Integer.parseInt(doc.getData().get("ProfessorID").toString()) == user.getId()) {
                         user.getSectionsTaught().add(new Section(new Course(doc.getData().get("Department").toString()
                                 , Integer.parseInt(doc.getData().get("CourseNumber").toString())
@@ -87,11 +94,11 @@ public class ProfessorDashboardController {
         return key;
     }
 
-    public boolean readAssignments(String courseName, String sectionNumber) {
+    public boolean readAssignments(String course, String section) {
         key = false;
 
         //asynchronously retrieve all documents
-        ApiFuture<QuerySnapshot> future = SchoolRegistrarApplication.fstore.collection("courses").document(courseName).collection("sections").document(sectionNumber).collection("assignments").get();
+        ApiFuture<QuerySnapshot> future = SchoolRegistrarApplication.fstore.collection("courses").document(course).collection("sections").document(section).collection("assignments").get();
         // future.get() blocks on response
         List<QueryDocumentSnapshot> documents;
         try {

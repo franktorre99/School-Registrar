@@ -25,6 +25,8 @@ public class AddAssignmentController {
     @FXML private RadioButton pmRadioButton;
     private String selectedCategory = "";
     private String selectedTimeOfDay = "";
+    private String selectedSection;
+    private String selectedCourse;
     private LocalDate date;
 
     public void initialize() {
@@ -52,19 +54,29 @@ public class AddAssignmentController {
         for (Section section : ProfessorDashboardController.user.getSectionsTaught()) {
             sectionMenu.getItems().add(new MenuItem(section.getCrn() + " " + section.getCourse().toString()));
         }
+        for (MenuItem item : sectionMenu.getItems()) {
+            item.setOnAction(event -> {
+                selectedSection = item.getText().substring(0, 5);
+                selectedCourse = item.getText().substring(6, 13);
+            });
+        }
     }
-    public void addAssignment() {
+
+    public void handleAddAssignment() {
+        addAssignment(selectedCourse, selectedSection);
+    }
+    public void addAssignment(String course, String section) {
         Time dueTime;
         int dueHour = Integer.parseInt(timeTextField.getText().substring(0, 2));
         int dueMinute = Integer.parseInt(timeTextField.getText().substring(3, 5));
         dueTime = new Time(dueHour, dueMinute, selectedTimeOfDay);
 
         DocumentReference docRef = SchoolRegistrarApplication.fstore.collection("courses")
-                .document("CSC 325")
+                .document(course)
                 .collection("sections")
-                .document("90210")
+                .document(section)
                 .collection("assignments")
-                .document("Quiz 1");
+                .document(nameTextField.getText());
 
         Map<String, Object> data = new HashMap<>();
         data.put("Name", nameTextField.getText());
