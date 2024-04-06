@@ -16,6 +16,7 @@ public class AddAssignmentController {
     @FXML private TextArea descriptionTextArea;
     @FXML private DatePicker dueDatePicker;
     @FXML private MenuButton categoryMenu;
+    @FXML private MenuButton sectionMenu;
     @FXML private MenuItem homework;
     @FXML private MenuItem quiz;
     @FXML private MenuItem exam;
@@ -48,6 +49,9 @@ public class AddAssignmentController {
         pmRadioButton.setOnAction(event -> {
             selectedTimeOfDay = "PM";
         });
+        for (Section section : ProfessorDashboardController.user.getSectionsTaught()) {
+            sectionMenu.getItems().add(new MenuItem(section.getCrn() + " " + section.getCourse().toString()));
+        }
     }
     public void addAssignment() {
         Time dueTime;
