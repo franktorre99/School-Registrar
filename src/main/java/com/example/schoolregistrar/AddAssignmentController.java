@@ -66,10 +66,10 @@ public class AddAssignmentController {
         addAssignment(selectedCourse, selectedSection);
     }
     public void addAssignment(String course, String section) {
-        Time dueTime;
+        String dueTime;
         int dueHour = Integer.parseInt(timeTextField.getText().substring(0, 2));
         int dueMinute = Integer.parseInt(timeTextField.getText().substring(3, 5));
-        dueTime = new Time(dueHour, dueMinute, selectedTimeOfDay);
+        dueTime = (dueHour + " " + dueMinute + " " + selectedTimeOfDay);
 
         DocumentReference docRef = SchoolRegistrarApplication.fstore.collection("courses")
                 .document(course)
