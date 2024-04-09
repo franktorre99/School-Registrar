@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Time class and User interface deleted">
+    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Add announcement added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAnnouncementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAnnouncementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAssignmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Announcement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Announcement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ProfessorDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ProfessorDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addannouncement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addannouncement.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addassignment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addassignment.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/professordashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/professordashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/SchoolRegistrarApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/SchoolRegistrarApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +208,12 @@
       <workItem from="1712356115963" duration="14000" />
       <workItem from="1712356157152" duration="20000" />
       <workItem from="1712437384714" duration="657000" />
-      <workItem from="1712627711910" duration="7090000" />
+      <workItem from="1712627711910" duration="7282000" />
+      <workItem from="1712669426049" duration="46000" />
+      <workItem from="1712669515436" duration="76000" />
+      <workItem from="1712672296350" duration="748000" />
+      <workItem from="1712680792433" duration="10000" />
+      <workItem from="1712683207694" duration="903000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -335,7 +335,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712629226726</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Add announcement added">
+      <option name="closed" value="true" />
+      <created>1712635592823</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1712635592823</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Add announcement added">
+      <option name="closed" value="true" />
+      <created>1712635766505</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1712635766505</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +419,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="Add assignment to database working" />
     <MESSAGE value="Time class and User interface deleted" />
-    <option name="LAST_COMMIT_MESSAGE" value="Time class and User interface deleted" />
+    <MESSAGE value="Add announcement added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add announcement added" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

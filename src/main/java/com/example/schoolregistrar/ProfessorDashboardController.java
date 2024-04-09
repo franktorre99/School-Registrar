@@ -52,15 +52,15 @@ public class ProfessorDashboardController {
     }
 
     public void handleAddAssignmentButton() throws IOException {
-        SchoolRegistrarApplication.openNewStage("addassignment.fxml", "New Assignment");
+        SchoolRegistrarApplication.openNewWindow("addassignment.fxml", "New Assignment");
     }
 
     public void handleAddGradeButton() throws IOException {
-        SchoolRegistrarApplication.openNewStage("addgrade.fxml", "Add Grade");
+        SchoolRegistrarApplication.openNewWindow("addgrade.fxml", "Add Grade");
     }
 
-    public void handleNewAnnouncement() {
-        SchoolRegistrarApplication.openNewStage("addannouncement.fxml", "New Announcement");
+    public void handleNewAnnouncement() throws IOException {
+        SchoolRegistrarApplication.openNewWindow("addannouncement.fxml", "New Announcement");
     }
 
     public boolean readSections(Course course) {
@@ -157,14 +157,12 @@ public class ProfessorDashboardController {
     }
 
     private void populateUpcomingAssignments(ArrayList<UpcomingAssignment> assignments, TableView<UpcomingAssignment> tableView) {
-        tableView.getItems().clear();
         for (UpcomingAssignment assignment : assignments) {
             tableView.getItems().add(assignment);
         }
     }
 
     private void populateAnnouncements(ArrayList<Announcement> announcements, ListView<String> listVIew) {
-        listVIew.getItems().clear();
         for (Announcement announcement : announcements) {
             listVIew.getItems().add(announcement.toString());
         }
