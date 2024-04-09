@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 
 public class ProfessorDashboardController {
     @FXML private TableView<UpcomingAssignment> upcomingAssignmentsTable;
@@ -23,9 +24,11 @@ public class ProfessorDashboardController {
     @FXML private ListView<String> announcementList;
     static boolean key;
     public static Professor user;
-    private ArrayList<Assignment> assignments = new ArrayList<Assignment>();
     private ArrayList<UpcomingAssignment> upcomingAssignments = new ArrayList<>();
     private ArrayList<Course> coursesAvailable = new ArrayList<>();
+    private ArrayList<Announcement> announcements = new ArrayList<>();
+    public static String previous = "professordashboard.fxml";
+    public static String previousTitle = "Professor Dashboard";
 
     public void initialize() {
         dateTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("DueDate"));
@@ -41,8 +44,11 @@ public class ProfessorDashboardController {
         }
         for (Section section : user.getSectionsTaught()) {
             readAssignments(section.getCourse().getDepartment() + " " + section.getCourse().getCourseNumber(), String.valueOf(section.getCrn()));
+            readAnnouncements(section.getCourse().getDepartment() + " " + section.getCourse().getCourseNumber(), String.valueOf(section.getCrn()));
         }
-        populateTable(upcomingAssignments, upcomingAssignmentsTable);
+
+        populateUpcomingAssignments(upcomingAssignments, upcomingAssignmentsTable);
+        populateAnnouncements(announcements, announcementList);
     }
 
     public void handleAddAssignmentButton() throws IOException {
@@ -51,6 +57,10 @@ public class ProfessorDashboardController {
 
     public void handleAddGradeButton() throws IOException {
         SchoolRegistrarApplication.openNewStage("addgrade.fxml", "Add Grade");
+    }
+
+    public void handleNewAnnouncement() {
+        SchoolRegistrarApplication.openNewStage("addannouncement.fxml", "New Announcement");
     }
 
     public boolean readSections(Course course) {
@@ -120,9 +130,43 @@ public class ProfessorDashboardController {
         return key;
     }
 
-    private void populateTable(ArrayList<UpcomingAssignment> assignments, TableView<UpcomingAssignment> tableView) {
+    public boolean readAnnouncements(String course, String section) {
+        key = false;
+
+        //asynchronously retrieve all documents
+        ApiFuture<QuerySnapshot> future = SchoolRegistrarApplication.fstore.collection("courses").document(course).collection("sections").document(section).collection("announcements").get();
+        // future.get() blocks on response
+        List<QueryDocumentSnapshot> documents;
+        try {
+            documents = future.get().getDocuments();
+            if(documents.size()>0) {
+                for (QueryDocumentSnapshot document : documents) {
+                    announcements.add(new Announcement(document.getData().get("Name").toString(), document.getData().get("Description").toString()));
+                }
+            }
+            else {
+                System.out.println("No data");
+            }
+            key=true;
+
+        }
+        catch (InterruptedException | ExecutionException ex) {
+            ex.printStackTrace();
+        }
+        return key;
+    }
+
+    private void populateUpcomingAssignments(ArrayList<UpcomingAssignment> assignments, TableView<UpcomingAssignment> tableView) {
+        tableView.getItems().clear();
         for (UpcomingAssignment assignment : assignments) {
             tableView.getItems().add(assignment);
+        }
+    }
+
+    private void populateAnnouncements(ArrayList<Announcement> announcements, ListView<String> listVIew) {
+        listVIew.getItems().clear();
+        for (Announcement announcement : announcements) {
+            listVIew.getItems().add(announcement.toString());
         }
     }
 }

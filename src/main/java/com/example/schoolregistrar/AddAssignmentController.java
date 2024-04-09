@@ -65,6 +65,11 @@ public class AddAssignmentController {
     public void handleAddAssignment() {
         addAssignment(selectedCourse, selectedSection);
     }
+
+    public void handleBack() {
+        SchoolRegistrarApplication.openNewStage(ProfessorDashboardController.previous, ProfessorDashboardController.previousTitle);
+    }
+
     public void addAssignment(String course, String section) {
         String dueTime;
         int dueHour = Integer.parseInt(timeTextField.getText().substring(0, 2));

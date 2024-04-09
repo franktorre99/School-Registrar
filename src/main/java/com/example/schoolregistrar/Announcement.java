@@ -16,4 +16,9 @@ public class Announcement {
     public String getText() {
         return text;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s \n %s \n", this.title, this.text);
+    }
 }
