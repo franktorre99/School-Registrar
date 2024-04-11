@@ -31,10 +31,6 @@ public class AddAnnouncementController {
         }
     }
 
-    public void handleBack() {
-        SchoolRegistrarApplication.openNewStage(ProfessorDashboardController.previous, ProfessorDashboardController.previousTitle);
-    }
-
     public void handleAdd() {
         addAnnouncement(selectedCourse, selectedSection);
     }

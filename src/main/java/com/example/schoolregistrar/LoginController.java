@@ -67,7 +67,7 @@ public class LoginController {
                 SchoolRegistrarApplication.openNewStage("professordashboard.fxml", "Professor Dashboard");
                 break;
             case "Administrator":
-                SchoolRegistrarApplication.openNewStage(".fxml", "Administrator Dashboard");
+                SchoolRegistrarApplication.openNewStage("administratordashboard.fxml", "Administrator Dashboard");
                 break;
             default:
                 System.out.println("Logic error");
@@ -97,9 +97,11 @@ public class LoginController {
                         else if (((String)userType.getSelectionModel().getSelectedItem()).equals("Student")) {
                             //SchoolRegistrarApplication.user = new Student(document.get("firstName").toString(), document.get("lastName").toString(), Integer.parseInt(document.get("id").toString()));
                         }
-                        //else if (((String)userType.getSelectionModel().getSelectedItem()).equals("Administrator")) {
-                        //SchoolRegistrarApplication.user = new Administrator(document.get("firstName").toString(), document.get("lastName").toString(), Integer.parseInt(document.get("id").toString()));
-                        //}
+                        else if (((String)userType.getSelectionModel().getSelectedItem()).equals("Administrator")) {
+                            AdministratorDashboardController.user = new Administrator(document.get("firstName").toString()
+                                    , document.get("lastName").toString()
+                                    , Integer.parseInt(document.get("id").toString()));
+                        }
                     }
                 }
                 if (userFound) {

@@ -27,8 +27,6 @@ public class ProfessorDashboardController {
     private ArrayList<UpcomingAssignment> upcomingAssignments = new ArrayList<>();
     private ArrayList<Course> coursesAvailable = new ArrayList<>();
     private ArrayList<Announcement> announcements = new ArrayList<>();
-    public static String previous = "professordashboard.fxml";
-    public static String previousTitle = "Professor Dashboard";
 
     public void initialize() {
         dateTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("DueDate"));
