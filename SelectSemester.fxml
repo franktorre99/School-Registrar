@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Home                                                                                                                                                           Name" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+  <content>
+    <AnchorPane fx:id="GradePane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <ChoiceBox fx:id="ChoiceBox" layoutX="115.0" layoutY="64.0" prefWidth="150.0" />
+            <TreeTableView editable="true" layoutX="-1.0" layoutY="93.0" prefHeight="281.0" prefWidth="600.0">
+              <columns>
+                <TreeTableColumn fx:id="CRN" prefWidth="73.0" text="CRN" />
+                <TreeTableColumn fx:id="Subject" prefWidth="77.0" text="Subject" />
+                  <TreeTableColumn fx:id="Course" prefWidth="75.0" text="Course" />
+                  <TreeTableColumn fx:id="CourseName" prefWidth="263.0" text="Course Name" />
+                  <TreeTableColumn fx:id="CurrentGrade" minWidth="0.0" prefWidth="111.0" text="Current Grade" />
+              </columns>
+            </TreeTableView>
+            <Label layoutX="14.0" layoutY="21.0" prefHeight="30.0" prefWidth="135.0" text="Grades View">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="68.0" prefHeight="17.0" prefWidth="101.0" text="Select Semester:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+  </content>
+</TitledPane>
