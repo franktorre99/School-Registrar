@@ -15,6 +15,7 @@ public class Professor{
         this.sectionsTaught = new ArrayList<Section>();
     }
 
+
     public Professor() {
         this.firstName = "";
         this.lastName = "";

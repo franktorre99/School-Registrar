@@ -14,11 +14,6 @@ public class Section {
         this.professor = professor;
     }
 
-    public Section(Course course) {
-        this.course = new Course(course);
-        this.crn = crn;
-    }
-
     public int getCrn() {
         return crn;
     }
@@ -32,7 +27,7 @@ public class Section {
     }
 
     public void setProfessor(Professor professor) {
-        this.professor = professor;
+        this.professor = new Professor(professor);
     }
 
     public Course getCourse() {

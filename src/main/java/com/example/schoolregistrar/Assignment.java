@@ -1,7 +1,5 @@
 package com.example.schoolregistrar;
 
-import com.google.cloud.Timestamp;
-
 import java.util.Date;
 
 public class Assignment {

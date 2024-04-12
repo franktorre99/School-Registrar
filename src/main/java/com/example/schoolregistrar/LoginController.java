@@ -1,14 +1,11 @@
 package com.example.schoolregistrar;
 
-import com.example.schoolregistrar.SchoolRegistrarApplication;
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
-
-
-import com.google.cloud.firestore.*;
-import com.google.api.core.ApiFuture;
 
 import java.io.IOException;
 import java.util.List;
@@ -30,7 +27,6 @@ public class LoginController {
     static String type;
     static boolean key;
     static String docID = "BqVyZx5WE4qULEQy7GXh";
-    public static Professor prof;
     static String user = null;
 
 
@@ -46,14 +42,14 @@ public class LoginController {
         users.add("Administrator");
     }
 
-    public void handleForgotPasswordLabelClicked(MouseEvent mouseEvent) throws IOException {
-        type = (String) userType.getSelectionModel().getSelectedItem();
+    public void handleForgotPasswordLabelClicked() {
+        type = userType.getSelectionModel().getSelectedItem();
         user = userEmail.getText();
         SchoolRegistrarApplication.openNewStage("forgotpassword.fxml", "Forgot Password");
     }
 
     public void handleLoginButtonClicked() {
-        type = (String) userType.getSelectionModel().getSelectedItem();
+        type = userType.getSelectionModel().getSelectedItem();
         user = userEmail.getText();
         readFirebase();
     }
@@ -83,13 +79,13 @@ public class LoginController {
         List<QueryDocumentSnapshot> documents;
         try {
             documents = future.get().getDocuments();
-            if (documents.size() > 0) {
+            if (!documents.isEmpty()) {
                 System.out.println("Getting (reading) data from firebase database....");
                 boolean userFound = false;
                 for (QueryDocumentSnapshot document : documents) {
                     if (document.getData().get("email").equals(userEmail.getText()) && document.getData().get("password").equals(userPassword.getText())) {
                         userFound = true;
-                        if (((String)userType.getSelectionModel().getSelectedItem()).equals("Professor")) {
+                        if (userType.getSelectionModel().getSelectedItem().equals("Professor")) {
                             ProfessorDashboardController.user = new Professor(document.get("firstName").toString()
                                     , document.get("lastName").toString()
                                     , Integer.parseInt(document.get("id").toString()));

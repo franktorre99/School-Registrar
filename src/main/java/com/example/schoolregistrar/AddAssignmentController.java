@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 public class AddAssignmentController {
     @FXML private TextField nameTextField;
@@ -25,8 +24,8 @@ public class AddAssignmentController {
     @FXML private RadioButton pmRadioButton;
     private String selectedCategory = "";
     private String selectedTimeOfDay = "";
-    private String selectedSection;
-    private String selectedCourse;
+    private static String selectedSection;
+    private static String selectedCourse;
     private LocalDate date;
 
     public void initialize() {
@@ -42,24 +41,11 @@ public class AddAssignmentController {
             selectedCategory = exam.getText();
             categoryMenu.setText(exam.getText());
         });
-        dueDatePicker.setOnAction(event -> {
-            date = dueDatePicker.getValue();
-        });
-        amRadioButton.setOnAction(event -> {
-            selectedTimeOfDay = "AM";
-        });
-        pmRadioButton.setOnAction(event -> {
-            selectedTimeOfDay = "PM";
-        });
-        for (Section section : ProfessorDashboardController.user.getSectionsTaught()) {
-            sectionMenu.getItems().add(new MenuItem(section.getCrn() + " " + section.getCourse().toString()));
-        }
-        for (MenuItem item : sectionMenu.getItems()) {
-            item.setOnAction(event -> {
-                selectedSection = item.getText().substring(0, 5);
-                selectedCourse = item.getText().substring(6, 13);
-            });
-        }
+        dueDatePicker.setOnAction(event -> date = dueDatePicker.getValue());
+        amRadioButton.setOnAction(event -> selectedTimeOfDay = "AM");
+        pmRadioButton.setOnAction(event -> selectedTimeOfDay = "PM");
+
+        getSections(sectionMenu);
     }
 
     public void handleAddAssignment() {
@@ -87,5 +73,17 @@ public class AddAssignmentController {
         data.put("Due Time", dueTime.toString());
 
         ApiFuture<WriteResult> result = docRef.set(data);
+    }
+
+    private static void getSections(MenuButton menuButton) {
+        for (Section section : ProfessorDashboardController.user.getSectionsTaught()) {
+            menuButton.getItems().add(new MenuItem(section.getCrn() + " " + section.getCourse().toString()));
+        }
+        for (MenuItem item : menuButton.getItems()) {
+            item.setOnAction(event -> {
+                selectedSection = item.getText().substring(0, 5);
+                selectedCourse = item.getText().substring(6, 13);
+            });
+        }
     }
 }

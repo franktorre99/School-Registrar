@@ -46,7 +46,7 @@ public class AddCourseController {
         try
         {
             documents = future.get().getDocuments();
-            if(documents.size()>0)
+            if(!documents.isEmpty())
             {
                 for (QueryDocumentSnapshot doc : documents) {
                     departmentMenu.getItems().add(new MenuItem(doc.getId()));

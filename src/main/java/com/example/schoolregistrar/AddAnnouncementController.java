@@ -16,19 +16,11 @@ public class AddAnnouncementController {
     @FXML private TextField nameTextField;
     @FXML private TextArea descriptionTextArea;
     @FXML private MenuButton sectionMenu;
-    private String selectedSection;
-    private String selectedCourse;
+    private static String selectedSection;
+    private static String selectedCourse;
 
     public void initialize() {
-        for (Section section : ProfessorDashboardController.user.getSectionsTaught()) {
-            sectionMenu.getItems().add(new MenuItem(section.getCrn() + " " + section.getCourse().toString()));
-        }
-        for (MenuItem item : sectionMenu.getItems()) {
-            item.setOnAction(event -> {
-                selectedSection = item.getText().substring(0, 5);
-                selectedCourse = item.getText().substring(6, 13);
-            });
-        }
+        getSections(sectionMenu);
     }
 
     public void handleAdd() {
@@ -48,5 +40,17 @@ public class AddAnnouncementController {
         data.put("Description", descriptionTextArea.getText());
 
         ApiFuture<WriteResult> result = docRef.set(data);
+    }
+
+    private static void getSections(MenuButton menuButton) {
+        for (Section section : ProfessorDashboardController.user.getSectionsTaught()) {
+            menuButton.getItems().add(new MenuItem(section.getCrn() + " " + section.getCourse().toString()));
+        }
+        for (MenuItem item : menuButton.getItems()) {
+            item.setOnAction(event -> {
+                selectedSection = item.getText().substring(0, 5);
+                selectedCourse = item.getText().substring(6, 13);
+            });
+        }
     }
 }

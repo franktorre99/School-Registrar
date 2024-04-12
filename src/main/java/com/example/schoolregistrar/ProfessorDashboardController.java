@@ -25,7 +25,7 @@ public class ProfessorDashboardController {
     static boolean key;
     public static Professor user;
     private ArrayList<UpcomingAssignment> upcomingAssignments = new ArrayList<>();
-    private ArrayList<Course> coursesAvailable = new ArrayList<>();
+    public ArrayList<Course> coursesAvailable = new ArrayList<>();
     private ArrayList<Announcement> announcements = new ArrayList<>();
 
     public void initialize() {
