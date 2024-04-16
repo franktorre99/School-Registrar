@@ -8,11 +8,9 @@ import com.google.cloud.firestore.WriteResult;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
 
 public class ForgotPasswordController {
     @FXML

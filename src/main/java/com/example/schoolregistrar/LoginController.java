@@ -6,7 +6,6 @@ import com.google.cloud.firestore.QuerySnapshot;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -72,10 +71,7 @@ public class LoginController {
 
     public boolean readFirebase() {
         key = false;
-
-        //asynchronously retrieve all documents
         ApiFuture<QuerySnapshot> future = SchoolRegistrarApplication.fstore.collection("users").document(docID).collection(type.toLowerCase() + "s").get();
-        // future.get() blocks on response
         List<QueryDocumentSnapshot> documents;
         try {
             documents = future.get().getDocuments();
@@ -86,17 +82,17 @@ public class LoginController {
                     if (document.getData().get("email").equals(userEmail.getText()) && document.getData().get("password").equals(userPassword.getText())) {
                         userFound = true;
                         if (userType.getSelectionModel().getSelectedItem().equals("Professor")) {
-                            ProfessorDashboardController.user = new Professor(document.get("firstName").toString()
-                                    , document.get("lastName").toString()
-                                    , Integer.parseInt(document.get("id").toString()));
+                            ProfessorDashboardController.user = new Professor(document.get("First Name").toString()
+                                    , document.get("Last Name").toString()
+                                    , Integer.parseInt(document.get("ID").toString()));
                         }
                         else if (((String)userType.getSelectionModel().getSelectedItem()).equals("Student")) {
                             //SchoolRegistrarApplication.user = new Student(document.get("firstName").toString(), document.get("lastName").toString(), Integer.parseInt(document.get("id").toString()));
                         }
                         else if (((String)userType.getSelectionModel().getSelectedItem()).equals("Administrator")) {
-                            AdministratorDashboardController.user = new Administrator(document.get("firstName").toString()
-                                    , document.get("lastName").toString()
-                                    , Integer.parseInt(document.get("id").toString()));
+                            AdministratorDashboardController.user = new Administrator(document.get("First Name").toString()
+                                    , document.get("Last Name").toString()
+                                    , Integer.parseInt(document.get("ID").toString()));
                         }
                     }
                 }

@@ -8,7 +8,6 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,6 +49,7 @@ public class AddAnnouncementController {
             item.setOnAction(event -> {
                 selectedSection = item.getText().substring(0, 5);
                 selectedCourse = item.getText().substring(6, 13);
+                menuButton.setText(item.getText());
             });
         }
     }

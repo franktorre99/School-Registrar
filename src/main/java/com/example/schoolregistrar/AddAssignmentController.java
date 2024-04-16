@@ -5,7 +5,6 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.WriteResult;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
@@ -83,6 +82,7 @@ public class AddAssignmentController {
             item.setOnAction(event -> {
                 selectedSection = item.getText().substring(0, 5);
                 selectedCourse = item.getText().substring(6, 13);
+                menuButton.setText(item.getText());
             });
         }
     }

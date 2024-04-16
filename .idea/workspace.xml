@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Administrator dashboard/add course added">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAnnouncementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAnnouncementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAssignmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddCourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Assignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Assignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ForgotPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ForgotPasswordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ProfessorDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ProfessorDashboardController.java" afterDir="false" />
+    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Add section minus select professor done">
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/AddAssignmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/AddAssignmentController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,6 +220,13 @@
       <workItem from="1712798685666" duration="5296000" />
       <workItem from="1712842023887" duration="8000" />
       <workItem from="1712845130453" duration="842000" />
+      <workItem from="1712928447394" duration="1290000" />
+      <workItem from="1713268801718" duration="1715000" />
+      <workItem from="1713274160629" duration="571000" />
+      <workItem from="1713275002713" duration="252000" />
+      <workItem from="1713275302542" duration="1687000" />
+      <workItem from="1713277031664" duration="1049000" />
+      <workItem from="1713288424051" duration="1002000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -380,7 +380,55 @@
       <option name="project" value="LOCAL" />
       <updated>1712802583183</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Cleanup">
+      <option name="closed" value="true" />
+      <created>1712928615444</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1712928615444</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Cleanup">
+      <option name="closed" value="true" />
+      <created>1712928622353</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1712928622353</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Add section minus select professor done">
+      <option name="closed" value="true" />
+      <created>1713270487092</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1713270487092</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Add section minus select professor done">
+      <option name="closed" value="true" />
+      <created>1713274181490</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1713274181490</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Add section minus select professor done">
+      <option name="closed" value="true" />
+      <created>1713288539327</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1713288539327</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Add section minus select professor done">
+      <option name="closed" value="true" />
+      <created>1713289505231</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1713289505231</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +499,9 @@
     <MESSAGE value="Add announcement added" />
     <MESSAGE value="Open new window for add assignment/announcement" />
     <MESSAGE value="Administrator dashboard/add course added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Administrator dashboard/add course added" />
+    <MESSAGE value="Cleanup" />
+    <MESSAGE value="Add section minus select professor done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add section minus select professor done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

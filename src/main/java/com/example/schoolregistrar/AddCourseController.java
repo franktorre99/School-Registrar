@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,14 +33,14 @@ public class AddCourseController {
 
     public void handleAdd() {
         addCourse();
+        ProfessorDashboardController.coursesAvailable.add(new Course(selectedDepartment
+                , Integer.parseInt(courseNumberTextField.getText())
+                , courseNameTextField.getText()));
     }
 
     public boolean readDepartments() {
         key = false;
-
-        //asynchronously retrieve all documents
         ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("departments").get();
-        // future.get() blocks on response
         List<QueryDocumentSnapshot> documents;
         try
         {
