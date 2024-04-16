@@ -5,6 +5,7 @@ import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -25,7 +26,7 @@ public class ProfessorDashboardController {
     static boolean key;
     public static Professor user;
     private ArrayList<UpcomingAssignment> upcomingAssignments = new ArrayList<>();
-    public ArrayList<Course> coursesAvailable = new ArrayList<>();
+    public static ArrayList<Course> coursesAvailable = new ArrayList<>();
     private ArrayList<Announcement> announcements = new ArrayList<>();
 
     public void initialize() {
@@ -33,9 +34,7 @@ public class ProfessorDashboardController {
         nameTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("Name"));
         timeTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("DueTime"));
 
-        //Administrator will be the one to update coursesAvailable
-        coursesAvailable.add(new Course("CSC", 325, "Software Engineering"));
-        coursesAvailable.add(new Course("CSC", 311, "Advanced Programming"));
+        readCourses();
 
         for (Course course : coursesAvailable) {
             readSections(course);
@@ -63,12 +62,9 @@ public class ProfessorDashboardController {
 
     public boolean readSections(Course course) {
         key = false;
-
-        //asynchronously retrieve all documents
         ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("courses")
                 .document(course.getDepartment() + " " + course.getCourseNumber())
                 .collection("sections").get();
-        // future.get() blocks on response
         List<QueryDocumentSnapshot> documents;
         try
         {
@@ -76,14 +72,14 @@ public class ProfessorDashboardController {
             if(documents.size()>0)
             {
                 for (QueryDocumentSnapshot doc : documents) {
-                    if (Integer.parseInt(doc.getData().get("ProfessorID").toString()) == user.getId()) {
+                    if (Integer.parseInt(doc.getData().get("Professor ID").toString()) == user.getId()) {
                         user.getSectionsTaught().add(new Section(new Course(doc.getData().get("Department").toString()
-                                , Integer.parseInt(doc.getData().get("CourseNumber").toString())
-                                , doc.getData().get("CourseName").toString())
+                                , Integer.parseInt(doc.getData().get("Course Number").toString())
+                                , doc.getData().get("Course Name").toString())
                                 , Integer.parseInt(doc.getData().get("CRN").toString())
-                                , new Professor(doc.getData().get("ProfessorFirstName").toString()
-                                , doc.getData().get("ProfessorLastName").toString()
-                                , Integer.parseInt(doc.getData().get("ProfessorID").toString()))));
+                                , new Professor(doc.getData().get("Professor First Name").toString()
+                                , doc.getData().get("Professor Last Name").toString()
+                                , Integer.parseInt(doc.getData().get("Professor ID").toString()))));
 
                     }
                 }
@@ -104,16 +100,15 @@ public class ProfessorDashboardController {
 
     public boolean readAssignments(String course, String section) {
         key = false;
-
-        //asynchronously retrieve all documents
         ApiFuture<QuerySnapshot> future = SchoolRegistrarApplication.fstore.collection("courses").document(course).collection("sections").document(section).collection("assignments").get();
-        // future.get() blocks on response
         List<QueryDocumentSnapshot> documents;
         try {
             documents = future.get().getDocuments();
             if(documents.size()>0) {
                 for (QueryDocumentSnapshot document : documents) {
-                    upcomingAssignments.add(new UpcomingAssignment(document.getData().get("Name").toString(), document.getData().get("Due Date").toString(), document.getData().get("Due Time").toString()));
+                    upcomingAssignments.add(new UpcomingAssignment(document.getData().get("Name").toString()
+                            , document.getData().get("Due Date").toString()
+                            , document.getData().get("Due Time").toString()));
                 }
             }
             else {
@@ -130,16 +125,16 @@ public class ProfessorDashboardController {
 
     public boolean readAnnouncements(String course, String section) {
         key = false;
-
-        //asynchronously retrieve all documents
-        ApiFuture<QuerySnapshot> future = SchoolRegistrarApplication.fstore.collection("courses").document(course).collection("sections").document(section).collection("announcements").get();
-        // future.get() blocks on response
+        ApiFuture<QuerySnapshot> future = SchoolRegistrarApplication.fstore.collection("courses")
+                .document(course).collection("sections")
+                .document(section).collection("announcements").get();
         List<QueryDocumentSnapshot> documents;
         try {
             documents = future.get().getDocuments();
             if(documents.size()>0) {
                 for (QueryDocumentSnapshot document : documents) {
-                    announcements.add(new Announcement(document.getData().get("Name").toString(), document.getData().get("Description").toString()));
+                    announcements.add(new Announcement(document.getData().get("Name").toString()
+                            , document.getData().get("Description").toString()));
                 }
             }
             else {
@@ -149,6 +144,35 @@ public class ProfessorDashboardController {
 
         }
         catch (InterruptedException | ExecutionException ex) {
+            ex.printStackTrace();
+        }
+        return key;
+    }
+
+    public boolean readCourses() {
+        key = false;
+        ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("courses").get();
+        List<QueryDocumentSnapshot> documents;
+        try
+        {
+            documents = future.get().getDocuments();
+            if(!documents.isEmpty())
+            {
+                for (QueryDocumentSnapshot doc : documents) {
+                    coursesAvailable.add(new Course(doc.getData().get("Department").toString()
+                            , Integer.parseInt(doc.getData().get("Course Number").toString())
+                            , doc.getData().get("Course Name").toString()));
+                }
+            }
+            else
+            {
+                System.out.println("No data");
+            }
+            key=true;
+
+        }
+        catch (InterruptedException | ExecutionException ex)
+        {
             ex.printStackTrace();
         }
         return key;

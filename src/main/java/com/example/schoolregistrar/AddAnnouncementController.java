@@ -50,6 +50,7 @@ public class AddAnnouncementController {
             item.setOnAction(event -> {
                 selectedSection = item.getText().substring(0, 5);
                 selectedCourse = item.getText().substring(6, 13);
+                menuButton.setText(item.getText());
             });
         }
     }
