@@ -9,7 +9,7 @@ public class Section {
     private ArrayList<Student> roster;
 
     public Section(Course course, int crn, Professor professor) {
-        this.course = course;
+        this.course = new Course(course);
         this.crn = crn;
         this.professor = professor;
     }
@@ -27,7 +27,7 @@ public class Section {
     }
 
     public void setProfessor(Professor professor) {
-        this.professor = professor;
+        this.professor = new Professor(professor);
     }
 
     public Course getCourse() {
@@ -35,7 +35,7 @@ public class Section {
     }
 
     public void setCourse(Course course) {
-        this.course = course;
+        this.course = new Course(course);
     }
 
     public ArrayList<Student> getRoster() {

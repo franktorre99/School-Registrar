@@ -1,7 +1,5 @@
 package com.example.schoolregistrar;
 
-import com.google.cloud.Timestamp;
-
 import java.util.Date;
 
 public class Assignment {
@@ -9,9 +7,9 @@ public class Assignment {
     private String category;
     private String description;
     private Date dueDate;
-    private Time dueTime;
+    private String dueTime;
 
-    public Assignment(String name, String category, String description, Date dueDate, Time dueTime) {
+    public Assignment(String name, String category, String description, Date dueDate, String dueTime) {
         this.name = name;
         this.category = category;
         this.description = description;
@@ -51,11 +49,11 @@ public class Assignment {
         this.dueDate = dueDate;
     }
 
-    public Time getDueTime() {
+    public String getDueTime() {
         return dueTime;
     }
 
-    public void setDueTime(Time dueTime) {
+    public void setDueTime(String dueTime) {
         this.dueTime = dueTime;
     }
 }

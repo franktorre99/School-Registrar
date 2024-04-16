@@ -11,6 +11,12 @@ public class Course {
         this.courseName = courseName;
     }
 
+    public Course(Course other) {
+        this.department = other.department;
+        this.courseNumber = other.courseNumber;
+        this.courseName = other.courseName;
+    }
+
     public String getDepartment() {
         return department;
     }

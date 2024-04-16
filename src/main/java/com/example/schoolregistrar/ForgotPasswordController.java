@@ -1,18 +1,16 @@
 package com.example.schoolregistrar;
 
-import com.example.schoolregistrar.LoginController;
-import com.example.schoolregistrar.SchoolRegistrarApplication;
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
+import com.google.cloud.firestore.WriteResult;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
-import com.google.cloud.firestore.*;
-import com.google.api.core.ApiFuture;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
 
 public class ForgotPasswordController {
     @FXML
@@ -48,7 +46,7 @@ public class ForgotPasswordController {
         try
         {
             documents = future.get().getDocuments();
-            if(documents.size()>0)
+            if(!documents.isEmpty())
             {
                 System.out.println("Getting (reading) data from firebase database....");
                 for (QueryDocumentSnapshot document : documents) {
@@ -78,7 +76,7 @@ public class ForgotPasswordController {
             try
             {
                 documents = future.get().getDocuments();
-                if(documents.size()>0)
+                if(!documents.isEmpty())
                 {
                     System.out.println("Getting (reading) data from firebase database....");
                     for (QueryDocumentSnapshot document : documents) {
