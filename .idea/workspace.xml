@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Add section minus select professor done">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddProfessorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddStudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addprofessor.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addstudent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AdministratorDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AdministratorDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/administratordashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/administratordashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/AddAssignmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/AddAssignmentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/FirestoreContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/FirestoreContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/LoginController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +235,8 @@
       <workItem from="1713275002713" duration="252000" />
       <workItem from="1713275302542" duration="1687000" />
       <workItem from="1713277031664" duration="1049000" />
-      <workItem from="1713288424051" duration="1002000" />
+      <workItem from="1713288424051" duration="4519000" />
+      <workItem from="1713305362694" duration="1544000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -428,7 +438,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713289505231</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Add section minus select professor done">
+      <option name="closed" value="true" />
+      <created>1713290061749</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1713290061749</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

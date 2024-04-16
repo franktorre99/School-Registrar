@@ -12,4 +12,12 @@ public class AdministratorDashboardController {
     public void handleAddSection() throws IOException {
         SchoolRegistrarApplication.openNewWindow("addsection.fxml", "Add Section");
     }
+
+    public void handleAddProfessor() throws IOException {
+        SchoolRegistrarApplication.openNewWindow("addprofessor.fxml", "Add Professor");
+    }
+
+    public void handleAddStudent() throws IOException {
+        SchoolRegistrarApplication.openNewWindow("addstudent.fxml", "Add Student");
+    }
 }
