@@ -4,61 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Add assignment to database working">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/School-Registrar.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Figma Mockup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project Proposal WRSPM Analysis.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SRS IEEE Template School Registrar.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/key.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAssignmentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddGradeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Announcement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Assignment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Course.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/FirestoreContext.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ForgotPasswordController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Professor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ProfessorDashboardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/SchoolRegistrarApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Section.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Student.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentRegistrationController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Submission.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Time.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/UpcomingAssignment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/Schedule.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addassignment.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addgrade.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/forgotpassword.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/professordashboard.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/studentregistration.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/studentregistration.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/AddAssignmentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/FirestoreContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/LoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/addassignment.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/addgrade.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" />
+    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Professor data loaded from firebase">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/AddAssignmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/AddAssignmentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/AddGradeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/Submission.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/addassignment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/addassignment.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +36,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="erik" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -117,7 +70,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "erik",
     "last_opened_file_path": "/Users/erik/Desktop/CSC 325/SchoolRegistrar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
