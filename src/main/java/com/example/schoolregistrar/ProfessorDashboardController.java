@@ -25,6 +25,8 @@ public class ProfessorDashboardController {
     public static Professor user;
     private ArrayList<Assignment> assignments = new ArrayList<Assignment>();
     private ArrayList<UpcomingAssignment> upcomingAssignments = new ArrayList<>();
+    private ArrayList<String> announcements = new ArrayList<>();
+
 
     public void initialize() {
         dateTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("DueDate"));
@@ -36,7 +38,20 @@ public class ProfessorDashboardController {
         readAssignments("CSC 311", "11209");
         readAssignments("CSC 325", "90210");
         */
+
+        upcomingAssignments.add(new UpcomingAssignment("Homework 1", "2024-04-08", "11:59 PM"));
+        upcomingAssignments.add(new UpcomingAssignment("Homework 2", "2024-04-15", "11:59 PM"));
+        upcomingAssignments.add(new UpcomingAssignment("Homework 3", "2024-04-11", "11:59 PM"));
+        upcomingAssignments.add(new UpcomingAssignment("Lab 1", "2024-04-15", "11:59 PM"));
+        upcomingAssignments.add(new UpcomingAssignment("Homework 4", "2024-04-15", "11:59 PM"));
+        upcomingAssignments.add(new UpcomingAssignment("Lab 2", "2024-04-17", "11:59 PM"));
+
+        announcements.add("3/29:    Test 1 grades will be given out next class.");
+        announcements.add("4/1:     Quiz moved to next Tuesday.");
+        announcements.add("4/3:     Class Canceled Thursday.");
+
         populateTable(upcomingAssignments, upcomingAssignmentsTable);
+        displayAnnouncements(announcements, announcementList);
     }
 
     public void handleAddAssignmentButton() throws IOException {
@@ -116,6 +131,12 @@ public class ProfessorDashboardController {
     private void populateTable(ArrayList<UpcomingAssignment> assignments, TableView<UpcomingAssignment> tableView) {
         for (UpcomingAssignment assignment : assignments) {
             tableView.getItems().add(assignment);
+        }
+    }
+
+    private void displayAnnouncements(ArrayList<String> announcements, ListView<String> announcementList) {
+        for(String announcement: announcements) {
+            announcementList.getItems().add(announcement);
         }
     }
 }
