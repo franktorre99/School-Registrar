@@ -23,11 +23,7 @@ public class AddProfessorController {
     }
 
     public void handleGenerateID() {
-        Random random = new Random();
-
-        int min = 10000000;
-        int max = 99999999;
-        int id = random.nextInt(max - min + 1) + min;
+        int id = ValidateID.validateID(ValidateID.generateID());
         idLabel.setText(String.valueOf(id));
     }
 
