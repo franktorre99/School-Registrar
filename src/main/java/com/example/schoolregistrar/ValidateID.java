@@ -15,8 +15,8 @@ public class ValidateID {
     static boolean key;
     static ArrayList<Integer> ids = new ArrayList<>();
     static int id;
+
     public static int validateID(int id) {
-        readIDs();
         if (ids.contains(id)) {
             id = validateID(generateID());
         }

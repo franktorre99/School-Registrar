@@ -17,13 +17,19 @@ public class AddProfessorController {
     @FXML private TextField emailTextField;
     @FXML private TextField passwordTextField;
     @FXML private Label idLabel;
+    private int id;
+
+    public void initialize() {
+        ValidateID.readIDs();
+    }
 
     public void handleAdd() {
         addProfessor();
+        addID();
     }
 
     public void handleGenerateID() {
-        int id = ValidateID.validateID(ValidateID.generateID());
+        id = ValidateID.validateID(ValidateID.generateID());
         idLabel.setText(String.valueOf(id));
     }
 
@@ -39,6 +45,14 @@ public class AddProfessorController {
         data.put("email", emailTextField.getText());
         data.put("password", passwordTextField.getText());
         data.put("ID", Integer.parseInt(idLabel.getText()));
+
+        ApiFuture<WriteResult> result = docRef.set(data);
+    }
+
+    public void addID() {
+        DocumentReference docRef = SchoolRegistrarApplication.fstore.collection("ids").document(String.valueOf(id));
+
+        Map<String, Object> data = new HashMap<>();
 
         ApiFuture<WriteResult> result = docRef.set(data);
     }
