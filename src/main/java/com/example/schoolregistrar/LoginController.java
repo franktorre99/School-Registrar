@@ -3,6 +3,9 @@ package com.example.schoolregistrar;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
+import com.google.firebase.auth.ExportedUserRecord;
+import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.ListUsersPage;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -47,7 +50,7 @@ public class LoginController {
         SchoolRegistrarApplication.openNewStage("forgotpassword.fxml", "Forgot Password");
     }
 
-    public void handleLoginButtonClicked() {
+    public void handleLoginButtonClicked() throws FirebaseAuthException {
         type = userType.getSelectionModel().getSelectedItem();
         user = userEmail.getText();
         readFirebase();
@@ -69,51 +72,33 @@ public class LoginController {
         }
     }
 
-    public boolean readFirebase() {
+    public void readFirebase() throws FirebaseAuthException {
         key = false;
-        ApiFuture<QuerySnapshot> future = SchoolRegistrarApplication.fstore.collection("users").document(docID).collection(type.toLowerCase() + "s").get();
+        ListUsersPage page = SchoolRegistrarApplication.fauth.listUsers(null);
+        ApiFuture<QuerySnapshot> future = SchoolRegistrarApplication.fstore.collection("users").document("BqVyZx5WE4qULEQy7GXh").collection(type.toLowerCase() + "s").get();
         List<QueryDocumentSnapshot> documents;
         try {
             documents = future.get().getDocuments();
-            if (!documents.isEmpty()) {
-                System.out.println("Getting (reading) data from firebase database....");
-                boolean userFound = false;
-                for (QueryDocumentSnapshot document : documents) {
-                    if (document.getData().get("email").equals(userEmail.getText()) && document.getData().get("password").equals(userPassword.getText())) {
-                        userFound = true;
-                        if (userType.getSelectionModel().getSelectedItem().equals("Professor")) {
-                            ProfessorDashboardController.user = new Professor(document.get("First Name").toString()
-                                    , document.get("Last Name").toString()
-                                    , Integer.parseInt(document.get("ID").toString()));
-                        }
-                        else if (((String)userType.getSelectionModel().getSelectedItem()).equals("Student")) {
-                            //SchoolRegistrarApplication.user = new Student(document.get("firstName").toString(), document.get("lastName").toString(), Integer.parseInt(document.get("id").toString()));
-                        }
-                        else if (((String)userType.getSelectionModel().getSelectedItem()).equals("Administrator")) {
-                            AdministratorDashboardController.user = new Administrator(document.get("First Name").toString()
-                                    , document.get("Last Name").toString()
-                                    , Integer.parseInt(document.get("ID").toString()));
+            for (ExportedUserRecord user : page.iterateAll()) {
+                 if (userEmail.getText().equals(user.getEmail().substring(0, user.getEmail().indexOf("@")))) {
+                    for (QueryDocumentSnapshot document : documents) {
+                        if (user.getUid().equals(document.getData().get("UID"))) {
+                            if (userPassword.getText().equals(document.getData().get("password")))
+                                System.out.println("User signed in");
+                            dashboardChooser(type);
                         }
                     }
                 }
-                if (userFound) {
-                    String user = (String) userType.getSelectionModel().getSelectedItem();
-                    dashboardChooser(user);
-                } else {
-                    incorrect.setOpacity(1);
-                }
-                userEmail.clear();
-                userPassword.clear();
-            } else {
-                System.out.println("No data");
             }
-            key = true;
-
-        } catch (InterruptedException | ExecutionException ex) {
-            ex.printStackTrace();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            incorrect.setOpacity(1);
+            userEmail.clear();
+            userPassword.clear();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        } catch (ExecutionException exception) {
+            throw new RuntimeException(exception);
+        } catch (InterruptedException exception) {
+            throw new RuntimeException(exception);
         }
-        return key;
     }
 }
