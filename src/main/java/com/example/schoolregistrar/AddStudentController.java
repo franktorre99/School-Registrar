@@ -20,19 +20,27 @@ public class AddStudentController {
     @FXML private TextField emailTextField;
     @FXML private PasswordField passwordTextField;
     @FXML private Label idLabel;
+
     private String userID;
 
     public void handleAdd() {
         addProfessor();
         SchoolRegistrarApplication.openNewStage("administratordashboard.fxml","Home");
+
+    private int id;
+
+    public void initialize() {
+        ValidateID.readIDs();
+    }
+
+    public void handleAdd() {
+        addProfessor();
+        addID();
+
     }
 
     public void handleGenerateID() {
-        Random random = new Random();
-
-        int min = 10000000;
-        int max = 99999999;
-        int id = random.nextInt(max - min + 1) + min;
+        id = ValidateID.validateID(ValidateID.generateID());
         idLabel.setText(String.valueOf(id));
     }
 
@@ -68,6 +76,14 @@ public class AddStudentController {
         data.put("email", emailTextField.getText());
         data.put("password", passwordTextField.getText());
         data.put("ID", Integer.parseInt(idLabel.getText()));
+
+        ApiFuture<WriteResult> result = docRef.set(data);
+    }
+
+    public void addID() {
+        DocumentReference docRef = SchoolRegistrarApplication.fstore.collection("ids").document(String.valueOf(id));
+
+        Map<String, Object> data = new HashMap<>();
 
         ApiFuture<WriteResult> result = docRef.set(data);
     }

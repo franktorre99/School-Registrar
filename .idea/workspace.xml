@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Add section minus select professor done">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -14,6 +15,13 @@
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addstudent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addstudent.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/LoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/addassignment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/addassignment.fxml" afterDir="false" />
+
+    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="ID will be regenerated if its in collection on firestore">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddProfessorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddProfessorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddStudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddStudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ValidateID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ValidateID.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +36,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -38,7 +46,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Firebase-Stuff" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,9 +61,6 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -64,6 +69,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -76,15 +82,23 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+
     &quot;git-widget-placeholder&quot;: &quot;Everett-Hinckley&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+
     &quot;last_opened_file_path&quot;: &quot;/Users/erik/Desktop/CSC 325/SchoolRegistrar&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
@@ -105,7 +119,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.example.schoolregistrar.SchoolRegistrarApplication" />
-      <module name="Login" />
+      <module name="SchoolRegistrar" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -226,6 +240,7 @@
       <workItem from="1712356083313" duration="8000" />
       <workItem from="1712356115963" duration="14000" />
       <workItem from="1712356157152" duration="20000" />
+
       <workItem from="1712437384714" duration="657000" />
       <workItem from="1712627711910" duration="7282000" />
       <workItem from="1712669426049" duration="46000" />
@@ -257,6 +272,16 @@
       <workItem from="1713743944758" duration="148000" />
       <workItem from="1713744254007" duration="348000" />
       <workItem from="1713745127776" duration="1274000" />
+
+      <workItem from="1713408877609" duration="113000" />
+      <workItem from="1713463283703" duration="1506000" />
+      <workItem from="1713533196117" duration="21000" />
+      <workItem from="1713535893250" duration="14000" />
+      <workItem from="1713629118140" duration="149000" />
+      <workItem from="1713629275069" duration="30000" />
+      <workItem from="1713629322179" duration="1662000" />
+      <workItem from="1713640946682" duration="841000" />
+
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -354,70 +379,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712202872302</updated>
     </task>
-    <task id="LOCAL-00013" summary="test">
+    <task id="LOCAL-00013" summary="ID will be regenerated if its in collection on firestore">
       <option name="closed" value="true" />
-      <created>1712431290082</created>
+      <created>1713630979947</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1712431290082</updated>
+      <updated>1713630979947</updated>
     </task>
-    <task id="LOCAL-00014" summary="Add assignment to database working">
-      <option name="closed" value="true" />
-      <created>1712438036398</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1712438036398</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Time class and User interface deleted">
-      <option name="closed" value="true" />
-      <created>1712629226726</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1712629226726</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Add announcement added">
-      <option name="closed" value="true" />
-      <created>1712635592823</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1712635592823</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Add announcement added">
-      <option name="closed" value="true" />
-      <created>1712635766505</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1712635766505</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Open new window for add assignment/announcement">
-      <option name="closed" value="true" />
-      <created>1712687978435</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1712687978435</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Administrator dashboard/add course added">
-      <option name="closed" value="true" />
-      <created>1712802583183</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1712802583183</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Cleanup">
-      <option name="closed" value="true" />
-      <created>1712928615444</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1712928615444</updated>
-    </task>
+
     <task id="LOCAL-00021" summary="Cleanup">
       <option name="closed" value="true" />
       <created>1712928622353</created>
@@ -467,37 +437,15 @@
       <updated>1713290061749</updated>
     </task>
     <option name="localTasksCounter" value="27" />
+
+    <option name="localTasksCounter" value="14" />
+
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="erik" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="main" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/main" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -508,7 +456,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="erik" />
+                        <option value="Firebase-Stuff" />
                       </list>
                     </value>
                   </entry>
@@ -531,15 +479,8 @@
     <MESSAGE value="Little bit of cleanup (no big changes)" />
     <MESSAGE value="Classes added" />
     <MESSAGE value="Small update to classes" />
-    <MESSAGE value="test" />
-    <MESSAGE value="Add assignment to database working" />
-    <MESSAGE value="Time class and User interface deleted" />
-    <MESSAGE value="Add announcement added" />
-    <MESSAGE value="Open new window for add assignment/announcement" />
-    <MESSAGE value="Administrator dashboard/add course added" />
-    <MESSAGE value="Cleanup" />
-    <MESSAGE value="Add section minus select professor done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add section minus select professor done" />
+    <MESSAGE value="ID will be regenerated if its in collection on firestore" />
+    <option name="LAST_COMMIT_MESSAGE" value="ID will be regenerated if its in collection on firestore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

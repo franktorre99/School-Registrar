@@ -36,6 +36,8 @@ public class SchoolRegistrarApplication extends Application {
          Scene scene = SchoolRegistrarApplication.getScene();
          try {
              scene.setRoot(fxmlLoader.load());
+             stage.setHeight(600);
+             stage.setWidth(600);
              stage.setTitle(title);
          } catch (IOException e) {
              throw new RuntimeException(e);
