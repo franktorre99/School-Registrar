@@ -59,7 +59,7 @@ public class LoginController {
     static void dashboardChooser(String user) throws IOException {
         switch (user) {
             case "Student":
-                SchoolRegistrarApplication.openNewStage("studentregistration.fxml", "Student Dashboard");
+                SchoolRegistrarApplication.openNewStage("studentdashboard.fxml", "Student Dashboard");
                 break;
             case "Professor":
                 SchoolRegistrarApplication.openNewStage("professordashboard.fxml", "Professor Dashboard");

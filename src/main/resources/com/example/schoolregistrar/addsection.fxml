@@ -24,6 +24,14 @@
             <MenuItem mnemonicParsing="false" text="3:05 PM - 4:20 PM" />
         </items>
       </MenuButton>
+      <MenuButton fx:id="semesterMenu" mnemonicParsing="false" text="Select Semester">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Summer 2024" />
+            <MenuItem mnemonicParsing="false" text="Fall 2024" />
+            <MenuItem mnemonicParsing="false" text="Winter 2024" />
+            <MenuItem mnemonicParsing="false" text="Spring 2025" />
+         </items>
+      </MenuButton>
       <MenuButton fx:id="professorMenu" mnemonicParsing="false" text="Select Professor" />
       <Button mnemonicParsing="false" onAction="#handleAdd" text="Add" />
    </children>
