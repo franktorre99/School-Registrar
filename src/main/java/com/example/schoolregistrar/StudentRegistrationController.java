@@ -79,6 +79,14 @@ public class StudentRegistrationController {
     public void initialize() throws IOException {
         readFirebaseName();
 
+        timeChoice.getItems().add("8:00 AM - 9:15 AM");
+        timeChoice.getItems().add("9:25 AM - 10:40 AM");
+        timeChoice.getItems().add("10:50 AM - 12:05 PM");
+        timeChoice.getItems().add("12:15 PM - 1:30 PM");
+        timeChoice.getItems().add("1:40 PM - 2:55 PM");
+        timeChoice.getItems().add("3:05 PM - 4:20 PM");
+        readProfessors();
+
         readSubjects();
         subjectChoice.setOnAction(event -> {
             selectedSubject = subjectChoice.getSelectionModel().getSelectedItem();
@@ -134,6 +142,35 @@ public class StudentRegistrationController {
                     if (doc.getId().substring(0, 3).equals(subject)) {
                         courseChoice.getItems().add(doc.getData().get("Course Name").toString());
                     }
+                }
+            }
+            else
+            {
+                System.out.println("No data");
+            }
+            key=true;
+
+        }
+        catch (InterruptedException | ExecutionException ex)
+        {
+            ex.printStackTrace();
+        }
+        return key;
+    }
+
+    public boolean readProfessors() {
+        key = false;
+        ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("users")
+                .document("BqVyZx5WE4qULEQy7GXh")
+                .collection("professors").get();
+        List<QueryDocumentSnapshot> documents;
+        try
+        {
+            documents = future.get().getDocuments();
+            if(!documents.isEmpty())
+            {
+                for (QueryDocumentSnapshot doc : documents) {
+                    professorChoice.getItems().add(doc.getId());
                 }
             }
             else
