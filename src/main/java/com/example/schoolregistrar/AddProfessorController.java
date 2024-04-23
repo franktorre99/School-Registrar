@@ -22,7 +22,7 @@ public class AddProfessorController {
     @FXML private PasswordField passwordTextField;
     @FXML private Label idLabel;
     private int id;
-    private String userID="";
+    private String userID = "";
 
     public void handleAdd() {
         addProfessor();
@@ -59,6 +59,7 @@ public class AddProfessorController {
             // Logger.getLogger(FirestoreContext.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Error creating a new user in the firebase");
         }
+
         DocumentReference docRef = SchoolRegistrarApplication.fstore.collection("users")
                 .document(LoginController.docID)
                 .collection("professors")
@@ -67,7 +68,7 @@ public class AddProfessorController {
         Map<String, Object> data = new HashMap<>();
         data.put("First Name", firstNameTextField.getText());
         data.put("Last Name", lastNameTextField.getText());
-        data.put("UID",userID);
+        data.put("UID", userID);
         data.put("email", emailTextField.getText());
         data.put("password", passwordTextField.getText());
         data.put("ID", Integer.parseInt(idLabel.getText()));

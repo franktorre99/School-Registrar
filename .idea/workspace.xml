@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Fixed some issues, everything is connected again">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddProfessorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddProfessorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/LoginController.class" afterDir="false" />
     </list>
@@ -75,7 +77,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.scopes&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -215,7 +217,14 @@
       <workItem from="1713629275069" duration="30000" />
       <workItem from="1713629322179" duration="1662000" />
       <workItem from="1713640946682" duration="841000" />
-      <workItem from="1713878768424" duration="1129000" />
+      <workItem from="1713878768424" duration="2429000" />
+      <workItem from="1713881264306" duration="72000" />
+      <workItem from="1713881354590" duration="8000" />
+      <workItem from="1713881368905" duration="16000" />
+      <workItem from="1713881391258" duration="74000" />
+      <workItem from="1713881473543" duration="4000" />
+      <workItem from="1713881491272" duration="266000" />
+      <workItem from="1713881973539" duration="477000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -329,7 +338,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713879580221</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fixed some issues, everything is connected again">
+      <option name="closed" value="true" />
+      <created>1713880077333</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713880077333</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
