@@ -6,6 +6,7 @@ import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
 import javafx.fxml.FXML;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -18,11 +19,13 @@ public class AddSectionController {
     @FXML private MenuButton courseMenu;
     @FXML private TextField crnTextField;
     @FXML private MenuButton timeMenu;
+    @FXML private MenuButton semesterMenu;
     @FXML private MenuButton professorMenu;
     static boolean key;
     private Course selectedCourse;
     private String selectedTime;
     private Professor selectedProfessor;
+    private String selectedSemester;
 
     public void initialize() {
         readCourses();
@@ -38,6 +41,13 @@ public class AddSectionController {
             item.setOnAction(event -> {
                 selectedTime = item.getText();
                 timeMenu.setText(selectedTime);
+            });
+        }
+
+        for (MenuItem item : semesterMenu.getItems()) {
+            item.setOnAction(event -> {
+                selectedSemester = item.getText();
+                semesterMenu.setText(selectedSemester);
             });
         }
 
@@ -123,6 +133,7 @@ public class AddSectionController {
         data.put("Course Number", selectedCourse.getCourseNumber());
         data.put("Department", selectedCourse.getDepartment());
         data.put("Time", selectedTime);
+        data.put("Semester", selectedSemester);
         data.put("Professor First Name", selectedProfessor.getFirstName());
         data.put("Professor Last Name", selectedProfessor.getLastName());
         data.put("Professor ID", selectedProfessor.getId());

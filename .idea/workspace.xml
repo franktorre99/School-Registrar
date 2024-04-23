@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Student registration reads from firestore and changes course options based on subject chosen">
+    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Student registration reads professors from firestore">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/RegisterSection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddSectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddSectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ProfessorDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ProfessorDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Section.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentRegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addsection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addsection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/studentregistration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/studentregistration.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,27 +65,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "erik",
-    "last_opened_file_path": "/Users/erik/Desktop/CSC 325/SchoolRegistrar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;erik&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/erik/Desktop/CSC 325/SchoolRegistrar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar" />
@@ -216,7 +223,9 @@
       <workItem from="1713629322179" duration="1662000" />
       <workItem from="1713640946682" duration="841000" />
       <workItem from="1713878768424" duration="1129000" />
-      <workItem from="1713894116598" duration="3659000" />
+      <workItem from="1713894116598" duration="4020000" />
+      <workItem from="1713904467694" duration="8088000" />
+      <workItem from="1713912937943" duration="2246000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -346,7 +355,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713896697175</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Student registration reads professors from firestore">
+      <option name="closed" value="true" />
+      <created>1713897811164</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713897811164</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +408,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/com/example/schoolregistrar/LoginController.java&#10;#&#9;target/classes/com/example/schoolregistrar/LoginController.class" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="Student registration reads from firestore and changes course options based on subject chosen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Student registration reads from firestore and changes course options based on subject chosen" />
+    <MESSAGE value="Student registration reads professors from firestore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Student registration reads professors from firestore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
