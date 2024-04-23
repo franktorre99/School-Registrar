@@ -9,10 +9,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
+import javafx.scene.control.*;
 import javafx.scene.shape.Circle;
 import java.io.IOException;
 import java.util.*;
@@ -49,32 +46,10 @@ public class StudentRegistrationController {
     private Label userName;
     @FXML
     private Circle profilePic;
-    @FXML
-    private List<ObservableList<String>> listsList;
-    @FXML
-    private List<ChoiceBox<String>> choiceBoxes;
+    public static Student user;
+    static boolean key;
+    private String selectedSubject;
 
-    ObservableList<String> semesters;
-    ObservableList<String> subjects;
-    ObservableList<String> courses;
-    ObservableList<String> times;
-    ObservableList<String> professors;
-
-//    private void deleteFuture(int i){
-//        if(i==1) {
-//            courses.clear();
-//        }
-//        else if(i<=2) {
-//            semesters.clear();
-//        }
-//        else if(i<=3) {
-//            times.clear();
-//        }
-//        professors.clear();
-//        for(int j=i; j<5; j++) {
-//            choiceBoxes.get(j).setValue("");
-//        }
-//    }
     private void readFirebaseName(){
         ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("users").document("BqVyZx5WE4qULEQy7GXh").collection(LoginController.type.toLowerCase()+"s").get();
         List<QueryDocumentSnapshot> documents;
@@ -101,97 +76,77 @@ public class StudentRegistrationController {
         LoginController.key=true;
     }
 
-    public void initialize(){
+    public void initialize() throws IOException {
         readFirebaseName();
-        semesters=semesterChoice.getItems();
-        subjects=subjectChoice.getItems();
-        courses=courseChoice.getItems();
-        times=timeChoice.getItems();
-        professors=professorChoice.getItems();
-        listsList =new ArrayList<>();
-        listsList.add(subjects);
-        listsList.add(courses);
-        listsList.add(semesters);
-        listsList.add(times);
-        listsList.add(professors);
-        choiceBoxes=new ArrayList<>();
-        choiceBoxes.add(subjectChoice);
-        choiceBoxes.add(courseChoice);
-        choiceBoxes.add(semesterChoice);
-        choiceBoxes.add(timeChoice);
-        choiceBoxes.add(professorChoice);
-        CollectionReference root= SchoolRegistrarApplication.fstore.collection("classes");
-        ApiFuture<QuerySnapshot> future = root.get();
-        List<QueryDocumentSnapshot> documents;
-        try {
-            documents = future.get().getDocuments();
-            System.out.println("Getting (reading) data from firebase database....");
-            for (QueryDocumentSnapshot document : documents) {
-                listsList.get(0).add(document.getId());
-            }
 
-            List<CollectionReference> collections = new ArrayList<>();
-            choiceBoxes.get(0).getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-                @Override
-                public void changed(ObservableValue<? extends Number> observableValue, Number value, Number newValue) {
-//                    deleteFuture(1);
-                    DocumentReference document = documents.get(newValue.intValue()).getReference();
-                    Iterable<CollectionReference> crs = document.listCollections();
-                    crs.forEach(collections::add);
-                    for (CollectionReference cr : collections) {
-                        listsList.get(1).add(cr.getId());
-                    }
-                }
-            });
+        readSubjects();
+        subjectChoice.setOnAction(event -> {
+            selectedSubject = subjectChoice.getSelectionModel().getSelectedItem();
+            courseChoice.getItems().clear();
+            readCourses(selectedSubject);
+        });
 
-            List<DocumentReference> docs = new ArrayList<>();
-            choiceBoxes.get(1).getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-                @Override
-                public void changed(ObservableValue<? extends Number> observableValue, Number value, Number newValue) {
-//                    deleteFuture(2);
-                    CollectionReference collection = collections.get(newValue.intValue());
-                    Iterable<DocumentReference> drs = collection.listDocuments();
-                    drs.forEach(docs::add);
 
-                    for (DocumentReference dr : docs) {
-                        listsList.get(2).add(dr.getId());
-                    }
-                }
-            });
-            choiceBoxes.get(2).getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-                @Override
-                public void changed(ObservableValue<? extends Number> observableValue, Number value, Number newValue) {
-//                    deleteFuture(3);
-                    DocumentReference document = docs.get(newValue.intValue());
-                    Iterable<CollectionReference> crs = document.listCollections();
-                    collections.clear();
-                    crs.forEach(collections::add);
-                    for (CollectionReference cr : collections) {
-                        listsList.get(3).add(cr.getId());
-                    }
-                }
-            });
-            choiceBoxes.get(3).getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
-                @Override
-                public void changed(ObservableValue<? extends Number> observableValue, Number value, Number newValue) {
-//                    deleteFuture(4);
-                    CollectionReference collection = collections.get(newValue.intValue());
-                    Iterable<DocumentReference> drs = collection.listDocuments();
-                    docs.clear();
-                    drs.forEach(docs::add);
 
-                    for (DocumentReference dr : docs) {
-                        listsList.get(4).add(dr.getId());
-                    }
-                }
-            });
-
-        }
-        catch (InterruptedException | ExecutionException ex){
-            ex.printStackTrace();
-        }
     }
+
     public void handleHomeMenuButtonClicked() throws IOException {
         LoginController.dashboardChooser(LoginController.type);
+    }
+
+    public boolean readSubjects() {
+        key = false;
+        ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("departments").get();
+        List<QueryDocumentSnapshot> documents;
+        try
+        {
+            documents = future.get().getDocuments();
+            if(!documents.isEmpty())
+            {
+                for (QueryDocumentSnapshot doc : documents) {
+                    subjectChoice.getItems().add(doc.getId());
+                }
+            }
+            else
+            {
+                System.out.println("No data");
+            }
+            key=true;
+
+        }
+        catch (InterruptedException | ExecutionException ex)
+        {
+            ex.printStackTrace();
+        }
+        return key;
+    }
+
+    public boolean readCourses(String subject) {
+        key = false;
+        ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("courses").get();
+        List<QueryDocumentSnapshot> documents;
+        try
+        {
+            documents = future.get().getDocuments();
+            if(!documents.isEmpty())
+            {
+                for (QueryDocumentSnapshot doc : documents) {
+                    if (doc.getId().substring(0, 3).equals(subject)) {
+                        courseChoice.getItems().add(doc.getData().get("Course Name").toString());
+                    }
+                }
+            }
+            else
+            {
+                System.out.println("No data");
+            }
+            key=true;
+
+        }
+        catch (InterruptedException | ExecutionException ex)
+        {
+            ex.printStackTrace();
+        }
+        return key;
     }
 }

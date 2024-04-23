@@ -59,7 +59,7 @@ public class LoginController {
     static void dashboardChooser(String user) throws IOException {
         switch (user) {
             case "Student":
-                SchoolRegistrarApplication.openNewStage(".fxml", "Student Dashboard");
+                SchoolRegistrarApplication.openNewStage("studentregistration.fxml", "Student Dashboard");
                 break;
             case "Professor":
                 SchoolRegistrarApplication.openNewStage("professordashboard.fxml", "Professor Dashboard");
@@ -93,7 +93,9 @@ public class LoginController {
                                             , document.getData().get("Last Name").toString()
                                             , Integer.parseInt(document.getData().get("ID").toString()));
                                 } else if (type.equals("Student")) {
-                                    //Student dashboard should have an instance of user like administrator/professor which gets defined here
+                                    StudentRegistrationController.user = new Student(document.getData().get("First Name").toString()
+                                            , document.getData().get("Last Name").toString()
+                                            , Integer.parseInt(document.getData().get("ID").toString()));
                                 }
                                 dashboardChooser(type);
                             }
