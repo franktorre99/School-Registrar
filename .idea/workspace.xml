@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Student registration search function working if student doesnt select a time or professor">
+    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Student registration reads professors from firestore">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/RegisterSection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddSectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddSectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ProfessorDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ProfessorDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Section.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentRegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addsection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addsection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/studentregistration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/studentregistration.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +225,7 @@
       <workItem from="1713878768424" duration="1129000" />
       <workItem from="1713894116598" duration="4020000" />
       <workItem from="1713904467694" duration="8088000" />
-      <workItem from="1713912937943" duration="2619000" />
+      <workItem from="1713912937943" duration="2246000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -356,15 +363,7 @@
       <option name="project" value="LOCAL" />
       <updated>1713897811164</updated>
     </task>
-    <task id="LOCAL-00018" summary="Student registration search function working if student doesnt select a time or professor">
-      <option name="closed" value="true" />
-      <created>1713915252128</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1713915252128</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,8 +409,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="Student registration reads from firestore and changes course options based on subject chosen" />
     <MESSAGE value="Student registration reads professors from firestore" />
-    <MESSAGE value="Student registration search function working if student doesnt select a time or professor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Student registration search function working if student doesnt select a time or professor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Student registration reads professors from firestore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
