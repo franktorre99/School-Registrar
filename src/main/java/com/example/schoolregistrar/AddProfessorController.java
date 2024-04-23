@@ -21,23 +21,17 @@ public class AddProfessorController {
     @FXML private TextField emailTextField;
     @FXML private PasswordField passwordTextField;
     @FXML private Label idLabel;
-
+    private int id;
     private String userID="";
 
     public void handleAdd() {
         addProfessor();
-        SchoolRegistrarApplication.openNewStage("administratordashboard.fxml","Home");
-
-    private int id;
+        addID();
+        SchoolRegistrarApplication.openNewStage("administratordashboard.fxml", "Home");
+    }
 
     public void initialize() {
         ValidateID.readIDs();
-    }
-
-    public void handleAdd() {
-        addProfessor();
-        addID();
-
     }
 
     public void handleGenerateID() {

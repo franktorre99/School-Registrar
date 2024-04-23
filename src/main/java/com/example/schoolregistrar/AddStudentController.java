@@ -20,23 +20,17 @@ public class AddStudentController {
     @FXML private TextField emailTextField;
     @FXML private PasswordField passwordTextField;
     @FXML private Label idLabel;
-
+    private int id;
     private String userID;
 
     public void handleAdd() {
-        addProfessor();
-        SchoolRegistrarApplication.openNewStage("administratordashboard.fxml","Home");
-
-    private int id;
+        addStudent();
+        addID();
+        SchoolRegistrarApplication.openNewStage("administratordashboard.fxml", "Home");
+    }
 
     public void initialize() {
         ValidateID.readIDs();
-    }
-
-    public void handleAdd() {
-        addProfessor();
-        addID();
-
     }
 
     public void handleGenerateID() {
@@ -44,7 +38,7 @@ public class AddStudentController {
         idLabel.setText(String.valueOf(id));
     }
 
-    public void addProfessor() {
+    public void addStudent() {
         UserRecord.CreateRequest request = new UserRecord.CreateRequest()
                 .setEmail(emailTextField.getText())
                 .setEmailVerified(false)

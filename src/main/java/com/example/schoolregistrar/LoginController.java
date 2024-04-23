@@ -83,9 +83,21 @@ public class LoginController {
                  if (userEmail.getText().equals(user.getEmail().substring(0, user.getEmail().indexOf("@")))) {
                     for (QueryDocumentSnapshot document : documents) {
                         if (user.getUid().equals(document.getData().get("UID"))) {
-                            if (userPassword.getText().equals(document.getData().get("password")))
-                                System.out.println("User signed in");
-                            dashboardChooser(type);
+                            if (userPassword.getText().equals(document.getData().get("password"))) {
+                                if (type.equals("Professor")) {
+                                    ProfessorDashboardController.user = new Professor(document.getData().get("First Name").toString()
+                                            , document.getData().get("Last Name").toString()
+                                            , Integer.parseInt(document.getData().get("ID").toString()));
+                                    dashboardChooser(type);
+                                } else if (type.equals("Administrator")) {
+                                    AdministratorDashboardController.user = new Administrator(document.getData().get("First Name").toString()
+                                            , document.getData().get("Last Name").toString()
+                                            , Integer.parseInt(document.getData().get("ID").toString()));
+                                    dashboardChooser(type);
+                                } else if (type.equals("Student")) {
+                                    //Student dashboard should have an instance of user like administrator/professor which gets defined here
+                                }
+                            }
                         }
                     }
                 }
