@@ -54,7 +54,6 @@ public class StudentRegistrationController {
     private TableColumn<RegisterSection, String> timeColumn;
     @FXML
     private TableColumn<RegisterSection, String> professorColumn;
-    public static Student user;
     static boolean key;
     private String selectedSubject;
     private String selectedCourse;

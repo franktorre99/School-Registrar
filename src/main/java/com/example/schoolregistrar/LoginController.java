@@ -93,7 +93,7 @@ public class LoginController {
                                             , document.getData().get("Last Name").toString()
                                             , Integer.parseInt(document.getData().get("ID").toString()));
                                 } else if (type.equals("Student")) {
-                                    StudentRegistrationController.user = new Student(document.getData().get("First Name").toString()
+                                    StudentDashboardController.user = new Student(document.getData().get("First Name").toString()
                                             , document.getData().get("Last Name").toString()
                                             , Integer.parseInt(document.getData().get("ID").toString()));
                                 }
