@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Fixed some issues, everything is connected again">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" afterDir="false" />
+    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Added Student Dashboard Code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/professordashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/professordashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/AddAssignmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/AddAssignmentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/FirestoreContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/FirestoreContext.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,10 +36,24 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Firebase-Stuff" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+    &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;franktorre99&quot;
+    }
+    }</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="fa894789-6d9a-495d-b040-3fcb3ab35ecc" />
+        <option name="url" value="https://github.com/franktorre99/School-Registrar.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -47,39 +66,44 @@
     </option>
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
-}</component>
+    &quot;associatedIndex&quot;: 1
+    }</component>
   <component name="ProjectId" id="2dvq11q6c6NR2LqXKfyllk3Kxdt" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
-    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/erik/Desktop/CSC 325/SchoolRegistrar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Run School Registrar.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "studentDashboard",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/dt/IdeaProjects/School-Registrar/target/classes/com/example/schoolregistrar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/target/classes/com/example/schoolregistrar" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar" />
       <recent name="$PROJECT_DIR$" />
@@ -90,7 +114,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Run School Registrar" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/corretto-21.0.2" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.example.schoolregistrar.SchoolRegistrarApplication" />
       <module name="SchoolRegistrar" />
@@ -207,15 +231,17 @@
       <workItem from="1712356083313" duration="8000" />
       <workItem from="1712356115963" duration="14000" />
       <workItem from="1712356157152" duration="20000" />
-      <workItem from="1713408877609" duration="113000" />
-      <workItem from="1713463283703" duration="1506000" />
-      <workItem from="1713533196117" duration="21000" />
-      <workItem from="1713535893250" duration="14000" />
-      <workItem from="1713629118140" duration="149000" />
-      <workItem from="1713629275069" duration="30000" />
-      <workItem from="1713629322179" duration="1662000" />
-      <workItem from="1713640946682" duration="841000" />
-      <workItem from="1713878768424" duration="1129000" />
+      <workItem from="1712358467445" duration="321000" />
+      <workItem from="1712358806345" duration="910000" />
+      <workItem from="1712360009902" duration="5483000" />
+      <workItem from="1712367758067" duration="258000" />
+      <workItem from="1712422087880" duration="302000" />
+      <workItem from="1712423083686" duration="1448000" />
+      <workItem from="1713582283189" duration="58000" />
+      <workItem from="1713666881934" duration="646000" />
+      <workItem from="1713667709086" duration="6437000" />
+      <workItem from="1713833771416" duration="2852000" />
+      <workItem from="1713905311753" duration="1948000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -313,21 +339,21 @@
       <option name="project" value="LOCAL" />
       <updated>1712202872302</updated>
     </task>
-    <task id="LOCAL-00013" summary="ID will be regenerated if its in collection on firestore">
+    <task id="LOCAL-00013" summary="Added code to announcement class, coded demo">
       <option name="closed" value="true" />
-      <created>1713630979947</created>
+      <created>1712366767182</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1713630979947</updated>
+      <updated>1712366767182</updated>
     </task>
-    <task id="LOCAL-00014" summary="Fixed some issues, everything is connected again">
+    <task id="LOCAL-00014" summary="Added code to announcement class, coded demo">
       <option name="closed" value="true" />
-      <created>1713879580221</created>
+      <created>1712367939497</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1713879580221</updated>
+      <updated>1712367939497</updated>
     </task>
     <option name="localTasksCounter" value="15" />
     <servers />
@@ -369,12 +395,14 @@
     <MESSAGE value="Little bit of cleanup (no big changes)" />
     <MESSAGE value="Classes added" />
     <MESSAGE value="Small update to classes" />
-    <MESSAGE value="ID will be regenerated if its in collection on firestore" />
-    <MESSAGE value="Fixed some issues, everything is connected again" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some issues, everything is connected again" />
+    <MESSAGE value="Added code to announcement class, coded demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added code to announcement class, coded demo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/School_Registrar_main$Run_School_Registrar.ic" NAME="Run School Registrar Coverage Results" MODIFIED="1713835521447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
