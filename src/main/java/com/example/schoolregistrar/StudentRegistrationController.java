@@ -61,6 +61,7 @@ public class StudentRegistrationController {
     static boolean key;
     private String selectedSubject;
     private String selectedCourse;
+    private String selectedCourseName;
     private String selectedTime;
     private String selectedProfessor;
     private String selectedSemester;
@@ -205,6 +206,7 @@ public class StudentRegistrationController {
                 for (MenuItem item : courseChoice.getItems()) {
                     item.setOnAction(e -> {
                         selectedCourse = item.getText().substring(0, 7);
+                        selectedCourseName = item.getText().substring(8);
                         courseChoice.setText(item.getText().substring(8));
                     });
                 }
@@ -390,6 +392,8 @@ public class StudentRegistrationController {
 
         Map<String, Object> data = new HashMap<>();
         data.put("CRN", registerSection);
+        data.put("Department", selectedCourse.substring(0, 3));
+        data.put("Course Number", selectedCourse.substring(4, 7));
         data.put("Course Name", registerCourse);
         data.put("Time", registerTime);
         data.put("Semester", registerSemester);

@@ -46,24 +46,25 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="579.0" prefWidth="608.0" VBox.vgrow="ALWAYS">
       <children>
             <Button layoutX="28.0" layoutY="539.0" mnemonicParsing="false" onAction="#handleRegisterForClasses" text="Register  For Classes" />
-            <Label layoutX="33.0" layoutY="21.0" text="View Recent Grades">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TableView fx:id="gradetable" layoutX="33.0" layoutY="55.0" prefHeight="200.0" prefWidth="557.0">
-              <columns>
-                <TableColumn fx:id="classname" prefWidth="117.0" text="Class Name" />
-                <TableColumn fx:id="assignment" prefWidth="345.0" text="Assignment" />
-                  <TableColumn fx:id="grade" minWidth="0.0" prefWidth="94.0" text="Grade" />
-              </columns>
-            </TableView>
-            <ListView fx:id="scheduleList" layoutX="28.0" layoutY="317.0" prefHeight="200.0" prefWidth="557.0" />
-            <Label layoutX="28.0" layoutY="273.0" text="Schedule">
+            <Label layoutX="28.0" layoutY="14.0" text="Upcoming Assignments">
                <font>
                   <Font name="AppleGothic Regular" size="23.0" />
                </font>
             </Label>
+            <Button layoutX="28.0" layoutY="501.0" mnemonicParsing="false" onAction="#handleViewSchedule" text="View Schedule" />
+            <TableView fx:id="upcomingAssignmentsTable" layoutX="28.0" layoutY="56.0" prefHeight="200.0" prefWidth="559.0">
+               <columns>
+                  <TableColumn fx:id="dateTableColumn" prefWidth="88.0" text="Date" />
+                  <TableColumn fx:id="nameTableColumn" prefWidth="378.0" text="Name" />
+                  <TableColumn fx:id="timeTableColumn" prefWidth="93.0" text="Time" />
+               </columns>
+            </TableView>
+            <Label layoutX="28.0" layoutY="275.0" text="Announcements">
+               <font>
+                  <Font name="AppleGothic Regular" size="20.0" />
+               </font>
+            </Label>
+            <ListView fx:id="announcementList" layoutX="28.0" layoutY="314.0" prefHeight="172.0" prefWidth="559.0" />
       </children>
     </AnchorPane>
   </children>
