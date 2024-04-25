@@ -35,7 +35,7 @@ public class AddAnnouncementController {
                 .document(nameTextField.getText());
 
         Map<String, Object> data = new HashMap<>();
-        data.put("Name", nameTextField.getText());
+        data.put("Name", selectedCourse + " " + nameTextField.getText());
         data.put("Description", descriptionTextArea.getText());
 
         ApiFuture<WriteResult> result = docRef.set(data);
