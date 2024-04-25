@@ -19,6 +19,7 @@ public class StudentDashboardController {
 
     @FXML private TableView<UpcomingAssignment> gradeTable;
     @FXML private ListView<String> gradeList;
+    @FXML private ListView<RegisterSection> scheduleList;
     static boolean key;
     public static Student user;
 
@@ -29,9 +30,6 @@ public class StudentDashboardController {
 
     @FXML
     public void initialize() {
-
-        System.out.println(user.toString());
-
         userID = Integer.toString(user.getId());
 
         readSchedule();
@@ -40,8 +38,10 @@ public class StudentDashboardController {
 
         System.out.println("ToString: ");
         System.out.println(grades.toString());
+    }
 
-
+    public void handleRegisterForClasses() {
+        SchoolRegistrarApplication.openNewStage("studentregistration.fxml", "Register for Courses");
     }
 
 
@@ -78,32 +78,24 @@ public class StudentDashboardController {
 
     public boolean readSchedule() {
         key = false;
-        ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("ids").document(userID).collection("Next Semester Schedule").get();
+        ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("ids").document(userID).collection("schedule").get();
         List<QueryDocumentSnapshot> documents;
-        try
-        {
+        try {
             documents = future.get().getDocuments();
-            if(!documents.isEmpty())
-            {
+            if(!documents.isEmpty()) {
                 for (QueryDocumentSnapshot doc : documents) {
-                    System.out.println(doc.getId());
-                    System.out.println(doc.getData().toString());
+
                 }
             }
-            else
-            {
+            else {
                 System.out.println("No data");
             }
-            key=true;
 
+            key=true;
         }
-        catch (InterruptedException | ExecutionException ex)
-        {
+        catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
         }
         return key;
     }
-
-
-
 }
