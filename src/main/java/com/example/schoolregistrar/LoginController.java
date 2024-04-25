@@ -93,7 +93,9 @@ public class LoginController {
                                             , document.getData().get("Last Name").toString()
                                             , Integer.parseInt(document.getData().get("ID").toString()));
                                 } else if (type.equals("Student")) {
-                                    //Student dashboard should have an instance of user like administrator/professor which gets defined here
+                                    StudentDashboardController.user = new Student(document.getData().get("First Name").toString()
+                                            , document.getData().get("Last Name").toString()
+                                            , Integer.parseInt(document.getData().get("ID").toString()));
                                 }
                                 dashboardChooser(type);
                             }

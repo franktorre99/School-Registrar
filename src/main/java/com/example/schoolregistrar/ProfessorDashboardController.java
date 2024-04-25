@@ -76,7 +76,8 @@ public class ProfessorDashboardController {
                                 , Integer.parseInt(doc.getData().get("CRN").toString())
                                 , new Professor(doc.getData().get("Professor First Name").toString()
                                 , doc.getData().get("Professor Last Name").toString()
-                                , Integer.parseInt(doc.getData().get("Professor ID").toString()))));
+                                , Integer.parseInt(doc.getData().get("Professor ID").toString()))
+                                , doc.getData().get("Semester").toString()));
 
                     }
                 }
@@ -97,7 +98,9 @@ public class ProfessorDashboardController {
 
     public boolean readAssignments(String course, String section) {
         key = false;
-        ApiFuture<QuerySnapshot> future = SchoolRegistrarApplication.fstore.collection("courses").document(course).collection("sections").document(section).collection("assignments").get();
+        ApiFuture<QuerySnapshot> future = SchoolRegistrarApplication.fstore.collection("courses")
+                .document(course).collection("sections")
+                .document(section).collection("assignments").get();
         List<QueryDocumentSnapshot> documents;
         try {
             documents = future.get().getDocuments();

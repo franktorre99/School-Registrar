@@ -6,12 +6,14 @@ public class Section {
     private Course course;
     private int crn;
     private Professor professor;
+    private String semester;
     private ArrayList<Student> roster;
 
-    public Section(Course course, int crn, Professor professor) {
+    public Section(Course course, int crn, Professor professor, String semester) {
         this.course = new Course(course);
         this.crn = crn;
         this.professor = professor;
+        this.semester = semester;
     }
 
     public int getCrn() {
@@ -36,6 +38,14 @@ public class Section {
 
     public void setCourse(Course course) {
         this.course = new Course(course);
+    }
+
+    public String getSemester() {
+        return this.semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
     }
 
     public ArrayList<Student> getRoster() {

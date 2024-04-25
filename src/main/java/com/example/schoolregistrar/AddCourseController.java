@@ -70,8 +70,8 @@ public class AddCourseController {
                 .document(selectedDepartment + " " + courseNumberTextField.getText());
 
         Map<String, Object> data = new HashMap<>();
-        data.put("CourseName", courseNameTextField.getText());
-        data.put("CourseNumber", Integer.parseInt(courseNumberTextField.getText()));
+        data.put("Course Name", courseNameTextField.getText());
+        data.put("Course Number", Integer.parseInt(courseNumberTextField.getText()));
         data.put("Department", selectedDepartment);
 
         ApiFuture<WriteResult> result = docRef.set(data);
