@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SubmitFinalGradesController {
     @FXML private MenuButton selectSection;
@@ -26,6 +28,7 @@ public class SubmitFinalGradesController {
     private String selectedCourse;
     private String selectedCourseName;
     private String selectedGrade;
+    private String selectedSemester;
     static boolean key;
 
     public void initialize() {
@@ -35,15 +38,26 @@ public class SubmitFinalGradesController {
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("firstName"));
 
         for (Section section : ProfessorDashboardController.user.getSectionsTaught()) {
-            selectSection.getItems().add(new MenuItem(section.getCrn() + " " + section.getCourse().toString()));
+            selectSection.getItems().add(new MenuItem(section.getSemester() + " " + section.getCrn() + " " + section.getCourse().toString()));
         }
 
         for (MenuItem item : selectSection.getItems()) {
             item.setOnAction(e -> {
                 rosterTable.getItems().clear();
-                selectedSection = item.getText().substring(0, 5);
-                selectedCourse = item.getText().substring(6, 13);
-                selectedCourseName = item.getText().substring(14);
+                int secondSpaceIndex = item.getText().indexOf(' ', item.getText().indexOf(' ') + 1);
+                selectedSemester = item.getText().substring(0, secondSpaceIndex);
+                Pattern pattern = Pattern.compile("\\b\\d{5}\\b");
+                Matcher matcher = pattern.matcher(item.getText());
+                if (matcher.find()) {
+                    selectedSection = matcher.group();
+                }
+                pattern = Pattern.compile("\\b[A-Za-z]{3}\\s\\d{3}\\b");
+                matcher = pattern.matcher(item.getText());
+                if (matcher.find()) {
+                    selectedCourse = matcher.group();
+                    int endIndex = matcher.end();
+                    selectedCourseName = item.getText().substring(endIndex).trim();
+                }
                 readRoster(selectedCourse, selectedSection);
                 selectSection.setText(item.getText());
             });
@@ -103,6 +117,7 @@ public class SubmitFinalGradesController {
         data.put("CRN", selectedSection);
         data.put("Course Name", selectedCourseName);
         data.put("Grade", selectedGrade);
+        data.put("Semester", selectedSemester);
 
         ApiFuture<WriteResult> result = docRef.set(data);
     }
