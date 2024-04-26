@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Merge pull request #15 from franktorre99/erik&#10;&#10;Erik">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/SubmitFinalGradesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/submitfinalgrades.fxml" afterDir="false" />
+    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Submit final grade working">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/FinalGradesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Grade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/finalgrades.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ProfessorDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ProfessorDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/professordashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/professordashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentRegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/SubmitFinalGradesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/SubmitFinalGradesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addgrade.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addsection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addsection.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/studentdashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/studentdashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/addgrade.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +263,14 @@
       <workItem from="1714005998390" duration="9879000" />
       <workItem from="1714056926407" duration="10000" />
       <workItem from="1714057302485" duration="2969000" />
-      <workItem from="1714066487466" duration="616000" />
+      <workItem from="1714066487466" duration="2851000" />
+      <workItem from="1714069445618" duration="1000" />
+      <workItem from="1714069534077" duration="6000" />
+      <workItem from="1714069661587" duration="179000" />
+      <workItem from="1714070279256" duration="697000" />
+      <workItem from="1714071072371" duration="57000" />
+      <workItem from="1714089710290" duration="236000" />
+      <workItem from="1714090488895" duration="2033000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -387,7 +400,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714057869714</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Submit final grade working">
+      <option name="closed" value="true" />
+      <created>1714067334771</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1714067334771</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,7 +452,8 @@
     <MESSAGE value="Student registration fully working&#10;(If I have time I'll add code to make sure you can't register for the same section twice)" />
     <MESSAGE value="Student dashboard working" />
     <MESSAGE value="Merge pull request #15 from franktorre99/erik&#10;&#10;Erik" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge pull request #15 from franktorre99/erik&#10;&#10;Erik" />
+    <MESSAGE value="Submit final grade working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Submit final grade working" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
