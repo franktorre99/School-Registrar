@@ -5,28 +5,49 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
+import com.google.firebase.auth.ExportedUserRecord;
+import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.ListUsersPage;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import static com.example.schoolregistrar.LoginController.userSetter;
+
+//Does not correctly go to dashboard, fix this
+
 public class ForgotPasswordController {
+    @FXML
+    private VBox labels;
     @FXML
     private Label badPassword;
     @FXML
-    private TextField newPassword;
+    private PasswordField newPassword;
     @FXML
-    private TextField verification;
+    private PasswordField verification;
     @FXML
     private Label invalidPassword;
     @FXML
     private Label incorrectMessage;
     @FXML
     private TextField user;
+    @FXML
+    private Button setPassword;
 
-    public void handleSetNewPasswordButtonClicked() throws IOException {
+    public void initialize(){
+        setPassword.disableProperty().bind(user.textProperty().isEmpty().or(newPassword.textProperty().isEmpty().or(verification.textProperty().isEmpty())));
+    }
+
+
+    public void handleSetNewPasswordButtonClicked() throws IOException, FirebaseAuthException {
         if(isAUser()&&newPassword.getText().equals(verification.getText())&&newPassword.getText().matches("^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$")){
             changePassword();
             LoginController.dashboardChooser(LoginController.type);
@@ -39,25 +60,22 @@ public class ForgotPasswordController {
             verification.clear();
         }
     }
-    private boolean isAUser(){
+    private boolean isAUser() throws FirebaseAuthException {
         LoginController.key=false;
+        ListUsersPage page = SchoolRegistrarApplication.fauth.listUsers(null);
         ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("users").document("BqVyZx5WE4qULEQy7GXh").collection(LoginController.type.toLowerCase()+"s").get();
         List<QueryDocumentSnapshot> documents;
-        try
-        {
+        try {
             documents = future.get().getDocuments();
-            if(!documents.isEmpty())
-            {
-                System.out.println("Getting (reading) data from firebase database....");
-                for (QueryDocumentSnapshot document : documents) {
-                        if(document.getData().get("email").equals(user.getText())){
+            for (ExportedUserRecord userF : page.iterateAll()) {
+                if (user.getText().equals(userF.getEmail())) {
+                    for (QueryDocumentSnapshot document : documents) {
+                        if (userF.getUid().equals(document.getData().get("UID"))) {
+                            LoginController.userSetter(document);
                             return true;
                         }
+                    }
                 }
-            }
-            else
-            {
-                System.out.println("No data");
             }
         }
         catch (InterruptedException | ExecutionException ex){

@@ -9,11 +9,16 @@ import com.google.firebase.auth.ListUsersPage;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class LoginController {
+    @FXML
+    private VBox title;
     @FXML
     private ChoiceBox<String> userType;
     @FXML
@@ -71,7 +76,21 @@ public class LoginController {
                 System.out.println("Logic error");
         }
     }
-
+    static void userSetter(QueryDocumentSnapshot document){
+        if (type.equals("Professor")) {
+            ProfessorDashboardController.user = new Professor(document.getData().get("First Name").toString()
+                    , document.getData().get("Last Name").toString()
+                    , Integer.parseInt(document.getData().get("ID").toString()));
+        } else if (type.equals("Administrator")) {
+            AdministratorDashboardController.user = new Administrator(document.getData().get("First Name").toString()
+                    , document.getData().get("Last Name").toString()
+                    , Integer.parseInt(document.getData().get("ID").toString()));
+        } else if (type.equals("Student")) {
+            StudentDashboardController.user = new Student(document.getData().get("First Name").toString()
+                    , document.getData().get("Last Name").toString()
+                    , Integer.parseInt(document.getData().get("ID").toString()));
+        }
+    }
     public void readFirebase() throws FirebaseAuthException {
         key = false;
         ListUsersPage page = SchoolRegistrarApplication.fauth.listUsers(null);
@@ -84,19 +103,7 @@ public class LoginController {
                     for (QueryDocumentSnapshot document : documents) {
                         if (user.getUid().equals(document.getData().get("UID"))) {
                             if (userPassword.getText().equals(document.getData().get("password"))) {
-                                if (type.equals("Professor")) {
-                                    ProfessorDashboardController.user = new Professor(document.getData().get("First Name").toString()
-                                            , document.getData().get("Last Name").toString()
-                                            , Integer.parseInt(document.getData().get("ID").toString()));
-                                } else if (type.equals("Administrator")) {
-                                    AdministratorDashboardController.user = new Administrator(document.getData().get("First Name").toString()
-                                            , document.getData().get("Last Name").toString()
-                                            , Integer.parseInt(document.getData().get("ID").toString()));
-                                } else if (type.equals("Student")) {
-                                    StudentDashboardController.user = new Student(document.getData().get("First Name").toString()
-                                            , document.getData().get("Last Name").toString()
-                                            , Integer.parseInt(document.getData().get("ID").toString()));
-                                }
+                                userSetter(document);
                                 dashboardChooser(type);
                             }
                         }

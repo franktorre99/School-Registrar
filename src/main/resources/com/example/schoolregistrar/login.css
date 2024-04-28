@@ -1,5 +1,5 @@
 .root{
-    -fx-background-color: white;
+    -fx-background-color: #FF00FF;
 }
 #userEmail{
     -fx-background-image: url("https://i.fbcd.co/products/resized/resized-750-500/s002e-7-e05-mainpreview-b23f673475645a745491dfae3b88bd836be9506e268cb6b300fc75f8d2054c7e.jpg");
@@ -13,5 +13,16 @@
     -fx-background-repeat: no-repeat;
 }
 #title{
-    -fx-font-weight: bold
+    -fx-font-weight: bold;
+    -fx-background-color: teal;
+}
+#label{
+    -fx-font-size: 20;
+}
+#types{
+    -fx-background-color:teal
+}
+.button{
+    -fx-background-color: #1111FF;
+    -fx-text-fill: white;
 }

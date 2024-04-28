@@ -69,7 +69,12 @@ public class AddProfessorController {
         data.put("First Name", firstNameTextField.getText());
         data.put("Last Name", lastNameTextField.getText());
         data.put("UID", userID);
-        data.put("email", emailTextField.getText());
+        if(emailTextField.getText().indexOf("@")==-1){
+            data.put("email",emailTextField.getText()+"@farmingdale.edu");
+        }
+        else {
+            data.put("email", emailTextField.getText());
+        }
         data.put("password", passwordTextField.getText());
         data.put("ID", Integer.parseInt(idLabel.getText()));
 
