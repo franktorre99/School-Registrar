@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Student dashboard working">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/forgotpassword.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddProfessorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddProfessorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddStudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddStudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ForgotPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ForgotPasswordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/forgotpassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/forgotpassword.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/login.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Forgot Password now fully works + CSS files for Login and Forgot Password" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -274,7 +261,7 @@
       <workItem from="1714329013510" duration="1173000" />
       <workItem from="1714330538980" duration="1131000" />
       <workItem from="1714332046357" duration="1901000" />
-      <workItem from="1714334179813" duration="712000" />
+      <workItem from="1714334179813" duration="1016000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -396,7 +383,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714009658617</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Forgot Password now fully works + CSS files for Login and Forgot Password">
+      <option name="closed" value="true" />
+      <created>1714335676656</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1714335676657</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,7 +433,8 @@
     <MESSAGE value="Small update to classes" />
     <MESSAGE value="Added code to announcement class, coded demo" />
     <MESSAGE value="Student registration fully working&#10;(If I have time I'll add code to make sure you can't register for the same section twice)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Student registration fully working&#10;(If I have time I'll add code to make sure you can't register for the same section twice)" />
+    <MESSAGE value="Forgot Password now fully works + CSS files for Login and Forgot Password" />
+    <option name="LAST_COMMIT_MESSAGE" value="Forgot Password now fully works + CSS files for Login and Forgot Password" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
