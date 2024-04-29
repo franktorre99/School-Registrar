@@ -45,7 +45,6 @@ public class StudentRegistrationController {
     static boolean key;
     private String selectedSubject;
     private String selectedCourse;
-    private String selectedCourseName;
     private String selectedTime;
     private String selectedProfessor;
     private String selectedSemester;
@@ -106,6 +105,7 @@ public class StudentRegistrationController {
         timeChoice.getItems().add("3:05 PM - 4:20 PM");
         timeChoice.setOnAction(e -> selectedTime = timeChoice.getSelectionModel().getSelectedItem());
 
+        semesterChoice.getItems().add("Spring 2024");
         semesterChoice.getItems().add("Summer 2024");
         semesterChoice.getItems().add("Fall 2024");
         semesterChoice.getItems().add("Winter 2024");
@@ -190,7 +190,6 @@ public class StudentRegistrationController {
                 for (MenuItem item : courseChoice.getItems()) {
                     item.setOnAction(e -> {
                         selectedCourse = item.getText().substring(0, 7);
-                        selectedCourseName = item.getText().substring(8);
                         courseChoice.setText(item.getText().substring(8));
                     });
                 }

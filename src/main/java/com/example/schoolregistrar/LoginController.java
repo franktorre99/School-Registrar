@@ -99,7 +99,7 @@ public class LoginController {
         try {
             documents = future.get().getDocuments();
             for (ExportedUserRecord user : page.iterateAll()) {
-                 if (userEmail.getText().equals(user.getEmail().substring(0, user.getEmail().indexOf("@")))) {
+                 if (userEmail.getText().equals(user.getEmail())) {
                     for (QueryDocumentSnapshot document : documents) {
                         if (user.getUid().equals(document.getData().get("UID"))) {
                             if (userPassword.getText().equals(document.getData().get("password"))) {

@@ -58,6 +58,10 @@ public class StudentDashboardController {
         SchoolRegistrarApplication.openNewWindow("schedule.fxml", "Schedule");
     }
 
+    public void handleViewFinalGrades() throws IOException {
+        SchoolRegistrarApplication.openNewWindow("finalgrades.fxml", "Final Grades");
+    }
+
     public boolean readAnnouncements(String course, String section) {
         key = false;
         ApiFuture<QuerySnapshot> future = SchoolRegistrarApplication.fstore.collection("courses")
