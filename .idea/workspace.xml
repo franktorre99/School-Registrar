@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Submit final grade working">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/FinalGradesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Grade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/finalgrades.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentRegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/SubmitFinalGradesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/SubmitFinalGradesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addgrade.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addsection.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/addsection.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/studentdashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/schoolregistrar/studentdashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/addgrade.fxml" beforeDir="false" />
-    </list>
+    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Forgot Password now fully works + CSS files for Login and Forgot Password" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -63,7 +51,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+        <option name="mavenHome" value="Use Maven wrapper" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -88,9 +76,10 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;submit-final-grades&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Everett-Hinckley&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/dt/IdeaProjects/School-Registrar/target/classes/com/example/schoolregistrar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/hncklea/IdeaProjects/School-Registrar(1)/src/main/resources/com/example/schoolregistrar/login.fxml&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -129,8 +118,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="jdk-21.0.2-corretto-21.0.2-f644763e9732-67bed3b7" />
+        <option value="jdk-22-openjdk-22-f644763e9732-b0bb8558" />
       </set>
     </attachedChunks>
   </component>
@@ -262,15 +251,17 @@
       <workItem from="1714005918034" duration="33000" />
       <workItem from="1714005998390" duration="9879000" />
       <workItem from="1714056926407" duration="10000" />
-      <workItem from="1714057302485" duration="2969000" />
-      <workItem from="1714066487466" duration="2851000" />
-      <workItem from="1714069445618" duration="1000" />
-      <workItem from="1714069534077" duration="6000" />
-      <workItem from="1714069661587" duration="179000" />
-      <workItem from="1714070279256" duration="697000" />
-      <workItem from="1714071072371" duration="57000" />
-      <workItem from="1714089710290" duration="236000" />
-      <workItem from="1714090488895" duration="2033000" />
+      <workItem from="1714057302485" duration="301000" />
+      <workItem from="1714067996510" duration="25000" />
+      <workItem from="1714068247333" duration="672000" />
+      <workItem from="1714069763258" duration="1267000" />
+      <workItem from="1714256615134" duration="318000" />
+      <workItem from="1714257305824" duration="2069000" />
+      <workItem from="1714259870466" duration="867000" />
+      <workItem from="1714329013510" duration="1173000" />
+      <workItem from="1714330538980" duration="1131000" />
+      <workItem from="1714332046357" duration="1901000" />
+      <workItem from="1714334179813" duration="1016000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -392,23 +383,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714009658617</updated>
     </task>
-    <task id="LOCAL-00016" summary="Merge pull request #15 from franktorre99/erik&#10;&#10;Erik">
+    <task id="LOCAL-00016" summary="Forgot Password now fully works + CSS files for Login and Forgot Password">
       <option name="closed" value="true" />
-      <created>1714057869714</created>
+      <created>1714335676656</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1714057869714</updated>
+      <updated>1714335676657</updated>
     </task>
-    <task id="LOCAL-00017" summary="Submit final grade working">
-      <option name="closed" value="true" />
-      <created>1714067334771</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1714067334771</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,10 +433,8 @@
     <MESSAGE value="Small update to classes" />
     <MESSAGE value="Added code to announcement class, coded demo" />
     <MESSAGE value="Student registration fully working&#10;(If I have time I'll add code to make sure you can't register for the same section twice)" />
-    <MESSAGE value="Student dashboard working" />
-    <MESSAGE value="Merge pull request #15 from franktorre99/erik&#10;&#10;Erik" />
-    <MESSAGE value="Submit final grade working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Submit final grade working" />
+    <MESSAGE value="Forgot Password now fully works + CSS files for Login and Forgot Password" />
+    <option name="LAST_COMMIT_MESSAGE" value="Forgot Password now fully works + CSS files for Login and Forgot Password" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
