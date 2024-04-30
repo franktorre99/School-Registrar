@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,6 +70,10 @@ public class SubmitFinalGradesController {
                 selectGrade.setText(item.getText());
             });
         }
+    }
+
+    public void handleHome() throws IOException {
+        SchoolRegistrarApplication.openNewStage("professordashboard.fxml", "Home");
     }
 
     public void handleSubmit() {

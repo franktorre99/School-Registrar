@@ -12,6 +12,7 @@
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
+      <Button mnemonicParsing="false" onAction="#handleHome" text="Home" />
       <MenuButton fx:id="courseMenu" mnemonicParsing="false" text="Select Course" />
       <TextField fx:id="crnTextField" maxWidth="-Infinity" prefHeight="26.0" prefWidth="96.0" promptText="CRN" />
       <MenuButton fx:id="timeMenu" mnemonicParsing="false" text="Select Time">

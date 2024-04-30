@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -24,7 +25,7 @@ public class AddProfessorController {
     private int id;
     private String userID = "";
 
-    public void handleAdd() {
+    public void handleAdd() throws IOException {
         addProfessor();
         addID();
         SchoolRegistrarApplication.openNewStage("administratordashboard.fxml", "Home");
@@ -32,6 +33,10 @@ public class AddProfessorController {
 
     public void initialize() {
         ValidateID.readIDs();
+    }
+
+    public void handleHome() throws IOException {
+        SchoolRegistrarApplication.openNewStage("administratordashboard.fxml", "Home");
     }
 
     public void handleGenerateID() {

@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -34,6 +35,10 @@ public class FinalGradesController {
                 readSchedule();
             });
         }
+    }
+
+    public void handleHome() throws IOException {
+        SchoolRegistrarApplication.openNewStage("studentdashboard.fxml", "Student Dashboard");
     }
 
     public boolean readSchedule() {

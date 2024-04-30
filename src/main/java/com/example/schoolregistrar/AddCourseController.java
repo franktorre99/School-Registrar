@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +38,10 @@ public class AddCourseController {
         ProfessorDashboardController.coursesAvailable.add(new Course(selectedDepartment
                 , Integer.parseInt(courseNumberTextField.getText())
                 , courseNameTextField.getText()));
+    }
+
+    public void handleHome() throws IOException {
+        SchoolRegistrarApplication.openNewStage("administratordashboard.fxml", "Home");
     }
 
     public boolean readDepartments() {

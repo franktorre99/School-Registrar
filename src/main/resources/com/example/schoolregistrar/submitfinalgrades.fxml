@@ -16,6 +16,7 @@
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
+      <Button mnemonicParsing="false" onAction="#handleHome" text="Home" />
       <Label text="Select Section">
          <font>
             <Font name="AppleGothic Regular" size="23.0" />

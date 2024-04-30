@@ -124,8 +124,8 @@ public class StudentRegistrationController {
         });
     }
 
-    public void handleHomeMenuButtonClicked() throws IOException {
-        LoginController.dashboardChooser(LoginController.type);
+    public void handleHome() throws IOException {
+        SchoolRegistrarApplication.openNewStage("studentdashboard.fxml", "Student Dashboard");
     }
 
     public void handleSearch() {

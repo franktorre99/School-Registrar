@@ -4,10 +4,12 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -18,9 +20,11 @@ public class ScheduleController {
     @FXML private TableColumn<RegisterSection, String> semesterColumn;
     @FXML private TableColumn<RegisterSection, String> timeColumn;
     @FXML private TableColumn<RegisterSection, String> professorColumn;
+    @FXML private Label nameLabel;
     static boolean key;
 
     public void initialize() {
+        nameLabel.setText(StudentDashboardController.user.getFirstName() + " " + StudentDashboardController.user.getLastName());
         crnColumn.setCellValueFactory(new PropertyValueFactory<RegisterSection, String>("crn"));
         courseNameColumn.setCellValueFactory(new PropertyValueFactory<RegisterSection, String>("courseName"));
         semesterColumn.setCellValueFactory(new PropertyValueFactory<RegisterSection, String>("semester"));
@@ -28,6 +32,10 @@ public class ScheduleController {
         professorColumn.setCellValueFactory(new PropertyValueFactory<RegisterSection, String>("professor"));
 
         readSchedule();
+    }
+
+    public void handleHome() throws IOException {
+        SchoolRegistrarApplication.openNewStage("studentdashboard.fxml", "Student Dashboard");
     }
 
     public boolean readSchedule() {

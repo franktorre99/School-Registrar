@@ -5,6 +5,8 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.WriteResult;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,6 +47,10 @@ public class AddAssignmentController {
         pmRadioButton.setOnAction(event -> selectedTimeOfDay = "PM");
 
         getSections(sectionMenu);
+    }
+
+    public void handleHome() throws IOException {
+        SchoolRegistrarApplication.openNewStage("professordashboard.fxml", "Home");
     }
 
     public void handleAddAssignment() {

@@ -10,6 +10,8 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,6 +61,10 @@ public class AddSectionController {
                 professorMenu.setText(selectedProfessor.toString());
             });
         }
+    }
+
+    public void handleHome() throws IOException {
+        SchoolRegistrarApplication.openNewStage("administratordashboard.fxml", "Home");
     }
 
     public void handleAdd() {
