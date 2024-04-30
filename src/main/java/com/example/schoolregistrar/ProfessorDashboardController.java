@@ -49,12 +49,12 @@ public class ProfessorDashboardController {
         SchoolRegistrarApplication.openNewWindow("addassignment.fxml", "New Assignment");
     }
 
-    public void handleAddGradeButton() throws IOException {
-        SchoolRegistrarApplication.openNewWindow("addgrade.fxml", "Add Grade");
-    }
-
     public void handleNewAnnouncement() throws IOException {
         SchoolRegistrarApplication.openNewWindow("addannouncement.fxml", "New Announcement");
+    }
+
+    public void handleSubmitFinalGrades() throws IOException {
+        SchoolRegistrarApplication.openNewWindow("submitfinalgrades.fxml", "Submit Final Grades");
     }
 
     public boolean readSections(Course course) {

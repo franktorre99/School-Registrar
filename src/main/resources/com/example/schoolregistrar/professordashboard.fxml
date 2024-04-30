@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="600.0" spacing="15.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.ProfessorDashboardController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="600.0" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.ProfessorDashboardController">
    <children>
       <Label text="Upcoming Assignments">
          <font>
@@ -53,7 +53,7 @@
             <Insets left="20.0" right="20.0" />
          </VBox.margin>
          <children>
-            <Button mnemonicParsing="false" onAction="#handleAddGradeButton" text="Grade Assignment">
+            <Button mnemonicParsing="false" onAction="#handleSubmitFinalGrades" prefHeight="26.0" prefWidth="135.0" text="Submit Final Grades">
                <HBox.margin>
                   <Insets right="331.5" />
                </HBox.margin>

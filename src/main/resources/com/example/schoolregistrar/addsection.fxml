@@ -26,6 +26,7 @@
       </MenuButton>
       <MenuButton fx:id="semesterMenu" mnemonicParsing="false" text="Select Semester">
          <items>
+            <MenuItem mnemonicParsing="false" text="Spring 2024" />
             <MenuItem mnemonicParsing="false" text="Summer 2024" />
             <MenuItem mnemonicParsing="false" text="Fall 2024" />
             <MenuItem mnemonicParsing="false" text="Winter 2024" />
