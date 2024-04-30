@@ -46,6 +46,9 @@ public class ForgotPasswordController {
         setPassword.disableProperty().bind(user.textProperty().isEmpty().or(newPassword.textProperty().isEmpty().or(verification.textProperty().isEmpty())));
     }
 
+    public void handleBack() throws IOException {
+        SchoolRegistrarApplication.openNewStage("login.fxml", "Login");
+    }
 
     public void handleSetNewPasswordButtonClicked() throws IOException, FirebaseAuthException {
         if(isAUser()&&newPassword.getText().equals(verification.getText())&&newPassword.getText().matches("^(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$")){

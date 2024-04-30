@@ -6,18 +6,22 @@ public class AdministratorDashboardController {
     public static Administrator user;
 
     public void handleAddCourse() throws IOException {
-        SchoolRegistrarApplication.openNewWindow("addcourse.fxml", "Add Course");
+        SchoolRegistrarApplication.openNewStage("addcourse.fxml", "Add Course");
     }
 
     public void handleAddSection() throws IOException {
-        SchoolRegistrarApplication.openNewWindow("addsection.fxml", "Add Section");
+        SchoolRegistrarApplication.openNewStage("addsection.fxml", "Add Section");
     }
 
     public void handleAddProfessor() throws IOException {
-        SchoolRegistrarApplication.openNewWindow("addprofessor.fxml", "Add Professor");
+        SchoolRegistrarApplication.openNewStage("addprofessor.fxml", "Add Professor");
     }
 
     public void handleAddStudent() throws IOException {
-        SchoolRegistrarApplication.openNewWindow("addstudent.fxml", "Add Student");
+        SchoolRegistrarApplication.openNewStage("addstudent.fxml", "Add Student");
+    }
+
+    public void handleLogout() throws IOException {
+        SchoolRegistrarApplication.openNewStage("login.fxml", "Login");
     }
 }

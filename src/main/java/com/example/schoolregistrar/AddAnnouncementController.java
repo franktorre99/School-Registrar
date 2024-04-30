@@ -8,6 +8,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +21,13 @@ public class AddAnnouncementController {
 
     public void initialize() {
         getSections(sectionMenu);
+    }
+
+    public void handleHome() throws IOException {
+        ProfessorDashboardController.upcomingAssignments.clear();
+        ProfessorDashboardController.coursesAvailable.clear();
+        ProfessorDashboardController.announcements.clear();
+        SchoolRegistrarApplication.openNewStage("professordashboard.fxml", "Home");
     }
 
     public void handleAdd() {

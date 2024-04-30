@@ -12,12 +12,17 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="600.0" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.ProfessorDashboardController">
    <children>
+      <Button mnemonicParsing="false" onAction="#handleLogout" text="Logout">
+         <VBox.margin>
+            <Insets left="29.0" right="29.0" top="29.0" />
+         </VBox.margin>
+      </Button>
       <Label text="Upcoming Assignments">
          <font>
             <Font name="AppleGothic Regular" size="20.0" />
          </font>
          <VBox.margin>
-            <Insets left="30.0" top="40.0" />
+            <Insets left="30.0" />
          </VBox.margin>
       </Label>
       <TableView fx:id="upcomingAssignmentsTable" prefHeight="200.0" prefWidth="200.0">
@@ -53,12 +58,12 @@
             <Insets left="20.0" right="20.0" />
          </VBox.margin>
          <children>
-            <Button mnemonicParsing="false" onAction="#handleSubmitFinalGrades" prefHeight="26.0" prefWidth="135.0" text="Submit Final Grades">
+            <Button mnemonicParsing="false" onAction="#handleSubmitFinalGrades" prefHeight="26.0" prefWidth="160.0" text="Submit Final Grades">
                <HBox.margin>
-                  <Insets right="331.5" />
+                  <Insets right="310.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#handleAddAssignmentButton" text="New Assignment" />
+            <Button mnemonicParsing="false" onAction="#handleAddAssignmentButton" prefHeight="26.0" prefWidth="130.0" text="New Assignment" />
          </children>
       </HBox>
    </children>

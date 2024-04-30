@@ -8,9 +8,13 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.ListUsersPage;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
@@ -49,7 +53,7 @@ public class LoginController {
         users.add("Administrator");
     }
 
-    public void handleForgotPasswordLabelClicked() {
+    public void handleForgotPasswordLabelClicked() throws IOException {
         type = userType.getSelectionModel().getSelectedItem();
         user = userEmail.getText();
         SchoolRegistrarApplication.openNewStage("forgotpassword.fxml", "Forgot Password");
@@ -64,7 +68,11 @@ public class LoginController {
     static void dashboardChooser(String user) throws IOException {
         switch (user) {
             case "Student":
-                SchoolRegistrarApplication.openNewStage("studentdashboard.fxml", "Student Dashboard");
+                Parent root = FXMLLoader.load(LoginController.class.getResource("studentdashboard.fxml"));
+                Stage stage = SchoolRegistrarApplication.getStage();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
                 break;
             case "Professor":
                 SchoolRegistrarApplication.openNewStage("professordashboard.fxml", "Professor Dashboard");

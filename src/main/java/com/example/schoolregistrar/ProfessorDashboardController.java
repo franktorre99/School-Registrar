@@ -22,11 +22,17 @@ public class ProfessorDashboardController {
     @FXML private ListView<String> announcementList;
     static boolean key;
     public static Professor user;
-    private ArrayList<UpcomingAssignment> upcomingAssignments = new ArrayList<>();
+    public static ArrayList<UpcomingAssignment> upcomingAssignments = new ArrayList<>();
     public static ArrayList<Course> coursesAvailable = new ArrayList<>();
-    private ArrayList<Announcement> announcements = new ArrayList<>();
+    public static ArrayList<Announcement> announcements = new ArrayList<>();
 
     public void initialize() {
+        upcomingAssignmentsTable.getItems().clear();
+        announcementList.getItems().clear();
+        upcomingAssignments.clear();
+        coursesAvailable.clear();
+        announcements.clear();
+        user.getSectionsTaught().clear();
         dateTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("DueDate"));
         nameTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("Name"));
         timeTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("DueTime"));
@@ -45,16 +51,25 @@ public class ProfessorDashboardController {
         populateAnnouncements(announcements, announcementList);
     }
 
+    public void handleLogout() throws IOException {
+        upcomingAssignmentsTable.getItems().clear();
+        announcementList.getItems().clear();
+        upcomingAssignments.clear();
+        coursesAvailable.clear();
+        announcements.clear();
+        SchoolRegistrarApplication.openNewStage("login.fxml", "Login");
+    }
+
     public void handleAddAssignmentButton() throws IOException {
-        SchoolRegistrarApplication.openNewWindow("addassignment.fxml", "New Assignment");
+        SchoolRegistrarApplication.openNewStage("addassignment.fxml", "New Assignment");
     }
 
     public void handleNewAnnouncement() throws IOException {
-        SchoolRegistrarApplication.openNewWindow("addannouncement.fxml", "New Announcement");
+        SchoolRegistrarApplication.openNewStage("addannouncement.fxml", "New Announcement");
     }
 
     public void handleSubmitFinalGrades() throws IOException {
-        SchoolRegistrarApplication.openNewWindow("submitfinalgrades.fxml", "Submit Final Grades");
+        SchoolRegistrarApplication.openNewStage("submitfinalgrades.fxml", "Submit Final Grades");
     }
 
     public boolean readSections(Course course) {

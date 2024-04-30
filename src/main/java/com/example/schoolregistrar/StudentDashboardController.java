@@ -4,11 +4,17 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,11 +23,11 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class StudentDashboardController {
-    @FXML private TableView<UpcomingAssignment> upcomingAssignmentsTable;
+    @FXML public TableView<UpcomingAssignment> upcomingAssignmentsTable;
     @FXML private TableColumn<UpcomingAssignment, String> dateTableColumn;
     @FXML private TableColumn<UpcomingAssignment, String> nameTableColumn;
     @FXML private TableColumn<UpcomingAssignment, String> timeTableColumn;
-    @FXML private ListView<String> announcementList;
+    @FXML public ListView<String> announcementList;
     static boolean key;
     public static Student user;
     private ArrayList<UpcomingAssignment> upcomingAssignments = new ArrayList<>();
@@ -30,6 +36,12 @@ public class StudentDashboardController {
     private ArrayList<Announcement> announcements = new ArrayList<>();
 
     public void initialize() {
+        upcomingAssignmentsTable.getItems().clear();
+        announcementList.getItems().clear();
+        upcomingAssignments.clear();
+        announcements.clear();
+        courses.clear();
+        crns.clear();
         dateTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("dueDate"));
         nameTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("name"));
         timeTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("dueTime"));
@@ -50,16 +62,30 @@ public class StudentDashboardController {
         populateAnnouncements(announcements, announcementList);
     }
 
-    public void handleRegisterForClasses() {
+    public void handleLogout() throws IOException {
+        upcomingAssignmentsTable.getItems().clear();
+        announcementList.getItems().clear();
+        upcomingAssignments.clear();
+        announcements.clear();
+        courses.clear();
+        crns.clear();
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Stage stage = SchoolRegistrarApplication.getStage();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void handleRegisterForClasses() throws IOException {
         SchoolRegistrarApplication.openNewStage("studentregistration.fxml", "Register for Courses");
     }
 
     public void handleViewSchedule() throws IOException {
-        SchoolRegistrarApplication.openNewWindow("schedule.fxml", "Schedule");
+        SchoolRegistrarApplication.openNewStage("schedule.fxml", "Schedule");
     }
 
     public void handleViewFinalGrades() throws IOException {
-        SchoolRegistrarApplication.openNewWindow("finalgrades.fxml", "Final Grades");
+        SchoolRegistrarApplication.openNewStage("finalgrades.fxml", "Final Grades");
     }
 
     public boolean readAnnouncements(String course, String section) {

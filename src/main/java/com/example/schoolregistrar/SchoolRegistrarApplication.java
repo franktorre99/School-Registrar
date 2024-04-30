@@ -4,6 +4,7 @@ import com.google.cloud.firestore.Firestore;
 import com.google.firebase.auth.FirebaseAuth;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -30,18 +31,13 @@ public class SchoolRegistrarApplication extends Application {
     }
      static Stage getStage(){return stage;}
      static Scene getScene(){return scene;}
-     static void openNewStage(String fileName, String title){
-         FXMLLoader fxmlLoader = new FXMLLoader(SchoolRegistrarApplication.class.getResource(fileName));
+     static void openNewStage(String fileName, String title) throws IOException {
+         Parent root = FXMLLoader.load(SchoolRegistrarApplication.class.getResource(fileName));
          Stage stage = SchoolRegistrarApplication.getStage();
-         Scene scene = SchoolRegistrarApplication.getScene();
-         try {
-             scene.setRoot(fxmlLoader.load());
-             stage.setHeight(600);
-             stage.setWidth(600);
-             stage.setTitle(title);
-         } catch (IOException e) {
-             throw new RuntimeException(e);
-         }
+         Scene scene = new Scene(root);
+         stage.setTitle(title);
+         stage.setScene(scene);
+         stage.show();
      }
 
     static void openNewWindow(String fileName, String title) throws IOException {
