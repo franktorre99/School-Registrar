@@ -5,19 +5,15 @@ import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -42,9 +38,9 @@ public class StudentDashboardController {
         announcements.clear();
         courses.clear();
         crns.clear();
-        dateTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("dueDate"));
-        nameTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("name"));
-        timeTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("dueTime"));
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
+        nameTableColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        timeTableColumn.setCellValueFactory(new PropertyValueFactory<>("dueTime"));
         readSchedule();
 
         Iterator<String> courseIterator = courses.iterator();
@@ -102,11 +98,7 @@ public class StudentDashboardController {
                             , document.getData().get("Description").toString()));
                 }
             }
-            else {
-                System.out.println("No data");
-            }
             key=true;
-
         }
         catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
@@ -129,11 +121,7 @@ public class StudentDashboardController {
                             , document.getData().get("Due Time").toString()));
                 }
             }
-            else {
-                System.out.println("No data");
-            }
             key=true;
-
         }
         catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
@@ -149,22 +137,15 @@ public class StudentDashboardController {
                 .document(user.getFirstName() + " " + user.getLastName())
                 .collection("schedule").get();
         List<QueryDocumentSnapshot> documents;
-        try
-        {
+        try {
             documents = future.get().getDocuments();
-            if(documents.size()>0)
-            {
+            if(documents.size()>0) {
                 for (QueryDocumentSnapshot doc : documents) {
                     crns.add(doc.getData().get("CRN").toString());
                     courses.add(doc.getData().get("Department").toString() + " " + doc.getData().get("Course Number").toString());
                 }
             }
-            else
-            {
-                System.out.println("No data");
-            }
             key=true;
-
         }
         catch (InterruptedException | ExecutionException ex)
         {

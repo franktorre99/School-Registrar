@@ -6,11 +6,9 @@ import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
 import javafx.fxml.FXML;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -75,24 +73,16 @@ public class AddSectionController {
         key = false;
         ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("courses").get();
         List<QueryDocumentSnapshot> documents;
-        try
-        {
+        try {
             documents = future.get().getDocuments();
-            if(!documents.isEmpty())
-            {
+            if(!documents.isEmpty()) {
                 for (QueryDocumentSnapshot doc : documents) {
                     courseMenu.getItems().add(new MenuItem(doc.getId() + " " + doc.getData().get("Course Name")));
                 }
             }
-            else
-            {
-                System.out.println("No data");
-            }
             key=true;
-
         }
-        catch (InterruptedException | ExecutionException ex)
-        {
+        catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
         }
         return key;
@@ -104,24 +94,16 @@ public class AddSectionController {
                 .document("BqVyZx5WE4qULEQy7GXh")
                 .collection("professors").get();
         List<QueryDocumentSnapshot> documents;
-        try
-        {
+        try {
             documents = future.get().getDocuments();
-            if(!documents.isEmpty())
-            {
+            if(!documents.isEmpty()) {
                 for (QueryDocumentSnapshot doc : documents) {
                     professorMenu.getItems().add(new MenuItem(doc.getId() + " " + doc.getData().get("ID")));
                 }
             }
-            else
-            {
-                System.out.println("No data");
-            }
             key=true;
-
         }
-        catch (InterruptedException | ExecutionException ex)
-        {
+        catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
         }
         return key;

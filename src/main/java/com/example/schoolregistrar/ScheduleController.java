@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -25,11 +24,11 @@ public class ScheduleController {
 
     public void initialize() {
         nameLabel.setText(StudentDashboardController.user.getFirstName() + " " + StudentDashboardController.user.getLastName());
-        crnColumn.setCellValueFactory(new PropertyValueFactory<RegisterSection, String>("crn"));
-        courseNameColumn.setCellValueFactory(new PropertyValueFactory<RegisterSection, String>("courseName"));
-        semesterColumn.setCellValueFactory(new PropertyValueFactory<RegisterSection, String>("semester"));
-        timeColumn.setCellValueFactory(new PropertyValueFactory<RegisterSection, String>("time"));
-        professorColumn.setCellValueFactory(new PropertyValueFactory<RegisterSection, String>("professor"));
+        crnColumn.setCellValueFactory(new PropertyValueFactory<>("crn"));
+        courseNameColumn.setCellValueFactory(new PropertyValueFactory<>("courseName"));
+        semesterColumn.setCellValueFactory(new PropertyValueFactory<>("semester"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+        professorColumn.setCellValueFactory(new PropertyValueFactory<>("professor"));
 
         readSchedule();
     }
@@ -56,10 +55,6 @@ public class ScheduleController {
                             doc.getData().get("Professor").toString()));
                 }
             }
-            else {
-                System.out.println("No data");
-            }
-
             key=true;
         }
         catch (InterruptedException | ExecutionException ex) {

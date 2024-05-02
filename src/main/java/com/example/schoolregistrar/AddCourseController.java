@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -48,8 +47,7 @@ public class AddCourseController {
         key = false;
         ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("departments").get();
         List<QueryDocumentSnapshot> documents;
-        try
-        {
+        try {
             documents = future.get().getDocuments();
             if(!documents.isEmpty())
             {
@@ -57,15 +55,9 @@ public class AddCourseController {
                     departmentMenu.getItems().add(new MenuItem(doc.getId()));
                 }
             }
-            else
-            {
-                System.out.println("No data");
-            }
             key=true;
-
         }
-        catch (InterruptedException | ExecutionException ex)
-        {
+        catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
         }
         return key;

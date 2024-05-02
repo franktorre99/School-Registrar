@@ -11,7 +11,6 @@ import java.io.IOException;
 public class FirestoreContext {
     public Firestore firebase() {
         try {
-
             FileInputStream serviceAccount =
                     new FileInputStream("key.json");
 

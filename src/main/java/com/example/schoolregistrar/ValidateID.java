@@ -3,9 +3,6 @@ package com.example.schoolregistrar;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -36,15 +33,9 @@ public class ValidateID {
                     ids.add(Integer.parseInt(doc.getId()));
                 }
             }
-            else
-            {
-                System.out.println("No data");
-            }
             key=true;
-
         }
-        catch (InterruptedException | ExecutionException ex)
-        {
+        catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
         }
         return key;

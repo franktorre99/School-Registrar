@@ -6,11 +6,9 @@ import com.google.cloud.firestore.QuerySnapshot;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
 import static com.example.schoolregistrar.StudentDashboardController.user;
 
 public class FinalGradesController {
@@ -49,11 +47,9 @@ public class FinalGradesController {
                 .document(user.getFirstName() + " " + user.getLastName())
                 .collection("grades").get();
         List<QueryDocumentSnapshot> documents;
-        try
-        {
+        try {
             documents = future.get().getDocuments();
-            if(documents.size()>0)
-            {
+            if(documents.size()>0) {
                 for (QueryDocumentSnapshot doc : documents) {
                     if (doc.getData().get("Semester").equals(selectedSemester)) {
                         gradeTableView.getItems().add(new Grade(doc.getData().get("CRN").toString()
@@ -62,15 +58,9 @@ public class FinalGradesController {
                     }
                 }
             }
-            else
-            {
-                System.out.println("No data");
-            }
             key=true;
-
         }
-        catch (InterruptedException | ExecutionException ex)
-        {
+        catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
         }
         return key;

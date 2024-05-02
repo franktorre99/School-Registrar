@@ -5,7 +5,6 @@ import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -33,9 +32,9 @@ public class ProfessorDashboardController {
         coursesAvailable.clear();
         announcements.clear();
         user.getSectionsTaught().clear();
-        dateTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("DueDate"));
-        nameTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("Name"));
-        timeTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingAssignment, String>("DueTime"));
+        dateTableColumn.setCellValueFactory(new PropertyValueFactory<>("DueDate"));
+        nameTableColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        timeTableColumn.setCellValueFactory(new PropertyValueFactory<>("DueTime"));
 
         readCourses();
 
@@ -78,11 +77,9 @@ public class ProfessorDashboardController {
                 .document(course.getDepartment() + " " + course.getCourseNumber())
                 .collection("sections").get();
         List<QueryDocumentSnapshot> documents;
-        try
-        {
+        try {
             documents = future.get().getDocuments();
-            if(documents.size()>0)
-            {
+            if(documents.size()>0) {
                 for (QueryDocumentSnapshot doc : documents) {
                     if (Integer.parseInt(doc.getData().get("Professor ID").toString()) == user.getId()) {
                         user.getSectionsTaught().add(new Section(new Course(doc.getData().get("Department").toString()
@@ -97,12 +94,7 @@ public class ProfessorDashboardController {
                     }
                 }
             }
-            else
-            {
-                System.out.println("No data");
-            }
             key=true;
-
         }
         catch (InterruptedException | ExecutionException ex)
         {
@@ -126,11 +118,7 @@ public class ProfessorDashboardController {
                             , document.getData().get("Due Time").toString()));
                 }
             }
-            else {
-                System.out.println("No data");
-            }
             key=true;
-
         }
         catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
@@ -152,11 +140,7 @@ public class ProfessorDashboardController {
                             , document.getData().get("Description").toString()));
                 }
             }
-            else {
-                System.out.println("No data");
-            }
             key=true;
-
         }
         catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
@@ -168,26 +152,18 @@ public class ProfessorDashboardController {
         key = false;
         ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("courses").get();
         List<QueryDocumentSnapshot> documents;
-        try
-        {
+        try {
             documents = future.get().getDocuments();
-            if(!documents.isEmpty())
-            {
+            if(!documents.isEmpty()) {
                 for (QueryDocumentSnapshot doc : documents) {
                     coursesAvailable.add(new Course(doc.getData().get("Department").toString()
                             , Integer.parseInt(doc.getData().get("Course Number").toString())
                             , doc.getData().get("Course Name").toString()));
                 }
             }
-            else
-            {
-                System.out.println("No data");
-            }
             key=true;
-
         }
-        catch (InterruptedException | ExecutionException ex)
-        {
+        catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
         }
         return key;

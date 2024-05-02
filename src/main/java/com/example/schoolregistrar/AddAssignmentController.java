@@ -5,7 +5,6 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.WriteResult;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
