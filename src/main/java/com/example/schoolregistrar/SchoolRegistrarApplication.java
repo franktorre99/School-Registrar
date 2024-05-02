@@ -40,21 +40,6 @@ public class SchoolRegistrarApplication extends Application {
          stage.show();
      }
 
-    static void openNewWindow(String fileName, String title) throws IOException {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(SchoolRegistrarApplication.class.getResource(fileName));
-            Scene scene = new Scene(fxmlLoader.load(), 630, 400);
-            Stage stage = new Stage();
-            stage.setTitle(title);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            throw new IOException();
-        }
-
-    }
-
     public static void main(String[] args) {
         launch();
     }

@@ -12,7 +12,7 @@ public class Professor{
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
-        this.sectionsTaught = new ArrayList<Section>();
+        this.sectionsTaught = new ArrayList<>();
     }
 
 
@@ -27,7 +27,7 @@ public class Professor{
         this.firstName = other.firstName;
         this.lastName = other.lastName;
         this.id = other.id;
-        this.sectionsTaught = new ArrayList<Section>(other.sectionsTaught);
+        this.sectionsTaught = new ArrayList<>(other.sectionsTaught);
     }
 
     public String getFirstName() {

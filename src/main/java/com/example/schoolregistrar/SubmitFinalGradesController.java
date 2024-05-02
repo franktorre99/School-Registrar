@@ -8,7 +8,6 @@ import com.google.cloud.firestore.WriteResult;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -97,11 +96,7 @@ public class SubmitFinalGradesController {
                             , Integer.parseInt(doc.getData().get("ID").toString())));
                 }
             }
-            else {
-                System.out.println("No data");
-            }
             key=true;
-
         }
         catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();

@@ -80,11 +80,11 @@ public class StudentRegistrationController {
     public void initialize() throws IOException {
         registerButton.disableProperty().bind(searchTable.getSelectionModel().selectedItemProperty().isNull());
 
-        crnColumn.setCellValueFactory(new PropertyValueFactory<RegisterSection, String>("crn"));
-        courseNameColumn.setCellValueFactory(new PropertyValueFactory<RegisterSection, String>("courseName"));
-        semesterColumn.setCellValueFactory(new PropertyValueFactory<RegisterSection, String>("semester"));
-        timeColumn.setCellValueFactory(new PropertyValueFactory<RegisterSection, String>("time"));
-        professorColumn.setCellValueFactory(new PropertyValueFactory<RegisterSection, String>("professor"));
+        crnColumn.setCellValueFactory(new PropertyValueFactory<>("crn"));
+        courseNameColumn.setCellValueFactory(new PropertyValueFactory<>("courseName"));
+        semesterColumn.setCellValueFactory(new PropertyValueFactory<>("semester"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+        professorColumn.setCellValueFactory(new PropertyValueFactory<>("professor"));
         searchTable.setOnMouseClicked(e -> {
             try {
                 registerSection = searchTable.getSelectionModel().getSelectedItem().getCrn();
@@ -93,7 +93,9 @@ public class StudentRegistrationController {
                 registerSemester = searchTable.getSelectionModel().getSelectedItem().getSemester();
                 registerProfessor = searchTable.getSelectionModel().getSelectedItem().getProfessor();
             }
-            catch (NullPointerException ex) {}
+            catch (NullPointerException ex) {
+                throw new RuntimeException(ex);
+            }
         });
         readFirebaseName();
 
@@ -161,11 +163,7 @@ public class StudentRegistrationController {
                     subjectChoice.getItems().add(doc.getId());
                 }
             }
-            else {
-                System.out.println("No data");
-            }
             key=true;
-
         }
         catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
@@ -194,9 +192,6 @@ public class StudentRegistrationController {
                     });
                 }
             }
-            else {
-                System.out.println("No data");
-            }
             key=true;
         }
         catch (InterruptedException | ExecutionException ex) {
@@ -217,10 +212,6 @@ public class StudentRegistrationController {
                 for (QueryDocumentSnapshot doc : documents) {
                     professorChoice.getItems().add(doc.getId());
                 }
-            }
-            else
-            {
-                System.out.println("No data");
             }
             key=true;
         }
@@ -252,9 +243,6 @@ public class StudentRegistrationController {
                         }
                     }
                 }
-                else {
-                    System.out.println("No data");
-                }
                 key=true;
             }
             catch (InterruptedException | ExecutionException ex) {
@@ -279,9 +267,6 @@ public class StudentRegistrationController {
                                         + doc.getData().get("Professor Last Name")));
                             }
                     }
-                }
-                else {
-                    System.out.println("No data");
                 }
                 key=true;
             }
@@ -308,9 +293,6 @@ public class StudentRegistrationController {
                             }
                     }
                 }
-                else {
-                    System.out.println("No data");
-                }
                 key=true;
             }
             catch (InterruptedException | ExecutionException ex) {
@@ -336,9 +318,6 @@ public class StudentRegistrationController {
                                         + doc.getData().get("Professor Last Name")));
                             }
                     }
-                }
-                else {
-                    System.out.println("No data");
                 }
                 key=true;
             }

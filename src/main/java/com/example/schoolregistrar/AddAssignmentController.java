@@ -5,7 +5,6 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.WriteResult;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -59,9 +58,9 @@ public class AddAssignmentController {
 
     public void addAssignment(String course, String section) {
         String dueTime;
-        int dueHour = Integer.parseInt(timeTextField.getText().substring(0, 2));
-        int dueMinute = Integer.parseInt(timeTextField.getText().substring(3, 5));
-        dueTime = (dueHour + " " + dueMinute + " " + selectedTimeOfDay);
+        String dueHour = timeTextField.getText().substring(0, 2);
+        String dueMinute = timeTextField.getText().substring(3, 5);
+        dueTime = (dueHour + ":" + dueMinute + " " + selectedTimeOfDay);
 
         DocumentReference docRef = SchoolRegistrarApplication.fstore.collection("courses")
                 .document(course)
@@ -71,11 +70,11 @@ public class AddAssignmentController {
                 .document(nameTextField.getText());
 
         Map<String, Object> data = new HashMap<>();
-        data.put("Name", nameTextField.getText());
+        data.put("Name", selectedSection + " " + selectedCourse + " " + nameTextField.getText());
         data.put("Category", selectedCategory);
         data.put("Description", descriptionTextArea.getText());
         data.put("Due Date", date.toString());
-        data.put("Due Time", dueTime.toString());
+        data.put("Due Time", dueTime);
 
         ApiFuture<WriteResult> result = docRef.set(data);
     }

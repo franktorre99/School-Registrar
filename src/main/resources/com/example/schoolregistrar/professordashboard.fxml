@@ -27,8 +27,8 @@
       </Label>
       <TableView fx:id="upcomingAssignmentsTable" prefHeight="200.0" prefWidth="200.0">
         <columns>
-          <TableColumn fx:id="dateTableColumn" prefWidth="75.0" text="Date" />
-          <TableColumn fx:id="nameTableColumn" prefWidth="406.0" text="Name" />
+          <TableColumn fx:id="dateTableColumn" prefWidth="87.0" text="Date" />
+          <TableColumn fx:id="nameTableColumn" prefWidth="394.0" text="Name" />
             <TableColumn fx:id="timeTableColumn" prefWidth="78.0" text="Time" />
         </columns>
          <VBox.margin>

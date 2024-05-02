@@ -13,16 +13,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
-import static com.example.schoolregistrar.LoginController.userSetter;
-
-//Does not correctly go to dashboard, fix this
 
 public class ForgotPasswordController {
     @FXML
@@ -81,41 +75,32 @@ public class ForgotPasswordController {
                 }
             }
         }
-        catch (InterruptedException | ExecutionException ex){
+        catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
         }
         LoginController.key=true;
         return false;
     }
-//    private String getID(){
-//
-//    }
-        private void changePassword(){
-            ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("users").document("BqVyZx5WE4qULEQy7GXh").collection(LoginController.type.toLowerCase()+"s").get();
-            List<QueryDocumentSnapshot> documents;
-            DocumentReference docRef = null;
-            try
-            {
-                documents = future.get().getDocuments();
-                if(!documents.isEmpty())
-                {
-                    System.out.println("Getting (reading) data from firebase database....");
-                    for (QueryDocumentSnapshot document : documents) {
-                        if(document.getData().get("email").equals(user.getText())){
-                               docRef= document.getReference();
-                        }
+
+    private void changePassword(){
+        ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("users").document("BqVyZx5WE4qULEQy7GXh").collection(LoginController.type.toLowerCase()+"s").get();
+        List<QueryDocumentSnapshot> documents;
+        DocumentReference docRef = null;
+        try {
+            documents = future.get().getDocuments();
+            if(!documents.isEmpty()) {
+                System.out.println("Getting (reading) data from firebase database....");
+                for (QueryDocumentSnapshot document : documents) {
+                    if(document.getData().get("email").equals(user.getText())){
+                        docRef= document.getReference();
                     }
                 }
-                else
-                {
-                    System.out.println("No data");
-                }
             }
-            catch (InterruptedException | ExecutionException ex){
-                ex.printStackTrace();
-            }
-            LoginController.key=true;
-            ApiFuture<WriteResult> result=docRef.update("password", newPassword.getText());
         }
-
+        catch (InterruptedException | ExecutionException ex) {
+            ex.printStackTrace();
+        }
+        LoginController.key=true;
+        ApiFuture<WriteResult> result=docRef.update("password", newPassword.getText());
+    }
 }
