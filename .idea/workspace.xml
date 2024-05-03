@@ -4,26 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Submit final grade working">
+    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Student dashboard working">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/schoolregistrar/AddProfessorControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAssignmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddCourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddCourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddProfessorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddProfessorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddSectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddSectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddStudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddStudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/FinalGradesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/FinalGradesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/FirestoreContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/FirestoreContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ForgotPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ForgotPasswordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/Professor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ProfessorDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ProfessorDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ScheduleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/SchoolRegistrarApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/SchoolRegistrarApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentRegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/StudentRegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/SubmitFinalGradesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/SubmitFinalGradesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ValidateID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/ValidateID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/FirestoreContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/schoolregistrar/FirestoreContext.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -68,13 +55,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectColorInfo">{
     &quot;associatedIndex&quot;: 1
     }</component>
@@ -92,11 +72,12 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Application.Run School Registrar.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AddProfessorControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;test&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/dt/IdeaProjects/School-Registrar/target/classes/com/example/schoolregistrar&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -133,12 +114,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Run School Registrar" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.example.schoolregistrar.SchoolRegistrarApplication" />
+      <module name="SchoolRegistrar" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="jdk-21.0.2-corretto-21.0.2-f644763e9732-67bed3b7" />
+        <option value="jdk-22-openjdk-22-f644763e9732-b0bb8558" />
       </set>
     </attachedChunks>
   </component>
@@ -270,22 +260,11 @@
       <workItem from="1714005918034" duration="33000" />
       <workItem from="1714005998390" duration="9879000" />
       <workItem from="1714056926407" duration="10000" />
-      <workItem from="1714057302485" duration="2969000" />
-      <workItem from="1714066487466" duration="2851000" />
-      <workItem from="1714069445618" duration="1000" />
-      <workItem from="1714069534077" duration="6000" />
-      <workItem from="1714069661587" duration="179000" />
-      <workItem from="1714070279256" duration="697000" />
-      <workItem from="1714071072371" duration="57000" />
-      <workItem from="1714089710290" duration="236000" />
-      <workItem from="1714090488895" duration="2033000" />
-      <workItem from="1714431931337" duration="765000" />
-      <workItem from="1714494374168" duration="3679000" />
-      <workItem from="1714498911656" duration="1586000" />
-      <workItem from="1714516959645" duration="2379000" />
-      <workItem from="1714520038472" duration="878000" />
-      <workItem from="1714657378447" duration="70000" />
-      <workItem from="1714672464796" duration="778000" />
+      <workItem from="1714057302485" duration="301000" />
+      <workItem from="1714767072958" duration="2991000" />
+      <workItem from="1714773592075" duration="1147000" />
+      <workItem from="1714778031997" duration="774000" />
+      <workItem from="1714779136237" duration="343000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -407,23 +386,7 @@
       <option name="project" value="LOCAL" />
       <updated>1714009658617</updated>
     </task>
-    <task id="LOCAL-00016" summary="Merge pull request #15 from franktorre99/erik&#10;&#10;Erik">
-      <option name="closed" value="true" />
-      <created>1714057869714</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1714057869714</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Submit final grade working">
-      <option name="closed" value="true" />
-      <created>1714067334771</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1714067334771</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,11 +428,7 @@
     <MESSAGE value="Small update to classes" />
     <MESSAGE value="Added code to announcement class, coded demo" />
     <MESSAGE value="Student registration fully working&#10;(If I have time I'll add code to make sure you can't register for the same section twice)" />
-    <MESSAGE value="Student dashboard working" />
-    <MESSAGE value="Merge pull request #15 from franktorre99/erik&#10;&#10;Erik" />
-    <MESSAGE value="Submit final grade working" />
-    <MESSAGE value="Forgot Password now fully works + CSS files for Login and Forgot Password" />
-    <option name="LAST_COMMIT_MESSAGE" value="Forgot Password now fully works + CSS files for Login and Forgot Password" />
+    <option name="LAST_COMMIT_MESSAGE" value="Student registration fully working&#10;(If I have time I'll add code to make sure you can't register for the same section twice)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

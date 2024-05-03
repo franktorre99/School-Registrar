@@ -23,6 +23,13 @@ public class AddProfessorController {
     @FXML private Label idLabel;
     private int id;
     private String userID = "";
+    public static String firstName="";
+    public static String lastName="";
+    public static String UID="";
+    public static String password="";
+    public static String email="";
+
+    public static int profID;
 
     public void handleAdd() throws IOException {
         addProfessor();
@@ -44,6 +51,10 @@ public class AddProfessorController {
     }
 
     public void addProfessor() {
+        firstName=firstNameTextField.getText();
+        lastName=lastNameTextField.getText();
+        email=emailTextField.getText();
+        password=passwordTextField.getText();
         UserRecord.CreateRequest request = new UserRecord.CreateRequest()
                 .setEmail(emailTextField.getText())
                 .setEmailVerified(false)
@@ -56,6 +67,7 @@ public class AddProfessorController {
         try {
             UserRecord userRecord = SchoolRegistrarApplication.fauth.createUser(request);
             userID=userRecord.getUid();
+            UID=userID;
             System.out.println("Successfully created new user with Firebase Uid: " + userRecord.getUid()
                     + " check Firebase > Authentication > Users tab");
 
@@ -86,6 +98,7 @@ public class AddProfessorController {
     }
 
     public void addID() {
+        profID=id;
         DocumentReference docRef = SchoolRegistrarApplication.fstore.collection("ids").document(String.valueOf(id));
 
         Map<String, Object> data = new HashMap<>();
