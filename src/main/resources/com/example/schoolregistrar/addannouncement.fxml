@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.AddAnnouncementController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.AddAnnouncementController" stylesheets="@professor.css">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
       <Button mnemonicParsing="false" onAction="#handleHome" text="Home" />
-      <Label text="Name">
+      <Label fx:id="name" text="Name">
          <font>
             <Font name="AppleGothic Regular" size="30.0" />
          </font>
@@ -25,7 +25,7 @@
       </Label>
       <MenuButton fx:id="sectionMenu" mnemonicParsing="false" prefHeight="26.0" prefWidth="210.0" text="Select Section" />
       <TextField fx:id="nameTextField" />
-      <Label text="Description">
+      <Label fx:id="description" text="Description">
          <font>
             <Font name="AppleGothic Regular" size="30.0" />
          </font>
@@ -34,7 +34,7 @@
          </VBox.margin>
       </Label>
       <TextArea fx:id="descriptionTextArea" prefHeight="200.0" prefWidth="200.0" />
-      <Button mnemonicParsing="false" onAction="#handleAdd" text="Add">
+      <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAdd" text="Add">
          <font>
             <Font name="AppleGothic Regular" size="15.0" />
          </font>

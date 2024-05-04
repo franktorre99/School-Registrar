@@ -26,3 +26,6 @@
     -fx-background-color: #1111FF;
     -fx-text-fill: white;
 }
+#labels{
+    -fx-background-color: teal;
+}

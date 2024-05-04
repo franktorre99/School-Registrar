@@ -42,7 +42,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="600.0" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.StudentDashboardController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="600.0" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.StudentDashboardController" stylesheets="@student.css">
 <children>
       <Button mnemonicParsing="false" onAction="#handleLogout" text="Logout">
          <VBox.margin>
@@ -52,7 +52,7 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="594.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
       <children>
             <Button layoutX="443.0" layoutY="501.0" mnemonicParsing="false" onAction="#handleRegisterForClasses" text="Register  For Classes" />
-            <Label layoutX="28.0" layoutY="7.0" text="Upcoming Assignments">
+            <Label fx:id="upcomingAssignments1" layoutX="28.0" layoutY="7.0" text="Upcoming Assignments">
                <font>
                   <Font name="AppleGothic Regular" size="23.0" />
                </font>
@@ -65,7 +65,7 @@
                   <TableColumn fx:id="timeTableColumn" prefWidth="93.0" text="Time" />
                </columns>
             </TableView>
-            <Label layoutX="28.0" layoutY="275.0" text="Announcements">
+            <Label fx:id="announcments1" layoutX="28.0" layoutY="275.0" text="Announcements">
                <font>
                   <Font name="AppleGothic Regular" size="20.0" />
                </font>

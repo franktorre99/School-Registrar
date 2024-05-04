@@ -40,11 +40,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="381.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.ScheduleController">
+<VBox prefHeight="381.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.ScheduleController" stylesheets="@student.css">
   <children>
     <AnchorPane maxHeight="-1.0" prefHeight="368.0" prefWidth="706.0" VBox.vgrow="ALWAYS">
       <children>
-            <Label layoutX="34.0" layoutY="55.0" prefHeight="43.0" prefWidth="131.0" text="Class View">
+            <Label fx:id="classView" layoutX="34.0" layoutY="55.0" prefHeight="43.0" prefWidth="131.0" text="Class View">
                <font>
                   <Font size="22.0" />
                </font>

@@ -42,6 +42,8 @@ public class StudentRegistrationController {
     private TableColumn<RegisterSection, String> professorColumn;
     @FXML
     private Button registerButton;
+    @FXML
+    private Button searchButton;
     static boolean key;
     private String selectedSubject;
     private String selectedCourse;
@@ -79,7 +81,7 @@ public class StudentRegistrationController {
 
     public void initialize() throws IOException {
         registerButton.disableProperty().bind(searchTable.getSelectionModel().selectedItemProperty().isNull());
-
+        searchButton.disableProperty().bind(courseChoice.textProperty().isEqualToIgnoreCase("").or(semesterChoice.getSelectionModel().selectedItemProperty().isNull().or(subjectChoice.getSelectionModel().selectedItemProperty().isNull())));
         crnColumn.setCellValueFactory(new PropertyValueFactory<>("crn"));
         courseNameColumn.setCellValueFactory(new PropertyValueFactory<>("courseName"));
         semesterColumn.setCellValueFactory(new PropertyValueFactory<>("semester"));
