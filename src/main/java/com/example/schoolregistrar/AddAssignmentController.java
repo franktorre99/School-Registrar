@@ -22,11 +22,14 @@ public class AddAssignmentController {
     @FXML private TextField timeTextField;
     @FXML private RadioButton amRadioButton;
     @FXML private RadioButton pmRadioButton;
-    private String selectedCategory = "";
-    private String selectedTimeOfDay = "";
-    private static String selectedSection;
-    private static String selectedCourse;
-    private LocalDate date;
+    public String selectedCategory = "";
+    public String selectedTimeOfDay = "";
+    public static String selectedSection;
+    public static String selectedCourse;
+    public LocalDate date;
+    public static String category;
+    public static String name = "";
+    public static String description = "";
 
     public void initialize() {
         homework.setOnAction(event -> {
@@ -57,6 +60,11 @@ public class AddAssignmentController {
     }
 
     public void addAssignment(String course, String section) {
+
+        name = nameTextField.getText();
+        description = descriptionTextArea.getText();
+        category = selectedCategory;
+
         String dueTime;
         String dueHour = timeTextField.getText().substring(0, 2);
         String dueMinute = timeTextField.getText().substring(3, 5);
