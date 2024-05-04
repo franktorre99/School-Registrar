@@ -1,10 +1,13 @@
 .root{
-    -fx-background-color:red;
+    -fx-background-color:#297dab;
 }
 .button{
-    -fx-background-color:blue;
+    -fx-background-color:#657d8a;
     -fx-text-fill:white;
+    -fx-border-radius:1;
+    -fx-border-color:#3a4347;
+    -fx-border-width:0.5;
 }
 #name,#description, #newAssignment, #dueDate, #time, #upcomingAssignments1, #announcments, #selectSection1, #selectGrade1, #roster{
-    -fx-background-color:yellow;
+    -fx-background-color:#297dab;
 }
