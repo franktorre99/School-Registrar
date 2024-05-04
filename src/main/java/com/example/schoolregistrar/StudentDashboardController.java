@@ -149,8 +149,7 @@ public class StudentDashboardController {
             }
             key=true;
         }
-        catch (InterruptedException | ExecutionException ex)
-        {
+        catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
         }
         return key;

@@ -61,6 +61,9 @@ public class StudentRegistrationController {
     private String registerProfessor;
     private String registerSemester;
     private String registerDays;
+    private ArrayList<String> times = new ArrayList<>();
+    private ArrayList<String> days = new ArrayList<>();
+    private ArrayList<String> semesters = new ArrayList<>();
 
     private void readFirebaseName(){
         ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("users").document("BqVyZx5WE4qULEQy7GXh").collection(LoginController.type.toLowerCase()+"s").get();
@@ -86,6 +89,7 @@ public class StudentRegistrationController {
     }
 
     public void initialize() throws IOException {
+        readSchedule();
         registerButton.disableProperty().bind(searchTable.getSelectionModel().selectedItemProperty().isNull());
         searchButton.disableProperty().bind(courseChoice.textProperty().isEqualToIgnoreCase("").or(semesterChoice.getSelectionModel().selectedItemProperty().isNull().or(subjectChoice.getSelectionModel().selectedItemProperty().isNull())));
         crnColumn.setCellValueFactory(new PropertyValueFactory<>("crn"));
@@ -154,8 +158,32 @@ public class StudentRegistrationController {
     }
 
     public void handleRegister() {
-        addToRoster(selectedCourse, registerSection);
-        addToSchedule();
+        boolean conflict = false;
+        for (String semester : semesters) {
+            if (semester.equals(registerSemester)) {
+                for (String time : times) {
+                    if (time.equals(registerTime)) {
+                        for (String days : days) {
+                            if (days.equals(registerDays)) {
+                                Alert alert = new Alert(Alert.AlertType.ERROR);
+                                alert.setContentText("Cannot register for 2 classes on the same day at the same time");
+                                alert.setTitle("Schedule Conflict");
+                                alert.show();
+                                conflict = true;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+
+        if (!conflict) {
+            addToRoster(selectedCourse, registerSection);
+            addToSchedule();
+        }
     }
 
     public void handleClearTime() {
@@ -183,6 +211,31 @@ public class StudentRegistrationController {
             if(!documents.isEmpty()) {
                 for (QueryDocumentSnapshot doc : documents) {
                     subjectChoice.getItems().add(doc.getId());
+                }
+            }
+            key=true;
+        }
+        catch (InterruptedException | ExecutionException ex) {
+            ex.printStackTrace();
+        }
+        return key;
+    }
+
+    public boolean readSchedule() {
+        key = false;
+        ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("users")
+                .document("BqVyZx5WE4qULEQy7GXh")
+                .collection("students")
+                .document(StudentDashboardController.user.getFirstName() + " " + StudentDashboardController.user.getLastName())
+                .collection("schedule").get();
+        List<QueryDocumentSnapshot> documents;
+        try {
+            documents = future.get().getDocuments();
+            if(documents.size()>0) {
+                for (QueryDocumentSnapshot doc : documents) {
+                    times.add(doc.getData().get("Time").toString());
+                    days.add(doc.getData().get("Days").toString());
+                    semesters.add(doc.getData().get("Semester").toString());
                 }
             }
             key=true;
