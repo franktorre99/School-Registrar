@@ -40,7 +40,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="381.0" prefWidth="706.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.ScheduleController" stylesheets="@student.css">
+<VBox prefHeight="381.0" prefWidth="760.0" stylesheets="@student.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.ScheduleController">
   <children>
     <AnchorPane maxHeight="-1.0" prefHeight="368.0" prefWidth="706.0" VBox.vgrow="ALWAYS">
       <children>
@@ -49,16 +49,17 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <TableView fx:id="scheduleList" layoutX="30.0" layoutY="109.0" prefHeight="239.0" prefWidth="647.0">
+            <TableView fx:id="scheduleList" layoutX="30.0" layoutY="109.0" prefHeight="239.0" prefWidth="700.0">
               <columns>
                 <TableColumn fx:id="crnColumn" prefWidth="75.0" text="CRN" />
-                <TableColumn fx:id="courseNameColumn" prefWidth="205.5" text="Course Name" />
-                  <TableColumn fx:id="semesterColumn" prefWidth="115.0" text="Semester" />
-                  <TableColumn fx:id="timeColumn" prefWidth="125.5" text="Time" />
-                  <TableColumn fx:id="professorColumn" prefWidth="125.0" text="Professor" />
+                <TableColumn fx:id="courseNameColumn" prefWidth="182.5" text="Course Name" />
+                  <TableColumn fx:id="semesterColumn" prefWidth="116.0" text="Semester" />
+                  <TableColumn fx:id="timeColumn" prefWidth="126.5" text="Time" />
+                  <TableColumn fx:id="daysColumn" prefWidth="50.0" text="Days" />
+                  <TableColumn fx:id="professorColumn" prefWidth="149.0" text="Professor" />
               </columns>
             </TableView>
-            <Label fx:id="nameLabel" layoutX="538.0" layoutY="66.0" prefHeight="21.0" prefWidth="131.0">
+            <Label fx:id="nameLabel" layoutX="575.0" layoutY="66.0" prefHeight="21.0" prefWidth="131.0">
                <font>
                   <Font size="17.0" />
                </font>

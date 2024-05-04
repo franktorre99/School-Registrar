@@ -89,7 +89,8 @@ public class ProfessorDashboardController {
                                 , new Professor(doc.getData().get("Professor First Name").toString()
                                 , doc.getData().get("Professor Last Name").toString()
                                 , Integer.parseInt(doc.getData().get("Professor ID").toString()))
-                                , doc.getData().get("Semester").toString()));
+                                , doc.getData().get("Semester").toString()
+                                , doc.getData().get("Days").toString()));
 
                     }
                 }

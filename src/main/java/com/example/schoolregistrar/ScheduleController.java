@@ -19,6 +19,7 @@ public class ScheduleController {
     @FXML private TableColumn<RegisterSection, String> semesterColumn;
     @FXML private TableColumn<RegisterSection, String> timeColumn;
     @FXML private TableColumn<RegisterSection, String> professorColumn;
+    @FXML private TableColumn<RegisterSection, String> daysColumn;
     @FXML private Label nameLabel;
     static boolean key;
 
@@ -29,6 +30,7 @@ public class ScheduleController {
         semesterColumn.setCellValueFactory(new PropertyValueFactory<>("semester"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
         professorColumn.setCellValueFactory(new PropertyValueFactory<>("professor"));
+        daysColumn.setCellValueFactory(new PropertyValueFactory<>("days"));
 
         readSchedule();
     }
@@ -52,7 +54,8 @@ public class ScheduleController {
                             doc.getData().get("Course Name").toString(),
                             doc.getData().get("Semester").toString(),
                             doc.getData().get("Time").toString(),
-                            doc.getData().get("Professor").toString()));
+                            doc.getData().get("Professor").toString(),
+                            doc.getData().get("Days").toString()));
                 }
             }
             key=true;

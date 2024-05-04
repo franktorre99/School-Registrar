@@ -24,11 +24,6 @@ public class AddAssignmentController {
     @FXML private RadioButton pmRadioButton;
 
     @FXML private Button addButton;
-    private String selectedCategory = "";
-    private String selectedTimeOfDay = "";
-    private static String selectedSection;
-    private static String selectedCourse;
-    private LocalDate date;
     public String selectedCategory = "";
     public String selectedTimeOfDay = "";
     public static String selectedSection;

@@ -6,13 +6,15 @@ public class RegisterSection {
     private String semester;
     private String time;
     private String professor;
+    private String days;
 
-    public RegisterSection(String crn, String courseName, String semester, String time, String professor) {
+    public RegisterSection(String crn, String courseName, String semester, String time, String professor, String days) {
         this.crn = crn;
         this.courseName = courseName;
         this.semester = semester;
         this.time = time;
         this.professor = professor;
+        this.days = days;
     }
 
     public String getCrn() {
@@ -53,5 +55,13 @@ public class RegisterSection {
 
     public void setProfessor(String professor) {
         this.professor = professor;
+    }
+
+    public String getDays() {
+        return this.days;
+    }
+
+    public void setDays(String days) {
+        this.days = days;
     }
 }

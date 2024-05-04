@@ -7,13 +7,15 @@ public class Section {
     private int crn;
     private Professor professor;
     private String semester;
+    private String days;
     private ArrayList<Student> roster;
 
-    public Section(Course course, int crn, Professor professor, String semester) {
+    public Section(Course course, int crn, Professor professor, String semester, String days) {
         this.course = new Course(course);
         this.crn = crn;
         this.professor = professor;
         this.semester = semester;
+        this.days = days;
     }
 
     public int getCrn() {
@@ -46,6 +48,14 @@ public class Section {
 
     public void setSemester(String semester) {
         this.semester = semester;
+    }
+
+    public String getDays() {
+        return this.days;
+    }
+
+    public void setDays(String days) {
+        this.days = days;
     }
 
     public ArrayList<Student> getRoster() {

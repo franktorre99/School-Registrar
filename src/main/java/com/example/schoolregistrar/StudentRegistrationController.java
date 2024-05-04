@@ -25,6 +25,8 @@ public class StudentRegistrationController {
     @FXML
     private ChoiceBox<String> professorChoice;
     @FXML
+    private ChoiceBox<String> daysChoice;
+    @FXML
     private Label userName;
     @FXML
     private Circle profilePic;
@@ -41,6 +43,8 @@ public class StudentRegistrationController {
     @FXML
     private TableColumn<RegisterSection, String> professorColumn;
     @FXML
+    private TableColumn<RegisterSection, String> daysColumn;
+    @FXML
     private Button registerButton;
     @FXML
     private Button searchButton;
@@ -50,11 +54,13 @@ public class StudentRegistrationController {
     private String selectedTime;
     private String selectedProfessor;
     private String selectedSemester;
+    private String selectedDays;
     private String registerSection;
     private String registerCourse;
     private String registerTime;
     private String registerProfessor;
     private String registerSemester;
+    private String registerDays;
 
     private void readFirebaseName(){
         ApiFuture<QuerySnapshot> future =  SchoolRegistrarApplication.fstore.collection("users").document("BqVyZx5WE4qULEQy7GXh").collection(LoginController.type.toLowerCase()+"s").get();
@@ -87,6 +93,7 @@ public class StudentRegistrationController {
         semesterColumn.setCellValueFactory(new PropertyValueFactory<>("semester"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
         professorColumn.setCellValueFactory(new PropertyValueFactory<>("professor"));
+        daysColumn.setCellValueFactory(new PropertyValueFactory<>("days"));
         searchTable.setOnMouseClicked(e -> {
             try {
                 registerSection = searchTable.getSelectionModel().getSelectedItem().getCrn();
@@ -94,6 +101,7 @@ public class StudentRegistrationController {
                 registerTime = searchTable.getSelectionModel().getSelectedItem().getTime();
                 registerSemester = searchTable.getSelectionModel().getSelectedItem().getSemester();
                 registerProfessor = searchTable.getSelectionModel().getSelectedItem().getProfessor();
+                registerDays = searchTable.getSelectionModel().getSelectedItem().getDays();
             }
             catch (NullPointerException ex) {
                 throw new RuntimeException(ex);
@@ -108,6 +116,14 @@ public class StudentRegistrationController {
         timeChoice.getItems().add("1:40 PM - 2:55 PM");
         timeChoice.getItems().add("3:05 PM - 4:20 PM");
         timeChoice.setOnAction(e -> selectedTime = timeChoice.getSelectionModel().getSelectedItem());
+
+        daysChoice.getItems().add("M/W");
+        daysChoice.getItems().add("T/R");
+        daysChoice.getItems().add("M");
+        daysChoice.getItems().add("T");
+        daysChoice.getItems().add("W");
+        daysChoice.getItems().add("R");
+        daysChoice.setOnAction(e -> selectedDays = daysChoice.getSelectionModel().getSelectedItem());
 
         semesterChoice.getItems().add("Spring 2024");
         semesterChoice.getItems().add("Summer 2024");
@@ -134,7 +150,7 @@ public class StudentRegistrationController {
 
     public void handleSearch() {
         searchTable.getItems().clear();
-        search(selectedCourse, selectedSemester, selectedTime, selectedProfessor);
+        search(selectedCourse, selectedSemester, selectedTime, selectedProfessor, selectedDays);
     }
 
     public void handleRegister() {
@@ -148,6 +164,10 @@ public class StudentRegistrationController {
 
     public void handleClearProfessor() {
         clear(professorChoice);
+    }
+
+    public void handleClearDays() {
+        clear(daysChoice);
     }
 
     public void clear(ChoiceBox<String> choiceBox) {
@@ -223,11 +243,11 @@ public class StudentRegistrationController {
         return key;
     }
 
-    public boolean search(String course, String semester, String time, String professor) {
+    public boolean search(String course, String semester, String time, String professor, String days) {
         key = false;
         ApiFuture<QuerySnapshot> future = null;
         List<QueryDocumentSnapshot> documents;
-        if (time == null && professor == null) {
+        if (time == null && professor == null && days == null) {
             future = SchoolRegistrarApplication.fstore.collection("courses")
                     .document(course)
                     .collection("sections").get();
@@ -241,7 +261,87 @@ public class StudentRegistrationController {
                                     , doc.getData().get("Semester").toString()
                                     , doc.getData().get("Time").toString()
                                     , doc.getData().get("Professor First Name").toString() + " "
-                                    + doc.getData().get("Professor Last Name")));
+                                    + doc.getData().get("Professor Last Name")
+                                    , doc.getData().get("Days").toString()));
+                        }
+                    }
+                }
+                key=true;
+            }
+            catch (InterruptedException | ExecutionException ex) {
+                ex.printStackTrace();
+            }
+        }
+        else if (time == null && days == null) {
+            future = SchoolRegistrarApplication.fstore.collection("courses")
+                    .document(selectedCourse)
+                    .collection("sections").get();
+            try {
+                documents = future.get().getDocuments();
+                if(!documents.isEmpty()) {
+                    for (QueryDocumentSnapshot doc : documents) {
+                        if (doc.getData().get("Semester").toString().equals(semester))
+                            if ((doc.getData().get("Professor First Name").toString()
+                                    + " " + doc.getData().get("Professor Last Name").toString()).equals(professor)) {
+                                searchTable.getItems().add(new RegisterSection(doc.getData().get("CRN").toString()
+                                        , doc.getData().get("Course Name").toString()
+                                        , doc.getData().get("Semester").toString()
+                                        , doc.getData().get("Time").toString()
+                                        , doc.getData().get("Professor First Name").toString() + " "
+                                        + doc.getData().get("Professor Last Name")
+                                        , doc.getData().get("Days").toString()));
+                            }
+                    }
+                }
+                key=true;
+            }
+            catch (InterruptedException | ExecutionException ex) {
+                ex.printStackTrace();
+            }
+        }
+        else if (time == null && professor == null) {
+            future = SchoolRegistrarApplication.fstore.collection("courses")
+                    .document(selectedCourse)
+                    .collection("sections").get();
+            try {
+                documents = future.get().getDocuments();
+                if(!documents.isEmpty()) {
+                    for (QueryDocumentSnapshot doc : documents) {
+                        if (doc.getData().get("Semester").toString().equals(semester))
+                            if ((doc.getData().get("Days").toString().equals(days))) {
+                                searchTable.getItems().add(new RegisterSection(doc.getData().get("CRN").toString()
+                                        , doc.getData().get("Course Name").toString()
+                                        , doc.getData().get("Semester").toString()
+                                        , doc.getData().get("Time").toString()
+                                        , doc.getData().get("Professor First Name").toString() + " "
+                                        + doc.getData().get("Professor Last Name")
+                                        , doc.getData().get("Days").toString()));
+                            }
+                    }
+                }
+                key=true;
+            }
+            catch (InterruptedException | ExecutionException ex) {
+                ex.printStackTrace();
+            }
+        }
+        else if (professor == null && days == null) {
+            future = SchoolRegistrarApplication.fstore.collection("courses")
+                    .document(selectedCourse)
+                    .collection("sections").get();
+            try {
+                documents = future.get().getDocuments();
+                if(!documents.isEmpty()) {
+                    for (QueryDocumentSnapshot doc : documents) {
+                        if (doc.getData().get("Semester").toString().equals(semester)
+                                && doc.getData().get("Time").toString().equals(time)) {
+                            searchTable.getItems().add(new RegisterSection(doc.getData().get("CRN").toString()
+                                    , doc.getData().get("Course Name").toString()
+                                    , doc.getData().get("Semester").toString()
+                                    , doc.getData().get("Time").toString()
+                                    , doc.getData().get("Professor First Name").toString() + " "
+                                    + doc.getData().get("Professor Last Name")
+                                    , doc.getData().get("Days").toString()));
                         }
                     }
                 }
@@ -260,13 +360,44 @@ public class StudentRegistrationController {
                 if(!documents.isEmpty()) {
                     for (QueryDocumentSnapshot doc : documents) {
                         if (doc.getData().get("Semester").toString().equals(semester))
-                            if ((doc.getData().get("Professor First Name").toString() + " " + doc.getData().get("Professor Last Name").toString()).equals(professor)) {
+                            if ((doc.getData().get("Professor First Name").toString()
+                                    + " " + doc.getData().get("Professor Last Name").toString()).equals(professor)
+                                    && doc.getData().get("Days").toString().equals(days)) {
                                 searchTable.getItems().add(new RegisterSection(doc.getData().get("CRN").toString()
                                         , doc.getData().get("Course Name").toString()
                                         , doc.getData().get("Semester").toString()
                                         , doc.getData().get("Time").toString()
                                         , doc.getData().get("Professor First Name").toString() + " "
-                                        + doc.getData().get("Professor Last Name")));
+                                        + doc.getData().get("Professor Last Name")
+                                        , doc.getData().get("Days").toString()));
+                            }
+                    }
+                }
+                key=true;
+            }
+            catch (InterruptedException | ExecutionException ex) {
+                ex.printStackTrace();
+            }
+        }
+        else if (days == null) {
+            future = SchoolRegistrarApplication.fstore.collection("courses")
+                    .document(selectedCourse)
+                    .collection("sections").get();
+            try {
+                documents = future.get().getDocuments();
+                if(!documents.isEmpty()) {
+                    for (QueryDocumentSnapshot doc : documents) {
+                        if (doc.getData().get("Semester").toString().equals(semester))
+                            if (doc.getData().get("Time").toString().equals(time) &&
+                                    (doc.getData().get("Professor First Name").toString()
+                                            + " " + doc.getData().get("Professor Last Name").toString()).equals(professor)) {
+                                searchTable.getItems().add(new RegisterSection(doc.getData().get("CRN").toString()
+                                        , doc.getData().get("Course Name").toString()
+                                        , doc.getData().get("Semester").toString()
+                                        , doc.getData().get("Time").toString()
+                                        , doc.getData().get("Professor First Name").toString() + " "
+                                        + doc.getData().get("Professor Last Name")
+                                        , doc.getData().get("Days").toString()));
                             }
                     }
                 }
@@ -285,13 +416,15 @@ public class StudentRegistrationController {
                 if(!documents.isEmpty()) {
                     for (QueryDocumentSnapshot doc : documents) {
                         if (doc.getData().get("Semester").toString().equals(semester))
-                            if (doc.getData().get("Time").toString().equals(time)) {
+                            if (doc.getData().get("Days").toString().equals(days)
+                                    && doc.getData().get("Time").toString().equals(time)) {
                                 searchTable.getItems().add(new RegisterSection(doc.getData().get("CRN").toString()
                                         , doc.getData().get("Course Name").toString()
                                         , doc.getData().get("Semester").toString()
                                         , doc.getData().get("Time").toString()
                                         , doc.getData().get("Professor First Name").toString() + " "
-                                        + doc.getData().get("Professor Last Name")));
+                                        + doc.getData().get("Professor Last Name")
+                                        , doc.getData().get("Days").toString()));
                             }
                     }
                 }
@@ -310,14 +443,17 @@ public class StudentRegistrationController {
                 if(!documents.isEmpty()) {
                     for (QueryDocumentSnapshot doc : documents) {
                         if (doc.getData().get("Semester").toString().equals(semester))
-                            if (doc.getData().get("Time").toString().equals(time) &&
-                                    (doc.getData().get("Professor First Name").toString() + " " + doc.getData().get("Professor Last Name").toString()).equals(professor)) {
+                            if (doc.getData().get("Days").toString().equals(days)
+                                    && doc.getData().get("Time").toString().equals(time)
+                                    && (doc.getData().get("Professor First Name").toString()
+                                    + " " + doc.getData().get("Professor Last Name").toString()).equals(professor)) {
                                 searchTable.getItems().add(new RegisterSection(doc.getData().get("CRN").toString()
                                         , doc.getData().get("Course Name").toString()
                                         , doc.getData().get("Semester").toString()
                                         , doc.getData().get("Time").toString()
                                         , doc.getData().get("Professor First Name").toString() + " "
-                                        + doc.getData().get("Professor Last Name")));
+                                        + doc.getData().get("Professor Last Name")
+                                        , doc.getData().get("Days").toString()));
                             }
                     }
                 }
@@ -362,6 +498,7 @@ public class StudentRegistrationController {
         data.put("Time", registerTime);
         data.put("Semester", registerSemester);
         data.put("Professor", registerProfessor);
+        data.put("Days", registerDays);
 
         ApiFuture<WriteResult> result = docRef.set(data);
     }

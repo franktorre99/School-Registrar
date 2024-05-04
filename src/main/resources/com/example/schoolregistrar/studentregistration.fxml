@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-<VBox prefHeight="613.0" prefWidth="694.0" stylesheets="@student.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.StudentRegistrationController">
+<VBox prefHeight="613.0" prefWidth="824.0" stylesheets="@student.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.StudentRegistrationController">
    <children>
       <Label fx:id="userName" text="Name" translateX="200.0" translateY="-33.5" />
       <Circle fx:id="profilePic" fill="#f8fafc" radius="13.0" stroke="WHITE" strokeType="INSIDE" translateX="280.0" translateY="-55.0" />
@@ -64,7 +64,7 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label fx:id="time" text="Time:">
+            <Label fx:id="time" style="-fx-background-color: yellow;" text="Time:">
                <padding>
                   <Insets left="15.0" top="15.0" />
                </padding></Label>
@@ -78,6 +78,25 @@
                </HBox.margin>
             </Button>
          </children></HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="time1" style="-fx-background-color: yellow;" text="Days">
+               <padding>
+                  <Insets left="15.0" top="15.0" />
+               </padding>
+            </Label>
+            <ChoiceBox fx:id="daysChoice" prefWidth="150.0">
+               <HBox.margin>
+                  <Insets left="40.0" top="10.0" />
+               </HBox.margin>
+            </ChoiceBox>
+            <Button mnemonicParsing="false" onAction="#handleClearDays" text="Clear">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label fx:id="professor" text="Professor:">
@@ -100,13 +119,14 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>
       </Button>
-      <TableView fx:id="searchTable" prefHeight="255.0" prefWidth="674.0">
+      <TableView fx:id="searchTable" prefHeight="255.0" prefWidth="812.0">
         <columns>
           <TableColumn fx:id="crnColumn" prefWidth="75.0" text="CRN" />
-          <TableColumn fx:id="courseNameColumn" prefWidth="243.0" text="Course Name" />
-            <TableColumn fx:id="semesterColumn" prefWidth="88.0" text="Semester" />
-            <TableColumn fx:id="timeColumn" prefWidth="134.0" text="Time" />
-            <TableColumn fx:id="professorColumn" prefWidth="133.0" text="Professor" />
+          <TableColumn fx:id="courseNameColumn" prefWidth="271.0" text="Course Name" />
+            <TableColumn fx:id="semesterColumn" prefWidth="94.0" text="Semester" />
+            <TableColumn fx:id="timeColumn" prefWidth="117.0" text="Time" />
+            <TableColumn fx:id="daysColumn" minWidth="0.0" prefWidth="54.0" text="Days" />
+            <TableColumn fx:id="professorColumn" prefWidth="192.0" text="Professor" />
         </columns>
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

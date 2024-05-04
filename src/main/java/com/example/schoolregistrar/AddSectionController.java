@@ -23,11 +23,13 @@ public class AddSectionController {
     @FXML private MenuButton semesterMenu;
     @FXML private MenuButton professorMenu;
     @FXML private Button addButton;
+    @FXML private MenuButton dayMenu;
     static boolean key;
     private Course selectedCourse;
     private String selectedTime;
     private Professor selectedProfessor;
     private String selectedSemester;
+    private String selectedDays;
 
     public void initialize() {
         readCourses();
@@ -61,6 +63,14 @@ public class AddSectionController {
                 professorMenu.setText(selectedProfessor.toString());
             });
         }
+
+        for (MenuItem item : dayMenu.getItems()) {
+            item.setOnAction(event -> {
+                selectedDays = item.getText();
+                dayMenu.setText(selectedDays);
+            });
+        }
+
         addButton.disableProperty().bind(courseMenu.textProperty().isEqualToIgnoreCase("Select Course").or(crnTextField.textProperty().isEmpty().or(semesterMenu.textProperty().isEqualToIgnoreCase("Select Semester").or(timeMenu.textProperty().isEqualToIgnoreCase("Select Time").or(professorMenu.textProperty().isEqualToIgnoreCase("Select Professor"))))));
     }
 
@@ -125,6 +135,7 @@ public class AddSectionController {
         data.put("Course Number", selectedCourse.getCourseNumber());
         data.put("Department", selectedCourse.getDepartment());
         data.put("Time", selectedTime);
+        data.put("Days", selectedDays);
         data.put("Semester", selectedSemester);
         data.put("Professor First Name", selectedProfessor.getFirstName());
         data.put("Professor Last Name", selectedProfessor.getLastName());

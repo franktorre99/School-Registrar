@@ -6,14 +6,21 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.AddSectionController" stylesheets="@administrator.css">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" stylesheets="@administrator.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.AddSectionController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
-      <Button mnemonicParsing="false" onAction="#handleHome" text="Home" />
-      <MenuButton fx:id="courseMenu" mnemonicParsing="false" text="Select Course" />
+      <Button mnemonicParsing="false" onAction="#handleHome" text="Home">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font></Button>
+      <MenuButton fx:id="courseMenu" mnemonicParsing="false" text="Select Course">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font></MenuButton>
       <TextField fx:id="crnTextField" maxWidth="-Infinity" prefHeight="26.0" prefWidth="96.0" promptText="CRN" />
       <MenuButton fx:id="timeMenu" mnemonicParsing="false" text="Select Time">
         <items>
@@ -24,6 +31,22 @@
             <MenuItem mnemonicParsing="false" text="1:40 PM - 2:55 PM" />
             <MenuItem mnemonicParsing="false" text="3:05 PM - 4:20 PM" />
         </items>
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
+      </MenuButton>
+      <MenuButton fx:id="dayMenu" mnemonicParsing="false" text="Select Days">
+        <items>
+          <MenuItem mnemonicParsing="false" text="M/W" />
+          <MenuItem mnemonicParsing="false" text="T/R" />
+            <MenuItem mnemonicParsing="false" text="M" />
+            <MenuItem mnemonicParsing="false" text="T" />
+            <MenuItem mnemonicParsing="false" text="W" />
+            <MenuItem mnemonicParsing="false" text="R" />
+        </items>
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
       </MenuButton>
       <MenuButton fx:id="semesterMenu" mnemonicParsing="false" text="Select Semester">
          <items>
@@ -33,8 +56,17 @@
             <MenuItem mnemonicParsing="false" text="Winter 2024" />
             <MenuItem mnemonicParsing="false" text="Spring 2025" />
          </items>
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font>
       </MenuButton>
-      <MenuButton fx:id="professorMenu" mnemonicParsing="false" text="Select Professor" />
-      <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAdd" text="Add" />
+      <MenuButton fx:id="professorMenu" mnemonicParsing="false" text="Select Professor">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font></MenuButton>
+      <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAdd" text="Add">
+         <font>
+            <Font name="AppleGothic Regular" size="13.0" />
+         </font></Button>
    </children>
 </VBox>
