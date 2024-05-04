@@ -9,6 +9,7 @@ module com.example.schoolregistrar {
     requires google.cloud.firestore;
     requires google.cloud.core;
     requires com.google.api.apicommon;
+    requires org.checkerframework.checker.qual;
 
     opens com.example.schoolregistrar to javafx.fxml, google.cloud.firestore;
     exports com.example.schoolregistrar;
