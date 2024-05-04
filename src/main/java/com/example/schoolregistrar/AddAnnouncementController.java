@@ -17,6 +17,10 @@ public class AddAnnouncementController {
     private static String selectedSection;
     private static String selectedCourse;
     @FXML private Button addButton;
+    public static String name = "";
+    public static String description = "";
+    public static String sectionString = "";
+    public static String courseString = "";
 
     public void initialize() {
         getSections(sectionMenu);
@@ -35,6 +39,12 @@ public class AddAnnouncementController {
     }
 
     public void addAnnouncement(String course, String section) {
+
+        name = nameTextField.getText();
+        description = descriptionTextArea.getText();
+        sectionString = selectedSection;
+        courseString = selectedCourse;
+
         DocumentReference docRef = SchoolRegistrarApplication.fstore.collection("courses")
                 .document(course)
                 .collection("sections")
