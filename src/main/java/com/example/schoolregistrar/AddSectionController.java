@@ -6,6 +6,7 @@ import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -21,6 +22,7 @@ public class AddSectionController {
     @FXML private MenuButton timeMenu;
     @FXML private MenuButton semesterMenu;
     @FXML private MenuButton professorMenu;
+    @FXML private Button addButton;
     static boolean key;
     private Course selectedCourse;
     private String selectedTime;
@@ -59,6 +61,7 @@ public class AddSectionController {
                 professorMenu.setText(selectedProfessor.toString());
             });
         }
+        addButton.disableProperty().bind(courseMenu.textProperty().isEqualToIgnoreCase("Select Course").or(crnTextField.textProperty().isEmpty().or(semesterMenu.textProperty().isEqualToIgnoreCase("Select Semester").or(timeMenu.textProperty().isEqualToIgnoreCase("Select Time").or(professorMenu.textProperty().isEqualToIgnoreCase("Select Professor"))))));
     }
 
     public void handleHome() throws IOException {

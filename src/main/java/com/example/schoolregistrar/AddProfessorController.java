@@ -6,6 +6,7 @@ import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -21,6 +22,7 @@ public class AddProfessorController {
     @FXML private TextField emailTextField;
     @FXML private PasswordField passwordTextField;
     @FXML private Label idLabel;
+    @FXML private Button addButton;
     private int id;
     private String userID = "";
     public static String firstName="";
@@ -30,6 +32,8 @@ public class AddProfessorController {
     public static String email="";
 
     public static int profID;
+    @FXML
+    private Button idButton;
 
     public void handleAdd() throws IOException {
         addProfessor();
@@ -39,6 +43,8 @@ public class AddProfessorController {
 
     public void initialize() {
         ValidateID.readIDs();
+        idButton.disableProperty().bind(firstNameTextField.textProperty().isEmpty().or(lastNameTextField.textProperty().isEmpty().or(emailTextField.textProperty().isEmpty().or(passwordTextField.textProperty().isEmpty()))));
+        addButton.disableProperty().bind(firstNameTextField.textProperty().isEmpty().or(lastNameTextField.textProperty().isEmpty().or(emailTextField.textProperty().isEmpty().or(passwordTextField.textProperty().isEmpty().or(idLabel.textProperty().isEmpty())))));
     }
 
     public void handleHome() throws IOException {

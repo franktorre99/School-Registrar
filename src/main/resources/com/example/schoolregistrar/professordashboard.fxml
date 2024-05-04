@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="600.0" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.ProfessorDashboardController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="616.0" spacing="15.0" stylesheets="@professor.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.ProfessorDashboardController">
    <children>
       <Button mnemonicParsing="false" onAction="#handleLogout" text="Logout">
          <VBox.margin>
             <Insets left="29.0" right="29.0" top="29.0" />
          </VBox.margin>
       </Button>
-      <Label text="Upcoming Assignments">
+      <Label fx:id="upcomingAssignments1" text="Upcoming Assignments">
          <font>
             <Font name="AppleGothic Regular" size="20.0" />
          </font>
@@ -35,7 +30,7 @@
             <Insets left="20.0" right="20.0" />
          </VBox.margin>
       </TableView>
-      <Label text="Announcements">
+      <Label fx:id="announcments" text="Announcements">
          <font>
             <Font name="AppleGothic Regular" size="20.0" />
          </font>
@@ -53,17 +48,17 @@
             <Insets left="20.0" right="20.0" />
          </VBox.margin>
       </ListView>
-      <HBox prefHeight="25.0" prefWidth="560.0">
+      <HBox maxWidth="-Infinity" prefHeight="26.0" prefWidth="575.0">
          <VBox.margin>
             <Insets left="20.0" right="20.0" />
          </VBox.margin>
          <children>
-            <Button mnemonicParsing="false" onAction="#handleSubmitFinalGrades" prefHeight="26.0" prefWidth="160.0" text="Submit Final Grades">
+            <Button mnemonicParsing="false" onAction="#handleSubmitFinalGrades" prefHeight="26.0" prefWidth="235.0" text="Submit Final Grades">
                <HBox.margin>
                   <Insets right="310.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#handleAddAssignmentButton" prefHeight="26.0" prefWidth="130.0" text="New Assignment" />
+            <Button mnemonicParsing="false" onAction="#handleAddAssignmentButton" prefHeight="26.0" prefWidth="218.0" text="New Assignment" />
          </children>
       </HBox>
    </children>

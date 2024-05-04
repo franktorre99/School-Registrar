@@ -4,11 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf2b015-b281-4737-9954-1c832b57197c" name="Changes" comment="Student dashboard working">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/schoolregistrar/AddAnnouncementControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/schoolregistrar/AddAssignmentControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAnnouncementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAnnouncementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/schoolregistrar/AddAssignmentController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +18,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -65,32 +61,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.Run School Registrar.executor": "Run",
-    "JUnit.AddAnnouncementControllerTest.addAnnouncement.executor": "Run",
-    "JUnit.AddProfessorControllerTest.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/dt/IdeaProjects/School-Registrar/target/classes/com/example/schoolregistrar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.completion",
-    "vue.rearranger.settings.migration": "true"
+
   }
 }]]></component>
   <component name="RecentsManager">
@@ -115,53 +86,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Run School Registrar" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.example.schoolregistrar.SchoolRegistrarApplication" />
-      <module name="SchoolRegistrar" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AddAnnouncementControllerTest.addAnnouncement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SchoolRegistrar" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.schoolregistrar.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.schoolregistrar" />
-      <option name="MAIN_CLASS_NAME" value="com.example.schoolregistrar.AddAnnouncementControllerTest" />
-      <option name="METHOD_NAME" value="addAnnouncement" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AddAssignmentControllerTest.addAssignment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SchoolRegistrar" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.schoolregistrar.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.schoolregistrar" />
-      <option name="MAIN_CLASS_NAME" value="com.example.schoolregistrar.AddAssignmentControllerTest" />
-      <option name="METHOD_NAME" value="addAssignment" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.AddAssignmentControllerTest.addAssignment" />
-        <item itemvalue="JUnit.AddAnnouncementControllerTest.addAnnouncement" />
-      </list>
-    </recent_temporary>
+
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -291,12 +216,7 @@
       <workItem from="1714005918034" duration="33000" />
       <workItem from="1714005998390" duration="9879000" />
       <workItem from="1714056926407" duration="10000" />
-      <workItem from="1714057302485" duration="301000" />
-      <workItem from="1714767072958" duration="2991000" />
-      <workItem from="1714773592075" duration="1147000" />
-      <workItem from="1714778031997" duration="774000" />
-      <workItem from="1714779136237" duration="343000" />
-      <workItem from="1714789904831" duration="373000" />
+
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -418,7 +338,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714009658617</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Merge pull request #15 from franktorre99/erik&#10;&#10;Erik">
+      <option name="closed" value="true" />
+      <created>1714057869714</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1714057869714</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Submit final grade working">
+      <option name="closed" value="true" />
+      <created>1714067334771</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1714067334771</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +396,11 @@
     <MESSAGE value="Small update to classes" />
     <MESSAGE value="Added code to announcement class, coded demo" />
     <MESSAGE value="Student registration fully working&#10;(If I have time I'll add code to make sure you can't register for the same section twice)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Student registration fully working&#10;(If I have time I'll add code to make sure you can't register for the same section twice)" />
+    <MESSAGE value="Student dashboard working" />
+    <MESSAGE value="Merge pull request #15 from franktorre99/erik&#10;&#10;Erik" />
+    <MESSAGE value="Submit final grade working" />
+    <MESSAGE value="Forgot Password now fully works + CSS files for Login and Forgot Password" />
+    <option name="LAST_COMMIT_MESSAGE" value="Forgot Password now fully works + CSS files for Login and Forgot Password" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

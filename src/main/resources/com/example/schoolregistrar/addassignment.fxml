@@ -14,13 +14,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.AddAssignmentController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.AddAssignmentController" stylesheets="@professor.css">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
       <Button mnemonicParsing="false" onAction="#handleHome" text="Home" />
-      <Label text="New Assignment">
+      <Label fx:id="newAssignment" text="New Assignment">
          <font>
             <Font name="AppleGothic Regular" size="25.0" />
          </font>
@@ -45,13 +45,13 @@
       <TextArea fx:id="descriptionTextArea" prefHeight="148.0" prefWidth="560.0" promptText="Description" />
       <HBox alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="560.0" spacing="10.0">
          <children>
-            <Label text="Due Date:">
+            <Label fx:id="dueDate" text="Due Date:">
                <font>
                   <Font name="AppleGothic Regular" size="20.0" />
                </font>
             </Label>
             <DatePicker fx:id="dueDatePicker" />
-            <Label text="Time:">
+            <Label fx:id="time" text="Time:">
                <font>
                   <Font name="AppleGothic Regular" size="20.0" />
                </font>
@@ -65,7 +65,7 @@
             <RadioButton fx:id="pmRadioButton" mnemonicParsing="false" text="PM" toggleGroup="$timeToggleGroup" />
          </children>
       </HBox>
-      <Button mnemonicParsing="false" onAction="#handleAddAssignment" text="Add Assignment">
+      <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAddAssignment" text="Add Assignment">
          <font>
             <Font name="AppleGothic Regular" size="15.0" />
          </font>

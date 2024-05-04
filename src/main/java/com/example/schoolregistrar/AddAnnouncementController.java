@@ -4,10 +4,8 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.WriteResult;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +16,7 @@ public class AddAnnouncementController {
     @FXML private MenuButton sectionMenu;
     private static String selectedSection;
     private static String selectedCourse;
+    @FXML private Button addButton;
     public static String name = "";
     public static String description = "";
     public static String sectionString = "";
@@ -25,6 +24,7 @@ public class AddAnnouncementController {
 
     public void initialize() {
         getSections(sectionMenu);
+        addButton.disableProperty().bind(nameTextField.textProperty().isEmpty().or(descriptionTextArea.textProperty().isEmpty().or(sectionMenu.textProperty().isEqualToIgnoreCase("Select Section"))));
     }
 
     public void handleHome() throws IOException {

@@ -1,0 +1,11 @@
+.root{
+    -fx-background-color: blue;
+}
+.button{
+    -fx-background-color: orange;
+    -fx-text-fill: white;
+}
+#selectSemester1, #classView, #nameLabel #upcomingAssignments1, #announcments1, #nameLabel, #registration, #subject, #course, #semester, #time, #professor{
+    -fx-background-color: yellow;
+}
+

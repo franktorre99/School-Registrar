@@ -6,6 +6,7 @@ import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -19,6 +20,7 @@ public class AddCourseController {
     @FXML private MenuButton departmentMenu;
     @FXML private TextField courseNumberTextField;
     @FXML private TextField courseNameTextField;
+    @FXML private Button addButton;
     static boolean key;
     private String selectedDepartment;
 
@@ -30,6 +32,7 @@ public class AddCourseController {
                 departmentMenu.setText(selectedDepartment);
             });
         }
+        addButton.disableProperty().bind((departmentMenu.textProperty().isEqualToIgnoreCase("Select Department").or(courseNameTextField.textProperty().isEmpty().or(courseNumberTextField.textProperty().isEmpty()))));
     }
 
     public void handleAdd() throws IOException {

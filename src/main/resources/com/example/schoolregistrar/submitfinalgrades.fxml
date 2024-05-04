@@ -11,19 +11,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.SubmitFinalGradesController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolregistrar.SubmitFinalGradesController" stylesheets="@professor.css">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
       <Button mnemonicParsing="false" onAction="#handleHome" text="Home" />
-      <Label text="Select Section">
+      <Label fx:id="selectSection1" text="Select Section">
          <font>
             <Font name="AppleGothic Regular" size="23.0" />
          </font>
       </Label>
       <MenuButton fx:id="selectSection" mnemonicParsing="false" prefHeight="26.0" prefWidth="154.0" />
-      <Label text="Roster">
+      <Label fx:id="roster" text="Roster">
          <font>
             <Font name="AppleGothic Regular" size="22.0" />
          </font>
@@ -40,7 +40,7 @@
       </TableView>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Select Grade:">
+            <Label fx:id="selectGrade1" text="Select Grade:">
                <font>
                   <Font name="AppleGothic Regular" size="20.0" />
                </font>

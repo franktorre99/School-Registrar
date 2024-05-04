@@ -22,6 +22,13 @@ public class AddAssignmentController {
     @FXML private TextField timeTextField;
     @FXML private RadioButton amRadioButton;
     @FXML private RadioButton pmRadioButton;
+
+    @FXML private Button addButton;
+    private String selectedCategory = "";
+    private String selectedTimeOfDay = "";
+    private static String selectedSection;
+    private static String selectedCourse;
+    private LocalDate date;
     public String selectedCategory = "";
     public String selectedTimeOfDay = "";
     public static String selectedSection;
@@ -30,6 +37,7 @@ public class AddAssignmentController {
     public static String category;
     public static String name = "";
     public static String description = "";
+
 
     public void initialize() {
         homework.setOnAction(event -> {
@@ -49,6 +57,7 @@ public class AddAssignmentController {
         pmRadioButton.setOnAction(event -> selectedTimeOfDay = "PM");
 
         getSections(sectionMenu);
+        addButton.disableProperty().bind(nameTextField.textProperty().isEmpty().or(descriptionTextArea.textProperty().isEmpty().or(dueDatePicker.valueProperty().isNull().or(sectionMenu.textProperty().isEqualToIgnoreCase("Select Section").or(categoryMenu.textProperty().isEqualToIgnoreCase("Category").or(timeTextField.textProperty().isEmpty().or(amRadioButton.selectedProperty().and(pmRadioButton.selectedProperty()))))))));
     }
 
     public void handleHome() throws IOException {
